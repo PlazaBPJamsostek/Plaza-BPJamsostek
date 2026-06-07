@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plaza BPJamsostek - Premium Office Tower in Jakarta. Modern corporate workspace with world-class facilities.">
+    <meta name="keywords" content="Office Space, Jakarta, Corporate Tower, Rental">
+    <meta name="author" content="Plaza BPJamsostek">
+    <title>Plaza BPJamsostek - Premium Office Tower Jakarta</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tawk.to Chat Widget -->
+    <script>
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/67c08d452373546b28cc4df9/1ijiu8hvj';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0a0e27;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1428 100%);
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(10, 14, 39, 0) 0%, rgba(10, 14, 39, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #d4af37 0%, #c9a961 50%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #a0aec0;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Glassmorphism Button */
+        .btn-glass {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            color: #d4af37;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-glass:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            color: #0a0e27;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: rgba(10, 14, 39, 0);
+            backdrop-filter: blur(0px);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-container {
+            max-width: 7xl;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37 0%, #c9a961 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-menu a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-menu a:hover {
+            color: #d4af37;
+        }
+
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #d4af37;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Floor Card Styles */
+        .floor-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .floor-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .floor-icon {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .floor-card:hover .floor-icon {
+            transform: scale(1.2) rotate(5deg);
+            animation: glow 0.6s ease-in-out;
+        }
+
+        .floor-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .floor-description {
+            font-size: 0.9rem;
+            color: #a0aec0;
+        }
+
+        /* Facility Card */
+        .facility-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .facility-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .facility-icon {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .facility-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 7xl;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, #d4af37 0%, #c9a961 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #a0aec0;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            margin: 0 auto 2rem;
+        }
+
+        /* Gallery Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            cursor: pointer;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .gallery-item-bg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1f3a 0%, #2d2e4a 100%);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-size: 3rem;
+        }
+
+        .gallery-item:hover .gallery-item-bg {
+            transform: scale(1.1);
+        }
+
+        .gallery-item-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 14, 39, 0.9), transparent);
+            padding: 1.5rem;
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        /* Pricing Card */
+        .pricing-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-description {
+            color: #a0aec0;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Form */
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #e0e0e0;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.8);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 7xl;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #d4af37;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: #718096;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            border: none;
+            border-radius: 50%;
+            color: #0a0e27;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        .scroll-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 7rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0e27;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            animation: fadeOut 0.5s ease-out 2s forwards;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37 0%, #c9a961 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(212, 175, 55, 0.3);
+            border-top: 4px solid #d4af37;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Counter Animation */
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .counter-label {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .whatsapp-btn {
+                right: 1rem;
+            }
+
+            .scroll-to-top {
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">PLAZA BPJAMSOSTEK</div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">PLAZA BPJamsostek</div>
+            <ul class="navbar-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#directory">Directory</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#rental">Rental</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="0">PLAZA BPJAMSOSTEK</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">Premium Office Tower in Jakarta</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <button class="btn-glass" onclick="scrollToSection('directory')">
+                    <i class="fas fa-building"></i> Explore Building
+                </button>
+                <button class="btn-primary" onclick="scrollToSection('rental')">
+                    <i class="fas fa-phone"></i> Rental Information
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Building Directory Section -->
+    <section id="directory" class="section bg-gradient-to-b from-transparent via-blue-950/10 to-transparent">
+        <h2 class="section-title" data-aos="fade-up">Building Directory</h2>
+        <div class="divider" data-aos="fade-up"></div>
+        <p class="section-subtitle" data-aos="fade-up">Explore our premium floors and facilities</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="floor-icon"><i class="fas fa-users"></i></div>
+                <div class="floor-name">Lantai 19–30</div>
+                <div class="floor-description">Kantor Pusat BPJS Ketenagakerjaan</div>
+            </div>
+
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="floor-icon"><i class="fas fa-briefcase"></i></div>
+                <div class="floor-name">Lantai 18 & 12</div>
+                <div class="floor-description">Office Space Available For Rent</div>
+            </div>
+
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="floor-icon"><i class="fas fa-utensils"></i></div>
+                <div class="floor-name">Lantai 8</div>
+                <div class="floor-description">Foodcourt Area</div>
+            </div>
+
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="floor-icon"><i class="fas fa-champagne-glasses"></i></div>
+                <div class="floor-name">Lantai 6</div>
+                <div class="floor-description">Ballroom & Meeting Room Rental</div>
+            </div>
+
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="floor-icon"><i class="fas fa-mosque"></i></div>
+                <div class="floor-name">Lantai R</div>
+                <div class="floor-description">Mosque & Badminton Court</div>
+            </div>
+
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="floor-icon"><i class="fas fa-door-open"></i></div>
+                <div class="floor-name">Ground Floor</div>
+                <div class="floor-description">Main Lobby & Banking Services</div>
+            </div>
+
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="350">
+                <div class="floor-icon"><i class="fas fa-truck"></i></div>
+                <div class="floor-name">B1</div>
+                <div class="floor-description">Loading Dock & Car Parking</div>
+            </div>
+
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="floor-icon"><i class="fas fa-car"></i></div>
+                <div class="floor-name">B2</div>
+                <div class="floor-description">Canteen & Car Parking</div>
+            </div>
+
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="450">
+                <div class="floor-icon"><i class="fas fa-motorcycle"></i></div>
+                <div class="floor-name">B3</div>
+                <div class="floor-description">Motorcycle Parking Area</div>
+            </div>
+
+            <div class="floor-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="floor-icon"><i class="fas fa-square"></i></div>
+                <div class="floor-name">P3–P5</div>
+                <div class="floor-description">Premium Car Parking Area</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section bg-gradient-to-r from-blue-950/20 via-purple-950/20 to-blue-950/20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div data-aos="fade-up">
+                <div class="counter" id="counter1">0</div>
+                <div class="counter-label">Total Floors</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div class="counter" id="counter2">0</div>
+                <div class="counter-label">Premium Facilities</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <div class="counter" id="counter3">0</div>
+                <div class="counter-label">24/7 Security</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="section">
+        <h2 class="section-title" data-aos="fade-up">World-Class Facilities</h2>
+        <div class="divider" data-aos="fade-up"></div>
+        <p class="section-subtitle" data-aos="fade-up">Experience premium amenities designed for your comfort</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="facility-icon"><i class="fas fa-arrow-up"></i></div>
+                <div class="facility-name">High Speed Elevator</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="facility-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="facility-name">24 Hour Security</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="facility-icon"><i class="fas fa-video"></i></div>
+                <div class="facility-name">CCTV Monitoring</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="facility-icon"><i class="fas fa-champagne-glasses"></i></div>
+                <div class="facility-name">Ballroom</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="facility-icon"><i class="fas fa-utensils"></i></div>
+                <div class="facility-name">Foodcourt</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="facility-icon"><i class="fas fa-mosque"></i></div>
+                <div class="facility-name">Prayer Room</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="facility-icon"><i class="fas fa-car"></i></div>
+                <div class="facility-name">Parking Area</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="350">
+                <div class="facility-icon"><i class="fas fa-bank"></i></div>
+                <div class="facility-name">Banking Services</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="facility-icon"><i class="fas fa-door-open"></i></div>
+                <div class="facility-name">Meeting Rooms</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="450">
+                <div class="facility-icon"><i class="fas fa-badminton"></i></div>
+                <div class="facility-name">Badminton Court</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="facility-icon"><i class="fas fa-wifi"></i></div>
+                <div class="facility-name">High Speed WiFi</div>
+            </div>
+
+            <div class="facility-card" data-aos="fade-up" data-aos-delay="550">
+                <div class="facility-icon"><i class="fas fa-leaf"></i></div>
+                <div class="facility-name">Green Space</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Section -->
+    <section id="rental" class="section bg-gradient-to-b from-transparent via-blue-950/10 to-transparent">
+        <h2 class="section-title" data-aos="fade-up">Office Space Rental</h2>
+        <div class="divider" data-aos="fade-up"></div>
+        <p class="section-subtitle" data-aos="fade-up">Premium office and meeting spaces available for lease</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="pricing-title">Office Space</div>
+                <div class="pricing-description">
+                    Premium office floors available for lease. Modern facilities with flexible lease terms starting from 1 year.
+                </div>
+                <ul class="space-y-2 mb-4 text-sm text-gray-400">
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Prime Location</li>
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Flexible Terms</li>
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>All Utilities Included</li>
+                </ul>
+                <button class="btn-primary w-full mb-2" onclick="contactViaWhatsApp('Saya tertarik dengan Office Space di Plaza BPJamsostek')">Book Now</button>
+            </div>
+
+            <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
+                <div class="pricing-title">Meeting Rooms</div>
+                <div class="pricing-description">
+                    State-of-the-art meeting facilities with AV equipment. Available for hourly or daily rental with professional support.
+                </div>
+                <ul class="space-y-2 mb-4 text-sm text-gray-400">
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>AV Equipment</li>
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Catering Service</li>
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Professional Support</li>
+                </ul>
+                <button class="btn-primary w-full mb-2" onclick="contactViaWhatsApp('Saya ingin memesan Meeting Room di Plaza BPJamsostek')">Book Now</button>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="pricing-title">Ballroom</div>
+                <div class="pricing-description">
+                    Elegant ballroom for corporate events, conferences, and celebrations. Complete event management support available.
+                </div>
+                <ul class="space-y-2 mb-4 text-sm text-gray-400">
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Elegant Design</li>
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Event Management</li>
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Catering Partners</li>
+                </ul>
+                <button class="btn-primary w-full mb-2" onclick="contactViaWhatsApp('Saya tertarik dengan Ballroom Plaza BPJamsostek untuk acara saya')">Book Now</button>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center" data-aos="fade-up">
+            <p class="text-gray-400 mb-4">For detailed information about rental options and pricing:</p>
+            <button class="btn-glass" onclick="contactViaWhatsApp('Halo, saya ingin mendapatkan informasi lebih lanjut tentang Plaza BPJamsostek')">
+                <i class="fas fa-envelope mr-2"></i>Contact Leasing Management
+            </button>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <h2 class="section-title" data-aos="fade-up">Photo Gallery</h2>
+        <div class="divider" data-aos="fade-up"></div>
+        <p class="section-subtitle" data-aos="fade-up">Discover the beauty and excellence of Plaza BPJamsostek</p>
+
+        <div class="gallery-grid mt-8">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="0">
+                <div class="gallery-item-bg"><i class="fas fa-door-open"></i></div>
+                <div class="gallery-item-label">Main Lobby</div>
+            </div>
+
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
+                <div class="gallery-item-bg"><i class="fas fa-champagne-glasses"></i></div>
+                <div class="gallery-item-label">Ballroom</div>
+            </div>
+
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="gallery-item-bg"><i class="fas fa-briefcase"></i></div>
+                <div class="gallery-item-label">Office Space</div>
+            </div>
+
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                <div class="gallery-item-bg"><i class="fas fa-utensils"></i></div>
+                <div class="gallery-item-label">Foodcourt</div>
+            </div>
+
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-item-bg"><i class="fas fa-car"></i></div>
+                <div class="gallery-item-label">Parking Area</div>
+            </div>
+
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                <div class="gallery-item-bg"><i class="fas fa-mosque"></i></div>
+                <div class="gallery-item-label">Prayer Room</div>
+            </div>
+
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="gallery-item-bg"><i class="fas fa-door-open"></i></div>
+                <div class="gallery-item-label">Meeting Rooms</div>
+            </div>
+
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
+                <div class="gallery-item-bg"><i class="fas fa-mountain"></i></div>
+                <div class="gallery-item-label">Aerial View</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-gradient-to-b from-transparent via-blue-950/10 to-transparent">
+        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+        <div class="divider" data-aos="fade-up"></div>
+        <p class="section-subtitle" data-aos="fade-up">We'd love to hear from you. Contact us today!</p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+            <div data-aos="fade-right">
+                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg p-6 mb-6">
+                    <div class="flex items-start mb-4">
+                        <i class="fas fa-map-marker-alt text-yellow-600 mt-1 mr-4"></i>
+                        <div>
+                            <h3 class="text-yellow-600 font-semibold mb-1">Address</h3>
+                            <p class="text-gray-400">Jakarta Timur, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg p-6 mb-6">
+                    <div class="flex items-start mb-4">
+                        <i class="fas fa-whatsapp text-yellow-600 mt-1 mr-4"></i>
+                        <div>
+                            <h3 class="text-yellow-600 font-semibold mb-1">WhatsApp</h3>
+                            <p class="text-gray-400">+62 813-1401-230</p>
+                            <p class="text-gray-400 text-xs mt-2">
+                                24/7 Customer Support
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg p-6">
+                    <div class="flex items-start mb-4">
+                        <i class="fas fa-envelope text-yellow-600 mt-1 mr-4"></i>
+                        <div>
+                            <h3 class="text-yellow-600 font-semibold mb-1">Email</h3>
+                            <p class="text-gray-400">info@plaza-bpjamsostek.com</p>
+                            <p class="text-gray-400 text-xs mt-2">
+                                For inquiries and reservations
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-aos="fade-left">
+                <form class="contact-form backdrop-filter backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg p-6">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary w-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Plaza BPJamsostek</h4>
+                <p class="text-gray-400 text-sm">Premium office tower in Jakarta offering world-class facilities and prime office spaces for modern businesses.</p>
+                <div class="social-icons">
+                    <div class="social-icon"><i class="fab fa-facebook"></i></div>
+                    <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                    <div class="social-icon"><i class="fab fa-linkedin"></i></div>
+                    <div class="social-icon"><i class="fab fa-twitter"></i></div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#directory">Building Directory</a></li>
+                    <li><a href="#facilities">Facilities</a></li>
+                    <li><a href="#rental">Rental</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Office Hours</h4>
+                <p class="text-gray-400 text-sm">Monday - Friday: 08:00 - 17:00 WIB</p>
+                <p class="text-gray-400 text-sm">Saturday: 09:00 - 13:00 WIB</p>
+                <p class="text-gray-400 text-sm">Sunday & Holiday: Closed</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Plaza BPJamsostek. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6281314012302" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to Section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Counter Animation
+        function animateCounter(id, target) {
+            let current = 0;
+            const increment = target / 50;
+            const counter = document.getElementById(id);
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current);
+                }
+            }, 30);
+        }
+
+        // Trigger counter animation when section is visible
+        window.addEventListener('scroll', function() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                if (!counter.animated && counter.getBoundingClientRect().top < window.innerHeight) {
+                    counter.animated = true;
+                    if (counter.id === 'counter1') animateCounter('counter1', 30);
+                    if (counter.id === 'counter2') animateCounter('counter2', 12);
+                    if (counter.id === 'counter3') animateCounter('counter3', 365);
+                }
+            });
+        });
+
+        // WhatsApp Contact Function
+        function contactViaWhatsApp(message) {
+            const phoneNumber = '6281314012302';
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>
