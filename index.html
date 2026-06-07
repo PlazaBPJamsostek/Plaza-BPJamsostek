@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plaza BPJamsostek - Premium Office Tower in Jakarta. Luxury workspace with world-class facilities and stunning design.">
-    <meta name="keywords" content="Office Space, Jakarta, Premium Tower, Corporate Workspace, Luxury Offices">
+    <meta name="description" content="Plaza BPJamsostek - Premium Office Tower in Jakarta. Luxury workspace with world-class facilities, stunning design, and exclusive wedding venues. Owned by PT. Sinergi Investa Property.">
+    <meta name="keywords" content="Office Space, Jakarta, Premium Tower, Corporate Workspace, Luxury Offices, Wedding Venue, PT Sinergi Investa, Kuningan">
     <meta name="author" content="Plaza BPJamsostek">
-    <title>Plaza BPJamsostek - Premium Office Tower Jakarta</title>
+    <title>Plaza BPJamsostek - Premium Office Tower & Wedding Venue Jakarta</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,9 +17,8 @@
     <!-- AOS Animation -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     
-    <!-- Glide.js for Carousel -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.theme.min.css">
+    <!-- Lightbox for Gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
@@ -36,23 +35,6 @@
             background-color: #0a0e27;
             color: #e0e0e0;
             overflow-x: hidden;
-        }
-
-        /* Particle Animation Background */
-        .particle {
-            position: fixed;
-            pointer-events: none;
-        }
-
-        .particle::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #d4af37;
-            border-radius: 50%;
-            opacity: 0.8;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
         }
 
         /* Enhanced Hero Section */
@@ -73,7 +55,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at center, rgba(10, 14, 39, 0) 0%, rgba(10, 14, 39, 0.9) 100%);
+            background: radial-gradient(ellipse at center, rgba(10, 14, 39, 0) 0%, rgba(10, 14, 39, 0.95) 100%);
             z-index: 1;
         }
 
@@ -82,6 +64,7 @@
             z-index: 2;
             text-align: center;
             animation: fadeInUp 1.5s ease-out;
+            max-width: 900px;
         }
 
         .hero-title {
@@ -100,10 +83,31 @@
         .hero-subtitle {
             font-size: 1.5rem;
             color: #a0aec0;
-            margin-bottom: 2.5rem;
+            margin-bottom: 0.5rem;
             font-weight: 300;
             letter-spacing: 2px;
             animation: slideInUp 1s ease-out 0.3s backwards;
+        }
+
+        .hero-owner {
+            font-size: 1rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            animation: slideInUp 1s ease-out 0.4s backwards;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            display: inline-block;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: #a0aec0;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            animation: slideInUp 1s ease-out 0.5s backwards;
         }
 
         .hero-buttons {
@@ -338,6 +342,108 @@
             letter-spacing: 0.5px;
         }
 
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            cursor: pointer;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.9), rgba(45, 46, 74, 0.9));
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-icon {
+            font-size: 3rem;
+            color: #d4af37;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-icon {
+            opacity: 1;
+        }
+
+        .gallery-item-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 14, 39, 0.98), transparent);
+            padding: 2rem 1.5rem 1.5rem;
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item-label {
+            transform: translateY(-10px);
+        }
+
+        /* Video Gallery */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
         /* Floor Cards */
         .floor-card {
             backdrop-filter: blur(15px);
@@ -527,59 +633,6 @@
             color: #a0aec0;
         }
 
-        /* Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1.5rem;
-            cursor: pointer;
-            height: 350px;
-            background: linear-gradient(135deg, rgba(26, 31, 58, 0.9), rgba(45, 46, 74, 0.9));
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            group: hover;
-        }
-
-        .gallery-item-bg {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d4af37;
-            font-size: 4rem;
-            transition: all 0.5s ease;
-        }
-
-        .gallery-item:hover .gallery-item-bg {
-            transform: scale(1.15) rotate(5deg);
-            filter: brightness(1.3);
-        }
-
-        .gallery-item-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(10, 14, 39, 0.98), transparent);
-            padding: 2rem 1.5rem 1.5rem;
-            color: #d4af37;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-item-label {
-            transform: translateY(-10px);
-        }
-
         /* Pricing Cards */
         .pricing-card {
             backdrop-filter: blur(15px);
@@ -616,6 +669,77 @@
             margin-bottom: 1.5rem;
             font-size: 0.98rem;
             line-height: 1.6;
+        }
+
+        /* Instagram Feed Section */
+        .instagram-feed {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .instagram-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.9), rgba(45, 46, 74, 0.9));
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .instagram-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .instagram-card:hover {
+            transform: scale(1.05);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .instagram-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: #d4af37;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .instagram-card:hover .instagram-icon {
+            opacity: 1;
+        }
+
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #E4405F 0%, #FD1D1D 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            margin-top: 2rem;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .instagram-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(228, 64, 95, 0.4);
         }
 
         /* Footer */
@@ -669,8 +793,8 @@
         }
 
         .social-icon {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border: 2px solid rgba(212, 175, 55, 0.3);
             border-radius: 50%;
             display: flex;
@@ -680,12 +804,39 @@
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             cursor: pointer;
             background: rgba(212, 175, 55, 0.05);
+            text-decoration: none;
+            font-size: 1.2rem;
         }
 
         .social-icon:hover {
             background: rgba(212, 175, 55, 0.2);
             transform: translateY(-5px) scale(1.1);
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .social-icon.instagram:hover {
+            background: linear-gradient(135deg, #E4405F 0%, #FD1D1D 100%);
+            border-color: #E4405F;
+            color: white;
+        }
+
+        .footer-owner {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid #d4af37;
+            margin-bottom: 2rem;
+        }
+
+        .footer-owner h5 {
+            color: #d4af37;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-owner p {
+            color: #a0aec0;
+            line-height: 1.6;
         }
 
         .footer-bottom {
@@ -850,6 +1001,18 @@
                 visibility: hidden;
             }
         }
+
+        .badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -866,7 +1029,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#directory">Directory</a></li>
                 <li><a href="#facilities">Facilities</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#videos">Videos</a></li>
                 <li><a href="#rental">Rental</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -878,14 +1042,19 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title" data-aos="fade-up" data-aos-delay="0">PLAZA BPJAMSOSTEK</h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">The Premier Office Tower in Jakarta</p>
-            <p style="color: #a0aec0; font-size: 1.1rem; margin-bottom: 2.5rem; data-aos: fade-up; data-aos-delay: 150;">Experience luxury workspace with world-class facilities</p>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">Premium Office Tower & Wedding Venue</p>
+            <div class="hero-owner" data-aos="fade-up" data-aos-delay="150">
+                <i class="fas fa-building" style="margin-right: 0.5rem;"></i>
+                Owned by PT. Sinergi Investa Property
+            </div>
+            <p class="hero-tagline" data-aos="fade-up" data-aos-delay="200">Located at Jl. H. R. Rasuna Said, Kuningan, Setiabudi, Jakarta Selatan</p>
+            <p style="color: #a0aec0; font-size: 1.1rem; margin-bottom: 2.5rem;" data-aos="fade-up" data-aos-delay="250">Experience luxury workspace with world-class facilities and stunning venues</p>
             <div class="hero-buttons">
-                <button class="btn-glass" onclick="scrollToSection('directory')">
-                    <i class="fas fa-building"></i> Explore Building
+                <button class="btn-glass" onclick="scrollToSection('gallery')">
+                    <i class="fas fa-images"></i> Photo Gallery
                 </button>
-                <button class="btn-primary" onclick="scrollToSection('rental')">
-                    <i class="fas fa-phone"></i> Get Information
+                <button class="btn-primary" onclick="scrollToSection('videos')">
+                    <i class="fas fa-video"></i> Wedding Videos
                 </button>
             </div>
         </div>
@@ -1045,51 +1214,174 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section">
-        <h2 class="section-title" data-aos="fade-up">What Our Clients Say</h2>
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="section">
+        <h2 class="section-title" data-aos="fade-up">🎨 Photo Gallery</h2>
         <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Hear from satisfied businesses thriving at Plaza BPJamsostek</p>
+        <p class="section-subtitle" data-aos="fade-up">Beautiful moments captured at Plaza BPJamsostek</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+        <div class="gallery-grid">
+            <a href="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="0">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=500&fit=crop" alt="Modern Office Building">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search gallery-icon"></i>
                 </div>
-                <p class="testimonial-text">"The facilities are outstanding! Perfect location for our business operations. The 24/7 support is exceptional!"</p>
-                <p class="testimonial-author">Budi Santoso</p>
-                <p class="testimonial-role">CEO, Tech Innovations Inc.</p>
+                <div class="gallery-item-label">Modern Office Building</div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1519671482677-a0a3e1a98d29?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="50">
+                <img src="https://images.unsplash.com/photo-1519671482677-a0a3e1a98d29?w=500&h=500&fit=crop" alt="Premium Ballroom">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search gallery-icon"></i>
+                </div>
+                <div class="gallery-item-label">Premium Ballroom</div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1519671482677-e0ac97078086?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1519671482677-e0ac97078086?w=500&h=500&fit=crop" alt="Wedding Reception">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search gallery-icon"></i>
+                </div>
+                <div class="gallery-item-label">Wedding Reception</div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1493857671505-72967e0e0760?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="150">
+                <img src="https://images.unsplash.com/photo-1493857671505-72967e0e0760?w=500&h=500&fit=crop" alt="Elegant Lobby">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search gallery-icon"></i>
+                </div>
+                <div class="gallery-item-label">Elegant Lobby</div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1519167534503-3efca0abbf12?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1519167534503-3efca0abbf12?w=500&h=500&fit=crop" alt="Meeting Room Setup">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search gallery-icon"></i>
+                </div>
+                <div class="gallery-item-label">Meeting Room</div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1519671482677-e0ac97078086?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="250">
+                <img src="https://images.unsplash.com/photo-1519671482677-e0ac97078086?w=500&h=500&fit=crop" alt="Wedding Ceremony">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search gallery-icon"></i>
+                </div>
+                <div class="gallery-item-label">Wedding Ceremony</div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500&h=500&fit=crop" alt="Executive Suite">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search gallery-icon"></i>
+                </div>
+                <div class="gallery-item-label">Executive Suite</div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1519671482677-a0a3e1a98d29?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="350">
+                <img src="https://images.unsplash.com/photo-1519671482677-a0a3e1a98d29?w=500&h=500&fit=crop" alt="Grand Ballroom">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search gallery-icon"></i>
+                </div>
+                <div class="gallery-item-label">Grand Ballroom</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Wedding Videos Section -->
+    <section id="videos" class="section">
+        <h2 class="section-title" data-aos="fade-up">🎬 Wedding Videos & Events</h2>
+        <div class="divider" data-aos="fade-up"></div>
+        <p class="section-subtitle" data-aos="fade-up">Experience the magic of celebrations at Plaza BPJamsostek</p>
+
+        <div class="video-gallery">
+            <div class="video-container" data-aos="fade-up" data-aos-delay="0">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="testimonial-text">"Professional environment with premium amenities. Our team loves working here. Best office building in Jakarta!"</p>
-                <p class="testimonial-author">Siti Nurhaliza</p>
-                <p class="testimonial-role">Manager, Creative Studios</p>
+            <div class="video-container" data-aos="fade-up" data-aos-delay="100">
+                <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="testimonial-text">"Flexible lease terms, world-class security, and amazing facilities. Highly recommended for any business!"</p>
-                <p class="testimonial-author">Ahmad Wijaya</p>
-                <p class="testimonial-role">Founder, Global Consulting</p>
+            <div class="video-container" data-aos="fade-up" data-aos-delay="200">
+                <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="video-container" data-aos="fade-up" data-aos-delay="300">
+                <iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="video-container" data-aos="fade-up" data-aos-delay="400">
+                <iframe src="https://www.youtube.com/embed/kJQP7kiw9Fk" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="video-container" data-aos="fade-up" data-aos-delay="500">
+                <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+            <p style="color: #a0aec0; margin-bottom: 1.5rem; font-size: 1.1rem;">📸 Follow us on Instagram for more exclusive content</p>
+            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-link">
+                <i class="fab fa-instagram"></i> @plazabpjamsostek
+            </a>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="section" style="background: linear-gradient(135deg, rgba(228, 64, 95, 0.1) 0%, rgba(228, 64, 95, 0.05) 100%); border-radius: 2rem; margin: 4rem auto;">
+        <h2 class="section-title" data-aos="fade-up">Follow Us On Instagram</h2>
+        <div class="divider" data-aos="fade-up"></div>
+        <p class="section-subtitle" data-aos="fade-up">Stay updated with our latest photos and events</p>
+
+        <div style="text-align: center; margin-bottom: 3rem;" data-aos="fade-up">
+            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-link">
+                <i class="fab fa-instagram" style="font-size: 1.3rem;"></i>
+                <span>@plazabpjamsostek</span>
+            </a>
+        </div>
+
+        <div class="instagram-feed">
+            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-card" data-aos="fade-up" data-aos-delay="0">
+                <img src="https://images.unsplash.com/photo-1519671482677-a0a3e1a98d29?w=300&h=300&fit=crop" alt="Instagram Post 1">
+                <div class="instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+
+            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-card" data-aos="fade-up" data-aos-delay="50">
+                <img src="https://images.unsplash.com/photo-1519167534503-3efca0abbf12?w=300&h=300&fit=crop" alt="Instagram Post 2">
+                <div class="instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+
+            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=300&h=300&fit=crop" alt="Instagram Post 3">
+                <div class="instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+
+            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-card" data-aos="fade-up" data-aos-delay="150">
+                <img src="https://images.unsplash.com/photo-1493857671505-72967e0e0760?w=300&h=300&fit=crop" alt="Instagram Post 4">
+                <div class="instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+
+            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=300&h=300&fit=crop" alt="Instagram Post 5">
+                <div class="instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+
+            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-card" data-aos="fade-up" data-aos-delay="250">
+                <img src="https://images.unsplash.com/photo-1519671482677-e0ac97078086?w=300&h=300&fit=crop" alt="Instagram Post 6">
+                <div class="instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -1097,92 +1389,46 @@
     <section id="rental" class="section">
         <h2 class="section-title" data-aos="fade-up">Rental Packages</h2>
         <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Flexible solutions for your business needs</p>
+        <p class="section-subtitle" data-aos="fade-up">Flexible solutions for your business and event needs</p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
+                <span class="badge">Popular</span>
                 <div class="pricing-title">Office Space</div>
                 <div class="pricing-description">Premium office floors with flexible lease terms</div>
                 <ul class="space-y-3 mb-6 text-sm">
                     <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Prime Location</li>
                     <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Flexible Terms</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>All Utilities Included</li>
+                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>All Utilities</li>
                     <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Premium Amenities</li>
                 </ul>
                 <button class="btn-primary w-full" onclick="contactViaWhatsApp('Saya tertarik dengan Office Space di Plaza BPJamsostek')">Request Quote</button>
             </div>
 
             <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
+                <span class="badge">Featured</span>
+                <div class="pricing-title">Wedding Events</div>
+                <div class="pricing-description">Elegant ballroom for your special day</div>
+                <ul class="space-y-3 mb-6 text-sm">
+                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Elegant Design</li>
+                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Event Management</li>
+                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Catering Partners</li>
+                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Full Support</li>
+                </ul>
+                <button class="btn-primary w-full" onclick="contactViaWhatsApp('Saya ingin merencanakan pernikahan di Plaza BPJamsostek')">Plan Your Wedding</button>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                <span class="badge">Business</span>
                 <div class="pricing-title">Meeting Rooms</div>
                 <div class="pricing-description">State-of-the-art facilities with AV equipment</div>
                 <ul class="space-y-3 mb-6 text-sm">
                     <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>AV Equipment</li>
                     <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Catering Service</li>
                     <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Professional Support</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Hourly & Daily Rates</li>
+                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Hourly & Daily</li>
                 </ul>
                 <button class="btn-primary w-full" onclick="contactViaWhatsApp('Saya ingin memesan Meeting Room di Plaza BPJamsostek')">Book Now</button>
-            </div>
-
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-title">Ballroom Events</div>
-                <div class="pricing-description">Elegant venue for corporate events</div>
-                <ul class="space-y-3 mb-6 text-sm">
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Elegant Design</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Event Management</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Catering Partners</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Full Support Team</li>
-                </ul>
-                <button class="btn-primary w-full" onclick="contactViaWhatsApp('Saya tertarik dengan Ballroom Plaza BPJamsostek untuk acara saya')">Plan Event</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="section">
-        <h2 class="section-title" data-aos="fade-up">Gallery</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Explore the beauty and elegance of Plaza BPJamsostek</p>
-
-        <div class="gallery-grid mt-12">
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="0">
-                <div class="gallery-item-bg"><i class="fas fa-door-open"></i></div>
-                <div class="gallery-item-label">Elegant Main Lobby</div>
-            </div>
-
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
-                <div class="gallery-item-bg"><i class="fas fa-champagne-glasses"></i></div>
-                <div class="gallery-item-label">Luxury Ballroom</div>
-            </div>
-
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="gallery-item-bg"><i class="fas fa-briefcase"></i></div>
-                <div class="gallery-item-label">Modern Office Spaces</div>
-            </div>
-
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
-                <div class="gallery-item-bg"><i class="fas fa-utensils"></i></div>
-                <div class="gallery-item-label">Premium Foodcourt</div>
-            </div>
-
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="gallery-item-bg"><i class="fas fa-car"></i></div>
-                <div class="gallery-item-label">Spacious Parking</div>
-            </div>
-
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
-                <div class="gallery-item-bg"><i class="fas fa-mosque"></i></div>
-                <div class="gallery-item-label">Prayer Rooms</div>
-            </div>
-
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="gallery-item-bg"><i class="fas fa-door-open"></i></div>
-                <div class="gallery-item-label">Meeting Rooms</div>
-            </div>
-
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
-                <div class="gallery-item-bg"><i class="fas fa-mountain"></i></div>
-                <div class="gallery-item-label">Stunning City Views</div>
             </div>
         </div>
     </section>
@@ -1200,14 +1446,14 @@
                         <i class="fas fa-map-marker-alt" style="color: #d4af37; margin-top: 0.5rem; margin-right: 1.5rem; font-size: 1.5rem;"></i>
                         <div>
                             <h3 style="color: #d4af37; font-weight: 600; margin-bottom: 0.5rem;">Address</h3>
-                            <p style="color: #a0aec0;">Jl. Benda Raya No.1, Kemang, Jakarta Selatan 12560</p>
+                            <p style="color: #a0aec0; line-height: 1.6;">Jl. H. R. Rasuna Said, RT.5/RW.1, Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12910</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="backdrop-filter backdrop-blur-lg bg-white/5 border-2 border-white/10 rounded-lg p-8 mb-6">
                     <div class="flex items-start mb-4">
-                        <i class="fas fa-whatsapp" style="color: #d4af37; margin-top: 0.5rem; margin-right: 1.5rem; font-size: 1.5rem;"></i>
+                        <i class="fas fa-whatsapp" style="color: #25D366; margin-top: 0.5rem; margin-right: 1.5rem; font-size: 1.5rem;"></i>
                         <div>
                             <h3 style="color: #d4af37; font-weight: 600; margin-bottom: 0.5rem;">WhatsApp</h3>
                             <p style="color: #a0aec0;">+62 813-1401-2302</p>
@@ -1242,15 +1488,30 @@
 
     <!-- Footer -->
     <footer>
+        <!-- Owner Information -->
+        <div class="footer-owner">
+            <h5>🏢 Owned By</h5>
+            <p><strong>PT. Sinergi Investa Property</strong></p>
+            <p>Premium Real Estate Development & Property Management Services</p>
+        </div>
+
         <div class="footer-content">
             <div class="footer-section">
                 <h4>About Plaza BPJamsostek</h4>
-                <p style="color: #a0aec0; font-size: 0.95rem; line-height: 1.6;">Premier office tower in Jakarta offering world-class facilities, premium office spaces, and exceptional service for modern businesses seeking luxury workspace.</p>
+                <p style="color: #a0aec0; font-size: 0.95rem; line-height: 1.6;">Premier office tower in Jakarta offering world-class facilities, premium office spaces, and exceptional service for modern businesses. Perfect for weddings, corporate events, and business needs.</p>
                 <div class="social-icons">
-                    <div class="social-icon"><i class="fab fa-facebook"></i></div>
-                    <div class="social-icon"><i class="fab fa-instagram"></i></div>
-                    <div class="social-icon"><i class="fab fa-linkedin"></i></div>
-                    <div class="social-icon"><i class="fab fa-twitter"></i></div>
+                    <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="social-icon instagram" title="Instagram @plazabpjamsostek">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.google.com/maps/search/Plaza+BPJamsostek+Kuningan" target="_blank" class="social-icon" title="Google Maps">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="mailto:info@plaza-bpjamsostek.com" class="social-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+6281314012302" class="social-icon" title="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
                 </div>
             </div>
 
@@ -1260,8 +1521,8 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#directory">Building Directory</a></li>
                     <li><a href="#facilities">Facilities</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#rental">Rental Info</a></li>
+                    <li><a href="#gallery">Photo Gallery</a></li>
+                    <li><a href="#videos">Videos</a></li>
                 </ul>
             </div>
 
@@ -1276,14 +1537,15 @@
                 <ul>
                     <li><a href="#rental">Office Space Rental</a></li>
                     <li><a href="#rental">Meeting Room Booking</a></li>
-                    <li><a href="#rental">Event Management</a></li>
+                    <li><a href="#rental">Wedding Events</a></li>
                     <li><a href="#contact">Contact Support</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024 Plaza BPJamsostek. All rights reserved. | Privacy Policy | Terms of Service | Designed with ❤️</p>
+            <p>&copy; 2024 Plaza BPJamsostek. All rights reserved. | Owned by PT. Sinergi Investa Property | <a href="#" style="color: #d4af37; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #d4af37; text-decoration: none;">Terms of Service</a></p>
+            <p style="margin-top: 1rem; color: #a0aec0;">📍 Jl. H. R. Rasuna Said, Kuningan, Jakarta Selatan | Follow us on Instagram: <a href="https://instagram.com/plazabpjamsostek" target="_blank" style="color: #d4af37; text-decoration: none;">@plazabpjamsostek</a></p>
         </div>
     </footer>
 
@@ -1298,6 +1560,7 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
     <script>
         // Initialize AOS
@@ -1383,6 +1646,13 @@
             e.preventDefault();
             alert('Thank you for your message! We will contact you soon.');
             this.reset();
+        });
+
+        // Lightbox configuration
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': "Image %1 of %2"
         });
     </script>
 </body>
