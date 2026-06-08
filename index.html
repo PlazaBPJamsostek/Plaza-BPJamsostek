@@ -3,1646 +3,1083 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plaza BPJamsostek - Premium Office Tower in Jakarta. Luxury workspace with world-class facilities, stunning design, and exclusive wedding venues. Owned by PT. Sinergi Investasi Property.">
-    <meta name="keywords" content="Office Space, Jakarta, Premium Tower, Corporate Workspace, Luxury Offices, Wedding Venue, PT Sinergi Investasi Properti, Kuningan">
-    <meta name="author" content="Plaza BPJamsostek">
-    <title>Plaza BPJamsostek - Premium Office Tower & Wedding Venue Jakarta</title>
+    <title>Plaza BPJamsostek | Elite Corporate Landmark</title>
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Experience Plaza BPJamsostek - An elite corporate destination merging world-class architecture and premium luxury enterprise ecosystems in Jakarta.">
     
-    <!-- Font Awesome -->
+    <!-- Typography & Icon Systems -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    
-    <!-- Lightbox for Gallery -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
+        /* ==========================================================================
+           1. MODERN GLOBAL RESET & VARIABLES
+           ========================================================================== */
+        :root {
+            --primary-neon: #00e676;       
+            --corporate-blue: #0284c7;     
+            --dark-canvas: #030712;        
+            --panel-bg: #0f172a;           
+            --glass-card: rgba(15, 23, 42, 0.45);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-glow: rgba(255, 255, 255, 0.06);
+            --insta-pink: #f43f5e;
+            --speed-ease: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
         * {
-            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #0a0e27;
-            color: #e0e0e0;
+            background-color: var(--dark-canvas);
+            color: var(--text-main);
             overflow-x: hidden;
+            line-height: 1.7;
         }
 
-        /* Enhanced Hero Section */
-        .hero-section {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1428 100%);
-            overflow: hidden;
-            padding: 2rem;
+        .container {
+            width: 92%;
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(10, 14, 39, 0) 0%, rgba(10, 14, 39, 0.95) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            animation: fadeInUp 1.5s ease-out;
-            max-width: 900px;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 3px;
-            animation: glowText 3s ease-in-out infinite;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #a0aec0;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            animation: slideInUp 1s ease-out 0.3s backwards;
-        }
-
-        .hero-owner {
-            font-size: 1rem;
-            color: #d4af37;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            animation: slideInUp 1s ease-out 0.4s backwards;
-            background: rgba(212, 175, 55, 0.1);
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            display: inline-block;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .hero-tagline {
-            font-size: 1.2rem;
-            color: #a0aec0;
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-            animation: slideInUp 1s ease-out 0.5s backwards;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: slideInUp 1s ease-out 0.6s backwards;
-        }
-
-        /* Enhanced Buttons */
-        .btn-glass {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            padding: 1rem 2.5rem;
-            border-radius: 0.75rem;
-            color: #d4af37;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        .btn-glass:hover {
-            background: rgba(212, 175, 55, 0.15);
-            border-color: #d4af37;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), inset 0 0 20px rgba(212, 175, 55, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%);
-            color: #0a0e27;
-            border: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
-            z-index: -1;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
-        }
-
-        /* Navbar */
+        /* ==========================================================================
+           2. PREMIUM SCROLLING GLASS NAVIGATION
+           ========================================================================== */
         .navbar {
             position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.4s ease;
-            background: rgba(10, 14, 39, 0);
-        }
-
-        .navbar.scrolled {
-            background: rgba(10, 14, 39, 0.98);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            padding: 0.8rem 0;
-        }
-
-        .navbar-container {
-            max-width: 7xl;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            max-width: 1280px;
+            padding: 22px 50px;
+            background: rgba(3, 7, 18, 0.35);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border-glow);
+            border-radius: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 1000;
+            transition: var(--speed-ease);
         }
 
-        .navbar-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-logo:hover {
-            transform: scale(1.05);
-        }
-
-        .navbar-menu {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar-menu a {
-            color: #a0aec0;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .navbar-menu a:hover {
-            color: #d4af37;
-        }
-
-        .navbar-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #d4af37, transparent);
-            transition: width 0.4s ease;
-        }
-
-        .navbar-menu a:hover::after {
+        .navbar.scrolled {
+            background: rgba(3, 7, 18, 0.92);
+            padding: 16px 50px;
+            top: 0;
             width: 100%;
+            max-width: 100%;
+            border-radius: 0;
+            border-bottom: 1px solid var(--border-glow);
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes glowText {
-            0%, 100% {
-                text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-            }
-            50% {
-                text-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        @keyframes pulse-ring {
-            0% {
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
-            }
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 6rem 2rem;
-            max-width: 7xl;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+        .navbar .brand-logo {
             font-weight: 800;
-            margin-bottom: 1rem;
-            text-align: center;
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffffff, #9ca3af);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--speed-ease);
             position: relative;
-        }
-
-        .divider {
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
-            margin: 0 auto 2rem;
-            border-radius: 2px;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #a0aec0;
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            font-weight: 300;
             letter-spacing: 0.5px;
         }
 
-        /* Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1.5rem;
-            cursor: pointer;
-            height: 350px;
-            background: linear-gradient(135deg, rgba(26, 31, 58, 0.9), rgba(45, 46, 74, 0.9));
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            overflow: hidden;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-            filter: brightness(1.2);
-        }
-
-        .gallery-overlay {
+        .nav-links a::after {
+            content: '';
             position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .gallery-icon {
-            font-size: 3rem;
-            color: #d4af37;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-icon {
-            opacity: 1;
-        }
-
-        .gallery-item-label {
-            position: absolute;
-            bottom: 0;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
             left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(10, 14, 39, 0.98), transparent);
-            padding: 2rem 1.5rem 1.5rem;
-            color: #d4af37;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            background: linear-gradient(90deg, var(--corporate-blue), var(--primary-neon));
+            transition: var(--speed-ease);
         }
 
-        .gallery-item:hover .gallery-item-label {
-            transform: translateY(-10px);
-        }
-
-        /* Video Gallery */
-        .video-container {
-            position: relative;
+        .nav-links a:hover::after {
             width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 1.5rem;
-            border: 2px solid rgba(212, 175, 55, 0.2);
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .nav-links a:hover {
+            color: var(--primary-neon);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
             border: none;
-        }
-
-        .video-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        /* Floor Cards */
-        .floor-card {
-            backdrop-filter: blur(15px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: var(--text-main);
+            font-size: 1.6rem;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            min-height: 280px;
+            z-index: 1002;
+        }
+
+        /* Mobile Drawer */
+        .nav-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: rgba(3, 7, 18, 0.98);
+            backdrop-filter: blur(30px);
+            border-left: 1px solid var(--border-glow);
+            padding: 140px 50px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            z-index: 999;
+            transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-drawer.active {
+            right: 0;
+        }
+
+        .nav-drawer a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: var(--speed-ease);
+        }
+
+        .nav-drawer a:hover {
+            color: var(--primary-neon);
+            padding-left: 10px;
+        }
+
+        /* ==========================================================================
+           3. CINEMATIC HERO SCREEN
+           ========================================================================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
             align-items: center;
+            justify-content: center;
             text-align: center;
         }
 
-        .floor-card::before {
-            content: '';
+        .video-canvas {
             position: absolute;
-            top: 0;
-            left: -100%;
+            inset: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .hero-video {
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
-            transition: left 0.6s ease;
+            object-fit: cover;
         }
 
-        .floor-card:hover::before {
-            left: 100%;
+        .hero-tint {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(3, 7, 18, 0.2), var(--dark-canvas));
         }
 
-        .floor-card:hover {
-            background: rgba(212, 175, 55, 0.15);
-            border-color: #d4af37;
-            transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+        .hero-content {
+            max-width: 960px;
+            padding: 0 24px;
+            z-index: 5;
         }
 
-        .floor-icon {
-            font-size: 3.5rem;
-            color: #d4af37;
-            margin-bottom: 1.5rem;
-            transition: all 0.4s ease;
-            animation: float 3s ease-in-out infinite;
+        .hero-content h1 {
+            font-size: 4.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #ffffff 70%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .floor-card:hover .floor-icon {
-            transform: scale(1.3) rotate(10deg);
-            animation: pulse-ring 1s ease-out;
-        }
-
-        .floor-name {
+        .hero-content p {
             font-size: 1.4rem;
-            font-weight: 700;
-            color: #d4af37;
-            margin-bottom: 0.8rem;
-        }
-
-        .floor-description {
-            font-size: 0.95rem;
-            color: #a0aec0;
+            margin-bottom: 50px;
+            color: #cbd5e1;
             font-weight: 400;
         }
 
-        /* Facility Cards */
-        .facility-card {
-            backdrop-filter: blur(15px);
-            background: rgba(255, 255, 255, 0.04);
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            padding: 2rem;
-            border-radius: 1.5rem;
-            text-align: center;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .facility-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .facility-card:hover::after {
-            opacity: 1;
-        }
-
-        .facility-card:hover {
-            background: rgba(212, 175, 55, 0.12);
-            border-color: #d4af37;
-            transform: translateY(-12px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
-        }
-
-        .facility-icon {
-            font-size: 3rem;
-            color: #d4af37;
-            margin-bottom: 1.5rem;
-            transition: transform 0.4s ease;
-        }
-
-        .facility-card:hover .facility-icon {
-            transform: scale(1.2) rotate(-10deg);
-        }
-
-        .facility-name {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #e0e0e0;
-        }
-
-        /* Counter */
-        .counter-box {
-            text-align: center;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            background: rgba(212, 175, 55, 0.05);
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            border-radius: 1rem;
-            transition: all 0.4s ease;
-        }
-
-        .counter-box:hover {
-            border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .counter {
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #d4af37, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .counter-label {
-            color: #a0aec0;
-            font-size: 1rem;
-        }
-
-        /* Testimonials */
-        .testimonial-card {
-            backdrop-filter: blur(15px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            transition: all 0.5s ease;
-            position: relative;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            border-color: #d4af37;
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
-        }
-
-        .stars {
-            color: #ffd700;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: #cbd5e0;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: #d4af37;
-        }
-
-        .testimonial-role {
-            font-size: 0.9rem;
-            color: #a0aec0;
-        }
-
-        /* Pricing Cards */
-        .pricing-card {
-            backdrop-filter: blur(15px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card.featured {
-            border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.12);
-            transform: scale(1.08);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
-        }
-
-        .pricing-title {
-            font-size: 1.6rem;
+        .btn-luxury {
+            padding: 20px 48px;
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            color: white;
+            text-decoration: none;
             font-weight: 700;
-            color: #d4af37;
-            margin-bottom: 1rem;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 35px rgba(2, 132, 199, 0.3);
+            transition: var(--speed-ease);
+            display: inline-block;
+            letter-spacing: 0.5px;
         }
 
-        .pricing-description {
-            color: #a0aec0;
-            margin-bottom: 1.5rem;
-            font-size: 0.98rem;
-            line-height: 1.6;
+        .btn-luxury:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px rgba(2, 132, 199, 0.5);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
-        /* Instagram Feed Section */
-        .instagram-feed {
+        /* ==========================================================================
+           4. METRIC STRUCTURE GRID
+           ========================================================================== */
+        .section-padding {
+            padding: 140px 0;
+        }
+
+        .section-title-wrap {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title-wrap h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .directory-layout-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
         }
 
-        .instagram-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, rgba(26, 31, 58, 0.9), rgba(45, 46, 74, 0.9));
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.5s ease;
+        .directory-panel {
+            background: var(--glass-card);
+            border: 1px solid var(--border-glow);
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
+            padding: 40px;
+            transition: var(--speed-ease);
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .instagram-card img {
+        .directory-panel:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(2, 132, 199, 0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            background: #0f172a;
+        }
+
+        .panel-icon i {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .panel-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .panel-info p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .badge-system {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 8px 22px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.75px;
+        }
+
+        .badge-system.available { background: rgba(0, 230, 118, 0.1); color: var(--primary-neon); border: 1px solid rgba(0, 230, 118, 0.2); }
+        .badge-system.limited { background: rgba(244, 63, 94, 0.1); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.2); }
+        .badge-system.neutral { background: rgba(255, 255, 255, 0.04); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.08); }
+
+        /* ==========================================================================
+           5. INTERACTIVE SPACE ALLOCATOR WIDGET
+           ========================================================================== */
+        .planner-container {
+            background: #090d16;
+            border: 1px solid var(--border-glow);
+            border-radius: 32px;
+            padding: 50px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @media(max-width: 992px) {
+            .planner-container { grid-template-columns: 1fr; gap: 40px; padding: 30px; }
+        }
+
+        .input-group-box {
+            margin-bottom: 35px;
+        }
+
+        .input-group-box label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+            letter-spacing: 0.5px;
+        }
+
+        .range-slider-style {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #1e293b;
+            height: 8px;
+            border-radius: 100px;
+            outline: none;
+        }
+
+        .range-slider-style::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary-neon);
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--primary-neon);
+            transition: 0.2s;
+        }
+
+        .select-input-style {
+            width: 100%;
+            padding: 16px;
+            background: #1e293b;
+            border: 1px solid var(--border-glow);
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .metric-output-card {
+            background: #0f172a;
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+        }
+
+        .metric-row:last-child { border: none; padding: 0; }
+        .metric-lbl { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+        .metric-val { font-size: 1.6rem; font-weight: 800; color: white; }
+        .metric-val.green { color: var(--primary-neon); text-shadow: 0 0 15px rgba(0,230,118,0.2); }
+
+        /* Dynamic Visualizer Chart Grid Representation */
+        .visualizer-matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 6px;
+            margin-top: 20px;
+            background: rgba(3,7,18,0.5);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .matrix-dot {
+            height: 12px;
+            background: #1e293b;
+            border-radius: 3px;
+            transition: background 0.3s ease;
+        }
+
+        .matrix-dot.active {
+            background: var(--corporate-blue);
+            box-shadow: 0 0 8px var(--corporate-blue);
+        }
+
+        /* ==========================================================================
+           6. ULTRA LUXURY MULTIMEDIA MESH
+           ========================================================================== */
+        .gallery-bg {
+            background: linear-gradient(var(--dark-canvas), #080d16);
+        }
+
+        .interactive-gallery-mesh {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .gallery-frame {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            height: 320px;
+            cursor: pointer;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .gallery-frame img, .gallery-frame video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.5s ease;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .instagram-card:hover {
-            transform: scale(1.05);
-            border-color: #d4af37;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        .gallery-frame:hover img, .gallery-frame:hover video {
+            transform: scale(1.08);
         }
 
-        .instagram-icon {
+        .frame-glass-overlay {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-            color: #d4af37;
+            inset: 0;
+            background: linear-gradient(rgba(3, 7, 18, 0), rgba(3, 7, 18, 0.95));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 35px;
             opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 10;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .instagram-card:hover .instagram-icon {
+        .gallery-frame:hover .frame-glass-overlay {
             opacity: 1;
         }
 
-        .instagram-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #E4405F 0%, #FD1D1D 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.4s ease;
-            margin-top: 2rem;
-            justify-content: center;
-            font-size: 1.1rem;
+        .frame-glass-overlay i {
+            font-size: 2.6rem;
+            color: var(--primary-neon);
+            margin-bottom: 15px;
+            transform: translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .instagram-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(228, 64, 95, 0.4);
+        .gallery-frame:hover .frame-glass-overlay i {
+            transform: translateY(0);
         }
 
-        /* Footer */
-        footer {
-            background: rgba(10, 14, 39, 0.95);
-            border-top: 2px solid rgba(212, 175, 55, 0.2);
-            padding: 4rem 2rem 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .footer-content {
-            max-width: 7xl;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            color: #d4af37;
+        .frame-glass-overlay span {
             font-weight: 700;
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.7rem;
-        }
-
-        .footer-section ul li a {
-            color: #a0aec0;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #d4af37;
-            padding-left: 5px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d4af37;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            background: rgba(212, 175, 55, 0.05);
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-
-        .social-icon:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-        }
-
-        .social-icon.instagram:hover {
-            background: linear-gradient(135deg, #E4405F 0%, #FD1D1D 100%);
-            border-color: #E4405F;
+            font-size: 1.3rem;
             color: white;
+            letter-spacing: 0.5px;
         }
 
-        .footer-owner {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
-            padding: 2rem;
-            border-radius: 1rem;
-            border-left: 4px solid #d4af37;
-            margin-bottom: 2rem;
+        .type-pill {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.08);
+            z-index: 10;
         }
 
-        .footer-owner h5 {
-            color: #d4af37;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+        /* ==========================================================================
+           7. SOCIAL INSTAGRAM LAYOUT ENGINE
+           ========================================================================== */
+        .instagram-social-mesh {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
 
-        .footer-owner p {
-            color: #a0aec0;
-            line-height: 1.6;
+        .insta-embed-card {
+            background: var(--glass-card);
+            border-radius: 32px;
+            padding: 18px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            transition: var(--speed-ease);
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            color: #718096;
-            font-size: 0.95rem;
+        .insta-embed-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(244, 63, 94, 0.3);
+            background: #0f172a;
         }
 
-        /* Scroll to Top Button */
-        .scroll-to-top {
+        /* ==========================================================================
+           8. LIGHTBOX FRAME SYSTEM
+           ========================================================================== */
+        .premium-lightbox {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
-            border: none;
-            border-radius: 50%;
-            color: #0a0e27;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-
-        .scroll-to-top.show {
-            display: flex;
-        }
-
-        .scroll-to-top:hover {
-            transform: scale(1.15) translateY(-5px);
-            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 8rem;
-            width: 65px;
-            height: 65px;
-            background: #25D366;
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            animation: float 3.5s ease-in-out infinite;
-            text-decoration: none;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.2) translateY(-8px);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
-        }
-
-        /* Contact Form */
-        .contact-form input,
-        .contact-form textarea {
-            background: rgba(255, 255, 255, 0.06);
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            color: #e0e0e0;
-            padding: 1rem;
-            border-radius: 0.8rem;
-            margin-bottom: 1rem;
-            width: 100%;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.4s ease;
-            font-size: 1rem;
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: #718096;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #d4af37;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .navbar-menu {
-                display: none;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .whatsapp-btn {
-                right: 1rem;
-            }
-
-            .scroll-to-top {
-                right: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn-glass, .btn-primary {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            inset: 0;
+            background: rgba(3, 7, 18, 0.98);
             z-index: 2000;
-            animation: fadeOut 0.5s ease-out 2s forwards;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
         }
 
-        .loading-spinner {
-            border: 4px solid rgba(212, 175, 55, 0.2);
-            border-top: 4px solid #d4af37;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1s linear infinite;
+        .premium-lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .lightbox-exit {
+            position: absolute;
+            top: 35px;
+            right: 45px;
+            font-size: 3.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.3s;
         }
 
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
+        .lightbox-exit:hover { color: white; }
+        .lightbox-stage { max-width: 85vw; max-height: 82vh; }
+        .lightbox-media { max-width: 100%; max-height: 82vh; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+
+        /* ==========================================================================
+           9. INDUSTRIAL EXECUTIVE FOOTER
+           ========================================================================== */
+        .executive-footer {
+            background: #01040a;
+            border-top: 1px solid var(--border-glow);
+            padding: 120px 0 50px;
+            color: var(--text-muted);
         }
 
-        .badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.2);
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
+        .footer-grid-layout {
+            display: grid;
+            grid-template-columns: 2fr repeat(auto-fit, minmax(260px, 1fr));
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .footer-intro h3 { color: white; font-size: 1.6rem; font-weight: 800; margin-bottom: 25px; letter-spacing: 1px; }
+        .footer-intro p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px; }
+        
+        .asset-prop-tag {
+            font-size: 0.8rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 1.5px;
+            background: rgba(255,255,255,0.04); padding: 10px 22px; border-radius: 8px; display: inline-block;
+            border-left: 4px solid var(--corporate-blue);
+        }
+
+        .footer-column-node h4 { color: white; font-size: 1.2rem; font-weight: 700; margin-bottom: 30px; }
+        .footer-address-node { list-style: none; }
+        .footer-address-node li { display: flex; gap: 18px; margin-bottom: 25px; font-size: 1rem; line-height: 1.7; }
+        .footer-address-node i { color: #38bdf8; font-size: 1.3rem; margin-top: 5px; }
+        .footer-address-node a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+        .footer-address-node a:hover { color: white; }
+
+        .social-circle-wrap { display: flex; gap: 18px; margin-top: 25px; }
+        .social-circle-icon {
+            width: 48px; height: 48px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glow);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;
+            text-decoration: none; transition: var(--speed-ease);
+        }
+        .social-circle-icon:hover { background: var(--insta-pink); border-color: transparent; transform: translateY(-5px); }
+
+        .footer-terminal { text-align: center; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.03); font-size: 0.9rem; }
+
+        @media(max-width: 992px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .footer-grid-layout { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media(max-width: 768px) {
+            .hero-content h1 { font-size: 2.6rem; }
+            .navbar { padding: 18px 35px; }
+            .navbar.scrolled { padding: 18px 35px; }
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .footer-grid-layout { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-        <div class="loading-spinner"></div>
-    </div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">🏢 PLAZA BPJamsostek</div>
-            <ul class="navbar-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#directory">Directory</a></li>
-                <li><a href="#facilities">Facilities</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#videos">Videos</a></li>
-                <li><a href="#rental">Rental</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+    <!-- Floating Global Navigation -->
+    <nav class="navbar" id="masterNav">
+        <div class="brand-logo">PLAZA BPJAMSOSTEK</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#directory">Directory</a></li>
+            <li><a href="#planner">Lease Planner</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#instagram">Social Feed</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" id="drawerTrigger" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="0">PLAZA BPJAMSOSTEK</h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">Premium Office Tower & Wedding Venue</p>
-            <div class="hero-owner" data-aos="fade-up" data-aos-delay="150">
-                <i class="fas fa-building" style="margin-right: 0.5rem;"></i>
-                Owned by PT. Sinergi Investasi Properti
-            </div>
-            <p class="hero-tagline" data-aos="fade-up" data-aos-delay="200">Located at Jl. H. R. Rasuna Said, Kuningan, Setiabudi, Jakarta Selatan</p>
-            <p style="color: #a0aec0; font-size: 1.1rem; margin-bottom: 2.5rem;" data-aos="fade-up" data-aos-delay="250">Experience luxury workspace with world-class facilities and stunning venues</p>
-            <div class="hero-buttons">
-                <button class="btn-glass" onclick="scrollToSection('gallery')">
-                    <i class="fas fa-images"></i> Photo Gallery
-                </button>
-                <button class="btn-primary" onclick="scrollToSection('videos')">
-                    <i class="fas fa-video"></i> Wedding Videos
-                </button>
-            </div>
+    <!-- Mobile Navigation Drawer -->
+    <ul class="nav-drawer" id="mobileDrawer">
+        <li><a href="#home" class="drawer-node">Home</a></li>
+        <li><a href="#directory" class="drawer-node">Directory</a></li>
+        <li><a href="#planner" class="drawer-node">Lease Planner</a></li>
+        <li><a href="#gallery" class="drawer-node">Gallery</a></li>
+        <li><a href="#instagram" class="drawer-node">Social Feed</a></li>
+        <li><a href="#contact" class="drawer-node">Contact</a></li>
+    </ul>
+
+    <!-- Cinematic Hero Section -->
+    <header id="home" class="hero">
+        <div class="video-canvas">
+            <video autoplay loop muted playsinline class="hero-video">
+                <source src="videos/hero-background.mp4" type="video/mp4">
+            </video>
+            <div class="hero-tint"></div>
         </div>
-    </section>
-
-    <!-- Building Directory Section -->
-    <section id="directory" class="section">
-        <h2 class="section-title" data-aos="fade-up">Building Directory</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Explore our premium floors and exclusive facilities</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="floor-icon"><i class="fas fa-users"></i></div>
-                <div class="floor-name">Lantai 19–30</div>
-                <div class="floor-description">Kantor Pusat BPJS Ketenagakerjaan</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="floor-icon"><i class="fas fa-briefcase"></i></div>
-                <div class="floor-name">Lantai 18 & 12</div>
-                <div class="floor-description">Premium Office Space For Rent</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="floor-icon"><i class="fas fa-utensils"></i></div>
-                <div class="floor-name">Lantai 8</div>
-                <div class="floor-description">World-Class Foodcourt</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="floor-icon"><i class="fas fa-champagne-glasses"></i></div>
-                <div class="floor-name">Lantai 6</div>
-                <div class="floor-description">Luxury Ballroom & Meeting Rooms</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="floor-icon"><i class="fas fa-mosque"></i></div>
-                <div class="floor-name">Lantai R</div>
-                <div class="floor-description">Mosque & Badminton Court</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="floor-icon"><i class="fas fa-crown"></i></div>
-                <div class="floor-name">Ground Floor</div>
-                <div class="floor-description">Elegant Lobby & Premium Services</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="600">
-                <div class="floor-icon"><i class="fas fa-truck"></i></div>
-                <div class="floor-name">B1 Level</div>
-                <div class="floor-description">Loading Dock & Premium Parking</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="700">
-                <div class="floor-icon"><i class="fas fa-car"></i></div>
-                <div class="floor-name">B2 Level</div>
-                <div class="floor-description">Canteen & Spacious Parking</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="800">
-                <div class="floor-icon"><i class="fas fa-motorcycle"></i></div>
-                <div class="floor-name">B3 Level</div>
-                <div class="floor-description">Motorcycle Parking Area</div>
-            </div>
+        
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+            <h1>The Apex of Corporate Infrastructure</h1>
+            <p>Elevate your corporate operations within Jakarta's prime commercial landmark engineered for multi-tier enterprises and elite performance ecosystems.</p>
+            <a href="#directory" class="btn-luxury"><i class="fa-solid fa-compass" style="margin-right: 12px;"></i> Explore Structural Blueprints</a>
         </div>
-    </section>
+    </header>
 
-    <!-- Statistics Section -->
-    <section class="section" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%); border-radius: 2rem; margin: 4rem auto;">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="counter-box" data-aos="fade-up">
-                <div class="counter" id="counter1">30</div>
-                <div class="counter-label">Premium Floors</div>
-            </div>
-            <div class="counter-box" data-aos="fade-up" data-aos-delay="100">
-                <div class="counter" id="counter2">12</div>
-                <div class="counter-label">World-Class Facilities</div>
-            </div>
-            <div class="counter-box" data-aos="fade-up" data-aos-delay="200">
-                <div class="counter" id="counter3">500+</div>
-                <div class="counter-label">Happy Tenants</div>
-            </div>
-            <div class="counter-box" data-aos="fade-up" data-aos-delay="300">
-                <div class="counter" id="counter4">24/7</div>
-                <div class="counter-label">Security & Support</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Facilities Section -->
-    <section id="facilities" class="section">
-        <h2 class="section-title" data-aos="fade-up">World-Class Facilities</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Experience premium amenities designed for modern business</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="facility-icon"><i class="fas fa-arrow-up"></i></div>
-                <div class="facility-name">High Speed Elevators</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="50">
-                <div class="facility-icon"><i class="fas fa-shield-alt"></i></div>
-                <div class="facility-name">24/7 Security</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="facility-icon"><i class="fas fa-video"></i></div>
-                <div class="facility-name">CCTV Monitoring</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="facility-icon"><i class="fas fa-champagne-glasses"></i></div>
-                <div class="facility-name">Luxury Ballroom</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="facility-icon"><i class="fas fa-utensils"></i></div>
-                <div class="facility-name">Premium Foodcourt</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="facility-icon"><i class="fas fa-mosque"></i></div>
-                <div class="facility-name">Prayer Rooms</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="facility-icon"><i class="fas fa-car"></i></div>
-                <div class="facility-name">Parking Complex</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="350">
-                <div class="facility-icon"><i class="fas fa-bank"></i></div>
-                <div class="facility-name">Banking Services</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="facility-icon"><i class="fas fa-door-open"></i></div>
-                <div class="facility-name">Meeting Rooms</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="450">
-                <div class="facility-icon"><i class="fas fa-badminton"></i></div>
-                <div class="facility-name">Badminton Court</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="facility-icon"><i class="fas fa-wifi"></i></div>
-                <div class="facility-name">High Speed WiFi</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="550">
-                <div class="facility-icon"><i class="fas fa-leaf"></i></div>
-                <div class="facility-name">Green Spaces</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photo Gallery Section -->
-    <section id="gallery" class="section">
-        <h2 class="section-title" data-aos="fade-up">🎨 Photo Gallery</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Beautiful moments captured at Plaza BPJamsostek</p>
-
-        <div class="gallery-grid">
-            <a href="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="0">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=500&fit=crop" alt="Modern Office Building">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search gallery-icon"></i>
+    <main>
+        <!-- Structural Matrix Directory Section -->
+        <section id="directory" class="section-padding">
+            <div class="container">
+                <div class="section-title-wrap" data-aos="fade-up">
+                    <h2>Spatial Structure Matrix</h2>
+                    <p class="section-desc">Real-time status analysis of lease allocations, structural mechanics, and public infrastructure assets.</p>
                 </div>
-                <div class="gallery-item-label">Modern Office Building</div>
-            </a>
+                
+                <div class="directory-layout-grid">
+                    <div class="directory-panel" data-aos="fade-up" data-aos-delay="100">
+                        <div class="panel-icon">
+                            <i class="fa-solid fa-building-shield"></i>
+                            <div class="panel-info">
+                                <h3>Premium Office Leases</h3>
+                                <p>Elite high-volume floor plans configured to accelerate tier-1 global enterprise operations seamlessly.</p>
+                            </div>
+                        </div>
+                        <div><span class="badge-system available">Floors 18 & 12 Ready</span></div>
+                    </div>
 
-            <a href="https://images.unsplash.com/photo-1519671482677-a0a3e1a98d29?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="50">
-                <img src="https://images.unsplash.com/photo-1519671482677-a0a3e1a98d29?w=500&h=500&fit=crop" alt="Premium Ballroom">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search gallery-icon"></i>
+                    <div class="directory-panel" data-aos="fade-up" data-aos-delay="200">
+                        <div class="panel-icon">
+                            <i class="fa-solid fa-plate-wheat"></i>
+                            <div class="panel-info">
+                                <h3>Gourmet Culinary Zone</h3>
+                                <p>Positioned systematically on Floor 8. Built to support massive multi-tier worker populations daily.</p>
+                            </div>
+                        </div>
+                        <div><span class="badge-system limited">4 Outlets Remaining (8F)</span></div>
+                    </div>
+
+                    <div class="directory-panel" data-aos="fade-up" data-aos-delay="300">
+                        <div class="panel-icon">
+                            <i class="fa-solid fa-door-open"></i>
+                            <div class="panel-info">
+                                <h3>Grand Lobby & Tech Ops</h3>
+                                <p>Grand high-ceiling entrance on Ground Floor (GF). Multi-system Technical Representatives are at B2.</p>
+                            </div>
+                        </div>
+                        <div><span class="badge-system neutral">Lobby: GF | Tech: B2</span></div>
+                    </div>
+
+                    <div class="directory-panel" data-aos="fade-up" data-aos-delay="400">
+                        <div class="panel-icon">
+                            <i class="fa-solid fa-car-tunnel"></i>
+                            <div class="panel-info">
+                                <h3>Refugee Mosque & Parking Grid</h3>
+                                <p>Sanctuary system placed on the safety refugee level. Dedicated high-capacity multi-level vehicle decks.</p>
+                            </div>
+                        </div>
+                        <div><span class="badge-system neutral">Motors: B3 | Cars: P3 - P5</span></div>
+                    </div>
                 </div>
-                <div class="gallery-item-label">Premium Ballroom</div>
-            </a>
-
-            <a href="https://images.unsplash.com/photo-1519671482677-e0ac97078086?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1519671482677-e0ac97078086?w=500&h=500&fit=crop" alt="Wedding Reception">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search gallery-icon"></i>
-                </div>
-                <div class="gallery-item-label">Wedding Reception</div>
-            </a>
-
-            <a href="https://images.unsplash.com/photo-1493857671505-72967e0e0760?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="150">
-                <img src="https://images.unsplash.com/photo-1493857671505-72967e0e0760?w=500&h=500&fit=crop" alt="Elegant Lobby">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search gallery-icon"></i>
-                </div>
-                <div class="gallery-item-label">Elegant Lobby</div>
-            </a>
-
-            <a href="https://images.unsplash.com/photo-1519167534503-3efca0abbf12?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1519167534503-3efca0abbf12?w=500&h=500&fit=crop" alt="Meeting Room Setup">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search gallery-icon"></i>
-                </div>
-                <div class="gallery-item-label">Meeting Room</div>
-            </a>
-
-            <a href="https://images.unsplash.com/photo-1519671482677-e0ac97078086?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="250">
-                <img src="https://images.unsplash.com/photo-1519671482677-e0ac97078086?w=500&h=500&fit=crop" alt="Wedding Ceremony">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search gallery-icon"></i>
-                </div>
-                <div class="gallery-item-label">Wedding Ceremony</div>
-            </a>
-
-            <a href="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500&h=500&fit=crop" alt="Executive Suite">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search gallery-icon"></i>
-                </div>
-                <div class="gallery-item-label">Executive Suite</div>
-            </a>
-
-            <a href="https://images.unsplash.com/photo-1519671482677-a0a3e1a98d29?w=500&h=500&fit=crop" class="gallery-item" data-lightbox="gallery" data-aos="fade-up" data-aos-delay="350">
-                <img src="https://images.unsplash.com/photo-1519671482677-a0a3e1a98d29?w=500&h=500&fit=crop" alt="Grand Ballroom">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search gallery-icon"></i>
-                </div>
-                <div class="gallery-item-label">Grand Ballroom</div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Wedding Videos Section -->
-    <section id="videos" class="section">
-        <h2 class="section-title" data-aos="fade-up">🎬 Wedding Videos & Events</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Experience the magic of celebrations at Plaza BPJamsostek</p>
-
-        <div class="video-gallery">
-            <div class="video-container" data-aos="fade-up" data-aos-delay="0">
-                <iframe src="https://www.youtube.com/watch?v=Y8ereHRjKs0" allowfullscreen="" loading="lazy"></iframe>
             </div>
+        </section>
 
-            <div class="video-container" data-aos="fade-up" data-aos-delay="100">
-                <iframe src="https://www.youtube.com/watch?v=Y8ereHRjKs0" allowfullscreen="" loading="lazy"></iframe>
+        <!-- Premium Real-Time Interactive Allocation Planner -->
+        <section id="planner" class="section-padding" style="background: rgba(15, 23, 42, 0.2); border-top: 1px solid var(--border-glow); border-bottom: 1px solid var(--border-glow);">
+            <div class="container">
+                <div class="section-title-wrap" data-aos="fade-up">
+                    <h2>Interactive Workspace Optimizer</h2>
+                    <p class="section-desc">Simulate spatial configurations, employee capacities, and corporate financial budgets instantly below.</p>
+                </div>
+
+                <div class="planner-container" data-aos="fade-up">
+                    <!-- Configurator Panel Left -->
+                    <div>
+                        <div class="input-group-box">
+                            <label id="areaLabel">Required Floor Area: 800 sqm</label>
+                            <input type="range" min="200" max="2500" value="800" step="50" class="range-slider-style" id="areaSlider">
+                        </div>
+
+                        <div class="input-group-box">
+                            <label>Layout Efficiency Strategy</label>
+                            <select class="select-input-style" id="strategySelect">
+                                <option value="12">Agile Executive Layout (12 sqm / person)</option>
+                                <option value="7" selected>High-Density Corporate Layout (7 sqm / person)</option>
+                                <option value="16">Bespoke Enterprise Studio (16 sqm / person)</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group-box">
+                            <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                                <span>High-Tier IT Infrastructure Matrix</span>
+                                <input type="checkbox" id="itToggle" style="width: 20px; height: 20px; accent-color: var(--primary-neon);">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Live Metric Dashboard Output Right -->
+                    <div class="metric-output-card">
+                        <div class="metric-row">
+                            <span class="metric-lbl">Target Capacity</span>
+                            <span class="metric-val" id="capacityVal">114 Staff</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-lbl">Infrastructure Load Metric</span>
+                            <span class="metric-val" id="loadVal">Standard</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-lbl">Est. Base Monthly Lease</span>
+                            <span class="metric-val green" id="priceVal">Rp 200.0M</span>
+                        </div>
+
+                        <!-- Graphical Floor Plan Dynamic Visualizer Grid Representation -->
+                        <div>
+                            <span class="metric-lbl" style="display: block; margin-bottom: 5px;">Abstract Spatial Footprint Distribution Chart</span>
+                            <div class="visualizer-matrix-grid" id="visualizerGrid">
+                                <!-- Elements dynamically managed via core system block loops below safely -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="video-container" data-aos="fade-up" data-aos-delay="200">
-                <iframe src="https://youtu.be/BWLFV0QsMhw?si=O2eNF1zSMfbXa5Fb" allowfullscreen="" loading="lazy"></iframe>
+        <!-- Architectural Asset Gallery Section -->
+        <section id="gallery" class="section-padding gallery-bg">
+            <div class="container">
+                <div class="section-title-wrap" data-aos="fade-up">
+                    <h2>Architectural Showpiece Grid</h2>
+                    <p class="section-desc">Explore deep structural renderings, localized interior configurations, and structural showcases.</p>
+                </div>
+
+                <div class="interactive-gallery-mesh">
+                    <div class="gallery-frame" data-aos="zoom-in" data-aos-delay="100">
+                        <span class="type-pill">IMAGE MODULE</span>
+                        <img src="images/exterior-view.jpg" alt="Plaza BPJamsostek External Tower Skyline Frame">
+                        <div class="frame-glass-overlay">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            <span>Tower Exterior Silhouette Structure</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-frame" data-aos="zoom-in" data-aos-delay="200">
+                        <span class="type-pill">CINEMATIC WALKTHROUGH</span>
+                        <video src="videos/interior-walkthrough.mp4" muted loop playsinline></video>
+                        <div class="frame-glass-overlay">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <span>Grand Entry Lobby Architectural Tour</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-frame" data-aos="zoom-in" data-aos-delay="300">
+                        <span class="type-pill">IMAGE MODULE</span>
+                        <img src="images/office-space.jpg" alt="Luxury Corporate Floor Open Customization Frame">
+                        <div class="frame-glass-overlay">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            <span>Open Workspace Engineering Framework</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="video-container" data-aos="fade-up" data-aos-delay="300">
-                <iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-
-            <div class="video-container" data-aos="fade-up" data-aos-delay="400">
-                <iframe src="https://www.youtube.com/embed/kJQP7kiw9Fk" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-
-            <div class="video-container" data-aos="fade-up" data-aos-delay="500">
-                <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
-            <p style="color: #a0aec0; margin-bottom: 1.5rem; font-size: 1.1rem;">📸 Follow us on Instagram for more exclusive content</p>
-            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-link">
-                <i class="fab fa-instagram"></i> @plazabpjamsostek
-            </a>
-        </div>
-    </section>
-
-    <!-- Instagram Feed Section -->
-    <section class="section" style="background: linear-gradient(135deg, rgba(228, 64, 95, 0.1) 0%, rgba(228, 64, 95, 0.05) 100%); border-radius: 2rem; margin: 4rem auto;">
-        <h2 class="section-title" data-aos="fade-up">Follow Us On Instagram</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Stay updated with our latest photos and events</p>
-
-        <div style="text-align: center; margin-bottom: 3rem;" data-aos="fade-up">
-            <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="instagram-link">
-                <i class="fab fa-instagram" style="font-size: 1.3rem;"></i>
-                <span>@plazabpjamsostek</span>
-            </a>
-        </div>
-
-                <!-- Instagram Embedded Live Showcase -->
+        <!-- Instagram Embedded Live Grid Showcase -->
         <section id="instagram" class="section-padding" style="background: var(--dark-canvas);">
             <div class="container">
                 <div class="section-title-wrap" data-aos="fade-up">
                     <h2>Social Ecosystem Stream</h2>
                     <p class="section-desc">
-                        Connect with live updates, official events, and corporate announcements broadcasting straight from our channel 
-                        <a href="https://instagram.com/plazabpjamsostek" target="_blank" style="color: var(--instagram-brand); text-decoration: none; font-weight: 600;">@plazabpjamsostek</a>.
+                        Connect with updates, official walk-throughs, and structural announcements airing straight from our feed 
+                        <a href="https://instagram.com/plazabpjamsostek" target="_blank" style="color: var(--insta-pink); text-decoration: none; font-weight: 700;">@plazabpjamsostek</a>.
                     </p>
                 </div>
 
                 <div class="instagram-social-mesh">
                     <div class="insta-embed-card" data-aos="fade-up">
-                        <iframe src="https://www.instagram.com/p/DYTqVzuvvhk/embed" width="100%" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 16px;"></iframe>
+                        <iframe src="https://www.instagram.com/p/DYTqVzuvvhk/embed" width="100%" height="490" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 20px;"></iframe>
                     </div>
                     <div class="insta-embed-card" data-aos="fade-up" data-aos-delay="100">
-                        <iframe src="https://www.instagram.com/p/DXeOuavj6ys/embed" width="100%" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 16px;"></iframe>
+                        <iframe src="https://www.instagram.com/p/DXeOuavj6ys/embed" width="100%" height="490" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 20px;"></iframe>
                     </div>
                     <div class="insta-embed-card" data-aos="fade-up" data-aos-delay="200">
-                        <iframe src="https://www.instagram.com/p/DXiV6oRiZbd/embed" width="100%" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 16px;"></iframe>
+                        <iframe src="https://www.instagram.com/p/DXiV6oRiZbd/embed" width="100%" height="490" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 20px;"></iframe>
                     </div>
                     <div class="insta-embed-card" data-aos="fade-up" data-aos-delay="300">
-                        <iframe src="https://www.instagram.com/p/DZKPWzaj5oK/embed" width="100%" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 16px;"></iframe>
+                        <iframe src="https://www.instagram.com/p/DZKPWzaj5oK/embed" width="100%" height="490" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 20px;"></iframe>
                     </div>
                     <div class="insta-embed-card" data-aos="fade-up" data-aos-delay="400">
-                        <iframe src="https://www.instagram.com/p/DVF-mQXj3Y7/embed" width="100%" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 16px;"></iframe>
+                        <iframe src="https://www.instagram.com/p/DVF-mQXj3Y7/embed" width="100%" height="490" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 20px;"></iframe>
                     </div>
                     <div class="insta-embed-card" data-aos="fade-up" data-aos-delay="500">
-                        <iframe src="https://www.instagram.com/p/DYBg0NyD9ka/embed" width="100%" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 16px;"></iframe>
+                        <iframe src="https://www.instagram.com/p/DYBg0NyD9ka/embed" width="100%" height="490" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 20px;"></iframe>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Rental Section -->
-    <section id="rental" class="section">
-        <h2 class="section-title" data-aos="fade-up">Rental Packages</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Flexible solutions for your business and event needs</p>
+    <!-- Interactive Multimedia Lightbox -->
+    <div class="premium-lightbox" id="globalLightbox">
+        <span class="lightbox-exit" id="exitBtn">&times;</span>
+        <div class="lightbox-stage" id="lightboxCarrier"></div>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
-                <span class="badge">Popular</span>
-                <div class="pricing-title">Office Space</div>
-                <div class="pricing-description">Premium office floors with flexible lease terms</div>
-                <ul class="space-y-3 mb-6 text-sm">
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Prime Location</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Flexible Terms</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>All Utilities</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Premium Amenities</li>
-                </ul>
-                <button class="btn-primary w-full" onclick="contactViaWhatsApp('Saya tertarik dengan Office Space di Plaza BPJamsostek')">Request Quote</button>
-            </div>
-
-            <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
-                <span class="badge">Featured</span>
-                <div class="pricing-title">Wedding Events</div>
-                <div class="pricing-description">Elegant ballroom for your special day</div>
-                <ul class="space-y-3 mb-6 text-sm">
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Elegant Design</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Event Management</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Catering Partners</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Full Support</li>
-                </ul>
-                <button class="btn-primary w-full" onclick="contactViaWhatsApp('Saya ingin merencanakan pernikahan di Plaza BPJamsostek')">Plan Your Wedding</button>
-            </div>
-
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-                <span class="badge">Business</span>
-                <div class="pricing-title">Meeting Rooms</div>
-                <div class="pricing-description">State-of-the-art facilities with AV equipment</div>
-                <ul class="space-y-3 mb-6 text-sm">
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>AV Equipment</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Catering Service</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Professional Support</li>
-                    <li style="color: #a0aec0;"><i class="fas fa-check" style="color: #d4af37; margin-right: 0.5rem;"></i>Hourly & Daily</li>
-                </ul>
-                <button class="btn-primary w-full" onclick="contactViaWhatsApp('Saya ingin memesan Meeting Room di Plaza BPJamsostek')">Book Now</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Contact us for inquiries and reservations</p>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
-            <div data-aos="fade-right">
-                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border-2 border-white/10 rounded-lg p-8 mb-6">
-                    <div class="flex items-start mb-4">
-                        <i class="fas fa-map-marker-alt" style="color: #d4af37; margin-top: 0.5rem; margin-right: 1.5rem; font-size: 1.5rem;"></i>
-                        <div>
-                            <h3 style="color: #d4af37; font-weight: 600; margin-bottom: 0.5rem;">Address</h3>
-                            <p style="color: #a0aec0; line-height: 1.6;">Jl. H. R. Rasuna Said, RT.5/RW.1, Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12910</p>
-                        </div>
-                    </div>
+    <!-- Corporate Executive Footer Support System -->
+    <footer id="contact" class="executive-footer">
+        <div class="container">
+            <div class="footer-grid-layout">
+                <div class="footer-intro">
+                    <h3>PLAZA BPJAMSOSTEK</h3>
+                    <p>Defining architectural benchmarks within the primary core of Jakarta's strategic global business zones. Engineered for optimal connectivity, professional prestige, and systemic security.</p>
+                    <span class="asset-prop-tag">Asset Owner: PT SINERGI INVESTASI PROPERTI</span>
                 </div>
 
-                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border-2 border-white/10 rounded-lg p-8 mb-6">
-                    <div class="flex items-start mb-4">
-                        <i class="fas fa-whatsapp" style="color: #25D366; margin-top: 0.5rem; margin-right: 1.5rem; font-size: 1.5rem;"></i>
-                        <div>
-                            <h3 style="color: #d4af37; font-weight: 600; margin-bottom: 0.5rem;">WhatsApp</h3>
-                            <p style="color: #a0aec0;">+62 813-1401-2302</p>
-                            <p style="color: #a0aec0; font-size: 0.9rem; margin-top: 0.5rem;">24/7 Customer Support</p>
-                        </div>
-                    </div>
+                <div class="footer-column-node">
+                    <h4>Building Location</h4>
+                    <ul class="footer-address-node">
+                        <li>
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                            <span>Jl. H. R. Rasuna Said, RT.5/RW.1, Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12910</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border-2 border-white/10 rounded-lg p-8">
-                    <div class="flex items-start mb-4">
-                        <i class="fas fa-envelope" style="color: #d4af37; margin-top: 0.5rem; margin-right: 1.5rem; font-size: 1.5rem;"></i>
-                        <div>
-                            <h3 style="color: #d4af37; font-weight: 600; margin-bottom: 0.5rem;">Email</h3>
-                            <p style="color: #a0aec0;">info@plaza-bpjamsostek.com</p>
-                            <p style="color: #a0aec0; font-size: 0.9rem; margin-top: 0.5rem;">For inquiries and reservations</p>
-                        </div>
+                <div class="footer-column-node">
+                    <h4>Acquisition Channels</h4>
+                    <ul class="footer-address-node">
+                        <li>
+                            <i class="fa-solid fa-headset"></i>
+                            <div>
+                                <strong>Asset Management Relations:</strong><br>
+                                <a href="tel:08212204878">0821-2204-878</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-gavel"></i>
+                            <div>
+                                <strong>Technical Representative (TR):</strong><br>
+                                <a href="https://wa.me/628131401230" target="_blank">+62 813-1401-230</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="social-circle-wrap">
+                        <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="social-circle-icon" title="Follow Official Channel Portal">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div data-aos="fade-left">
-                <form class="contact-form backdrop-filter backdrop-blur-lg bg-white/5 border-2 border-white/10 rounded-lg p-8">
-                    <input type="text" placeholder="Your Full Name" required>
-                    <input type="email" placeholder="Your Email Address" required>
-                    <input type="text" placeholder="Company / Subject">
-                    <textarea placeholder="Your Message" rows="6" required></textarea>
-                    <button type="submit" class="btn-primary w-full">Send Message</button>
-                </form>
+            <div class="footer-terminal">
+                <p>&copy; 2026 Plaza BPJamsostek. All structural representations engineered for high execution and elite digital compliance.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <!-- Owner Information -->
-        <div class="footer-owner">
-            <h5>🏢 Owned By</h5>
-            <p><strong>PT. Sinergi Investasi Properti</strong></p>
-            <p>Premium Real Estate Development & Property Management Services</p>
-        </div>
-
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>About Plaza BPJamsostek</h4>
-                <p style="color: #a0aec0; font-size: 0.95rem; line-height: 1.6;">Premier office tower in Jakarta offering world-class facilities, premium office spaces, and exceptional service for modern businesses. Perfect for weddings, corporate events, and business needs.</p>
-                <div class="social-icons">
-                    <a href="https://instagram.com/plazabpjamsostek" target="_blank" class="social-icon instagram" title="Instagram @plazabpjamsostek">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.google.com/maps/search/Plaza+BPJamsostek+Kuningan" target="_blank" class="social-icon" title="Google Maps">
-                        <i class="fab fa-google"></i>
-                    </a>
-                    <a href="mailto:info@plaza-bpjamsostek.com" class="social-icon" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="tel:+6281314012302" class="social-icon" title="Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#directory">Building Directory</a></li>
-                    <li><a href="#facilities">Facilities</a></li>
-                    <li><a href="#gallery">Photo Gallery</a></li>
-                    <li><a href="#videos">Videos</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Office Hours</h4>
-                <p style="color: #a0aec0; font-size: 0.95rem;">Monday - Friday<br>08:00 - 17:00 WIB</p>
-                <p style="color: #a0aec0; font-size: 0.95rem; margin-top: 1rem;">Saturday<br>09:00 - 13:00 WIB</p>
-            </div>
-
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#rental">Office Space Rental</a></li>
-                    <li><a href="#rental">Meeting Room Booking</a></li>
-                    <li><a href="#rental">Wedding Events</a></li>
-                    <li><a href="#contact">Contact Support</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2024 Plaza BPJamsostek. All rights reserved. | Owned by PT. Sinergi Investasi Properti | <a href="#" style="color: #d4af37; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #d4af37; text-decoration: none;">Terms of Service</a></p>
-            <p style="margin-top: 1rem; color: #a0aec0;">📍 Jl. H. R. Rasuna Said, Kuningan, Jakarta Selatan | Follow us on Instagram: <a href="https://instagram.com/plazabpjamsostek" target="_blank" style="color: #d4af37; text-decoration: none;">@plazabpjamsostek</a></p>
         </div>
     </footer>
 
-    <!-- Buttons -->
-    <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <a href="https://wa.me/6281314012302" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Scripts -->
+    <!-- Execution Logic Core Engines -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-
     <script>
-        // Initialize AOS
+        // Start Animate On Scroll Engine
         AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
+            duration: 1200,
+            once: true
         });
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
+        // 1. Navbar Glass Adaptive Effect
+        const masterNav = document.getElementById('masterNav');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 40) {
+                masterNav.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled');
+                masterNav.classList.remove('scrolled');
             }
         });
 
-        // Scroll to Section
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+        // 2. High Performance Mobile Menu Controls
+        const drawerTrigger = document.getElementById('drawerTrigger');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerNodes = document.querySelectorAll('.drawer-node');
+        const triggerIcon = drawerTrigger.querySelector('i');
 
-        // Scroll to Top
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 500) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
-            }
+        const activeToggle = () => {
+            mobileDrawer.classList.toggle('active');
+            const visibilityCheck = mobileDrawer.classList.contains('active');
+            triggerIcon.className = visibilityCheck ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        };
+
+        drawerTrigger.addEventListener('click', activeToggle);
+        drawerNodes.forEach(node => {
+            node.addEventListener('click', () => {
+                if(mobileDrawer.classList.contains('active')) activeToggle();
+            });
         });
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // 3. Immersive Space Allocator Internal Core Engine Logic
+        const areaSlider = document.getElementById('areaSlider');
+        const areaLabel = document.getElementById('areaLabel');
+        const strategySelect = document.getElementById('strategySelect');
+        const itToggle = document.getElementById('itToggle');
+        
+        const capacityVal = document.getElementById('capacityVal');
+        const loadVal = document.getElementById('loadVal');
+        const priceVal = document.getElementById('priceVal');
+        const visualizerGrid = document.getElementById('visualizerGrid');
 
-        // Counter Animation
-        function animateCounter(id, target) {
-            let current = 0;
-            const increment = target / 50;
-            const counter = document.getElementById(id);
+        // Render abstract visual representation grids
+        const buildVisualizerGrid = () => {
+            visualizerGrid.innerHTML = '';
+            for(let i=0; i < 40; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'matrix-dot';
+                visualizerGrid.appendChild(dot);
+            }
+        };
+        buildVisualizerGrid();
+
+        const calculateSpaceMetrics = () => {
+            const area = parseInt(areaSlider.value);
+            const factor = parseInt(strategySelect.value);
+            const isItBoosted = itToggle.checked;
+
+            areaLabel.innerText = `Required Floor Area: ${area} sqm`;
+
+            // Operational Seating Output Mathematical Calculations
+            const theoreticalCapacity = Math.floor(area / factor);
+            capacityVal.innerText = `${theoreticalCapacity} Staff`;
+
+            // Compute Estimated Leasing Budget Rates (IDR Base Matrix Modeling metrics)
+            let basePricePerMeter = 250000; // Base price calculation index model representation 
+            if (isItBoosted) basePricePerMeter += 45000;
             
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    counter.textContent = typeof target === 'string' ? target : Math.floor(target);
-                    clearInterval(timer);
-                } else {
-                    counter.textContent = Math.floor(current);
-                }
-            }, 30);
-        }
+            const totalBudgetMonthly = area * basePricePerMeter;
+            const millionsValue = (totalBudgetMonthly / 1000000).toFixed(1);
+            priceVal.innerText = `Rp ${millionsValue}M`;
 
-        // Trigger counters on scroll
-        let counterAnimated = false;
-        window.addEventListener('scroll', function() {
-            if (!counterAnimated && window.scrollY > 1200) {
-                counterAnimated = true;
-                animateCounter('counter1', 30);
-                animateCounter('counter2', 12);
-                animateCounter('counter3', 500);
-                setTimeout(() => {
-                    document.getElementById('counter4').textContent = '24/7';
-                }, 500);
+            // Infrastructure Metrics States
+            if (area > 1800) {
+                loadVal.innerText = "Critical Enterprise";
+                loadVal.style.color = "#f43f5e";
+            } else if (area > 800) {
+                loadVal.innerText = "High Operations";
+                loadVal.style.color = "#38bdf8";
+            } else {
+                loadVal.innerText = "Balanced Tier";
+                loadVal.style.color = "var(--primary-neon)";
             }
+
+            // Update abstract graphical grid items dynamically 
+            const dots = visualizerGrid.querySelectorAll('.matrix-dot');
+            const activationRatio = Math.min(Math.ceil((area / 2500) * 40), 40);
+            
+            dots.forEach((dot, index) => {
+                if (index < activationRatio) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        };
+
+        areaSlider.addEventListener('input', calculateSpaceMetrics);
+        strategySelect.addEventListener('change', calculateSpaceMetrics);
+        itToggle.addEventListener('change', calculateSpaceMetrics);
+        calculateSpaceMetrics(); // Run calculations immediately on initialization safely
+
+        // 4. Isolated Performance Lightbox Script Logic
+        const galleryFrames = document.querySelectorAll('.gallery-frame');
+        const globalLightbox = document.getElementById('globalLightbox');
+        const lightboxCarrier = document.getElementById('lightboxCarrier');
+        const exitBtn = document.getElementById('exitBtn');
+
+        galleryFrames.forEach(frame => {
+            frame.addEventListener('click', () => {
+                globalLightbox.classList.add('active');
+                
+                const targetImg = frame.querySelector('img');
+                const targetVid = frame.querySelector('video');
+
+                if (targetImg) {
+                    lightboxCarrier.innerHTML = `<img src="${targetImg.src}" class="lightbox-media" alt="Luxury Frame View">`;
+                } else if (targetVid) {
+                    lightboxCarrier.innerHTML = `<video src="${targetVid.src}" controls autoplay class="lightbox-media"></video>`;
+                }
+            });
         });
 
-        // WhatsApp Contact
-        function contactViaWhatsApp(message) {
-            const phoneNumber = '6281314012302';
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-        }
+        const closeStage = () => {
+            globalLightbox.classList.remove('active');
+            lightboxCarrier.innerHTML = ''; 
+        };
 
-        // Form Submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will contact you soon.');
-            this.reset();
-        });
-
-        // Lightbox configuration
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'albumLabel': "Image %1 of %2"
+        exitBtn.addEventListener('click', closeStage);
+        globalLightbox.addEventListener('click', (e) => {
+            if(e.target === globalLightbox) closeStage();
         });
     </script>
 </body>
