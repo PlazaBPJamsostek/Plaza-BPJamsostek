@@ -4,1036 +4,1213 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plaza BPJamsostek — Grade A Office Tower, Jakarta</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #B8983A;
-    --gold-light: #D4B05A;
-    --gold-pale: #F5EDD6;
-    --navy: #0D1B2E;
-    --navy-mid: #1A2E45;
-    --navy-soft: #243550;
-    --cream: #F8F4EE;
-    --white: #FFFFFF;
-    --gray: #6B7280;
-    --light-gray: #F1EDE6;
-    --text: #1A1A1A;
-    --text-muted: #6B7280;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+:root {
+  --navy: #06194A;
+  --navy-mid: #0D2A6E;
+  --blue: #1556C8;
+  --blue-light: #3B7EF8;
+  --gold: #C8961A;
+  --gold-light: #F0B429;
+  --white: #FFFFFF;
+  --off-white: #F7F8FA;
+  --gray-50: #F3F4F7;
+  --gray-100: #E5E7EE;
+  --gray-300: #B0B5C8;
+  --gray-500: #6B7194;
+  --gray-700: #2D3258;
+  --text: #111827;
+  --text-muted: #5A6180;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
 
-  /* ─── PRELOADER ─── */
-  #preloader {
-    position: fixed; inset: 0; background: var(--navy); z-index: 9999;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
-  }
-  #preloader.done { opacity: 0; visibility: hidden; }
-  .preloader-logo { text-align: center; }
-  .preloader-logo .brand { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--gold); letter-spacing: 0.1em; }
-  .preloader-logo .sub { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 8px; }
-  .preloader-bar { width: 200px; height: 1px; background: rgba(255,255,255,0.1); margin-top: 40px; overflow: hidden; }
-  .preloader-fill { height: 100%; background: var(--gold); animation: fill 2s ease forwards; }
-  @keyframes fill { from { width: 0; } to { width: 100%; } }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-  /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 1000;
-    padding: 0 4rem; height: 72px; display: flex; align-items: center; justify-content: space-between;
-    background: rgba(13,27,46,0.95); backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(184,152,58,0.2);
-    transition: all 0.3s ease;
-  }
-  nav.scrolled { height: 60px; background: rgba(13,27,46,0.98); }
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .nav-logo-mark { width: 36px; height: 36px; background: var(--gold); display: flex; align-items: center; justify-content: center; }
-  .nav-logo-mark span { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); }
-  .nav-logo-text { color: var(--white); }
-  .nav-logo-text .l1 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; letter-spacing: 0.08em; display: block; }
-  .nav-logo-text .l2 { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); display: block; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta { background: var(--gold); color: var(--navy); padding: 9px 20px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
-  .nav-cta:hover { background: var(--gold-light); }
-  .nav-burger { display: none; background: none; border: none; cursor: pointer; }
-  .nav-burger span { display: block; width: 22px; height: 1.5px; background: white; margin: 5px 0; }
+/* ─── TYPOGRAPHY ─── */
+.display { font-family: 'Playfair Display', serif; }
+.label-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--blue); background: #EBF1FF; padding: 5px 14px; border-radius: 999px;
+}
+.label-tag.gold { color: #8A6000; background: #FEF4D6; }
+.label-tag.white { color: rgba(255,255,255,.8); background: rgba(255,255,255,.12); border: 0.5px solid rgba(255,255,255,.2); }
+h2.section-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; line-height: 1.2; color: var(--navy); margin-top: 10px; }
+h2.section-title.light { color: var(--white); }
+.section-sub { font-size: 15px; color: var(--text-muted); margin-top: 10px; line-height: 1.75; max-width: 520px; }
+.section-sub.light { color: rgba(255,255,255,.6); }
 
-  /* ─── HERO ─── */
-  #hero {
-    height: 100vh; position: relative; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, #0D1B2E 0%, #1A3050 40%, #0D2340 100%);
-  }
-  .hero-grid {
-    position: absolute; inset: 0; opacity: 0.06;
-    background-image: linear-gradient(rgba(184,152,58,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(184,152,58,0.8) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-  .hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 30%, rgba(13,27,46,0.7) 100%); }
-  .hero-content { position: relative; text-align: center; padding: 0 2rem; max-width: 900px; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(184,152,58,0.15); border: 1px solid rgba(184,152,58,0.4);
-    padding: 6px 18px; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 2rem;
-    animation: fadeUp 0.8s ease forwards; opacity: 0;
-  }
-  .hero-badge::before, .hero-badge::after { content: '◆'; font-size: 0.5rem; }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300;
-    color: var(--white); line-height: 1.05; letter-spacing: -0.01em;
-    animation: fadeUp 0.8s ease 0.2s forwards; opacity: 0;
-  }
-  .hero-title em { color: var(--gold); font-style: italic; }
-  .hero-subtitle {
-    font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); margin-top: 1.5rem;
-    animation: fadeUp 0.8s ease 0.4s forwards; opacity: 0;
-  }
-  .hero-divider {
-    width: 60px; height: 1px; background: var(--gold); margin: 2rem auto;
-    animation: fadeUp 0.8s ease 0.5s forwards; opacity: 0;
-  }
-  .hero-desc {
-    font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.8; max-width: 560px; margin: 0 auto;
-    animation: fadeUp 0.8s ease 0.6s forwards; opacity: 0;
-  }
-  .hero-actions {
-    display: flex; gap: 1rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap;
-    animation: fadeUp 0.8s ease 0.8s forwards; opacity: 0;
-  }
-  .btn-primary { background: var(--gold); color: var(--navy); padding: 14px 32px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .btn-outline { border: 1px solid rgba(255,255,255,0.4); color: var(--white); padding: 14px 32px; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-  .hero-stats {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    display: flex; justify-content: center; gap: 0;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    animation: fadeUp 0.8s ease 1s forwards; opacity: 0;
-  }
-  .hero-stat { padding: 1.5rem 3rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
-  .hero-stat:last-child { border-right: none; }
-  .hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--gold); display: block; }
-  .hero-stat-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 4px; display: block; }
-  .hero-scroll { position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; animation: bounce 2s infinite; }
-  .hero-scroll span { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+/* ─── NAVBAR ─── */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  transition: all .3s ease;
+}
+#navbar.scrolled {
+  background: rgba(6, 25, 74, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid rgba(255,255,255,.08);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 32px;
+  height: 64px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo-box {
+  width: 36px; height: 36px; background: var(--gold); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-logo-box svg { width: 18px; height: 18px; fill: white; }
+.nav-logo-text strong { font-size: 15px; font-weight: 600; color: white; display: block; }
+.nav-logo-text span { font-size: 11px; color: rgba(255,255,255,.5); }
+.nav-links { display: flex; gap: 6px; }
+.nav-links a {
+  font-size: 13px; color: rgba(255,255,255,.65); padding: 6px 12px; border-radius: 6px;
+  transition: all .2s;
+}
+.nav-links a:hover { color: white; background: rgba(255,255,255,.08); }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.nav-wa {
+  display: flex; align-items: center; gap: 7px;
+  background: #25D366; color: white; font-size: 13px; font-weight: 500;
+  padding: 8px 18px; border-radius: 8px; transition: background .2s;
+}
+.nav-wa:hover { background: #1fb557; }
+.nav-sewa {
+  display: flex; align-items: center; gap: 7px;
+  background: var(--blue); color: white; font-size: 13px; font-weight: 500;
+  padding: 8px 18px; border-radius: 8px; transition: background .2s;
+}
+.nav-sewa:hover { background: #1048b0; }
 
-  /* ─── SECTIONS ─── */
-  section { position: relative; }
-  .section-label { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.2; }
-  .section-divider { width: 40px; height: 1px; background: var(--gold); margin: 1.5rem 0; }
+/* ─── HERO ─── */
+.hero { position: relative; height: 100vh; min-height: 680px; overflow: hidden; background: var(--navy); }
+.hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .9s ease; }
+.hero-slide.active { opacity: 1; }
+.hero-slide img { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(6,25,74,.82) 0%, rgba(6,25,74,.45) 60%, rgba(6,25,74,.25) 100%);
+}
+.hero-content {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 10% 0 8%;
+  max-width: 680px;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 22px;
+}
+.hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-light); }
+.hero-eyebrow span { font-size: 12px; color: rgba(255,255,255,.7); letter-spacing: .12em; text-transform: uppercase; font-weight: 500; }
+.hero h1 {
+  font-family: 'Playfair Display', serif; font-size: 62px; font-weight: 700;
+  color: white; line-height: 1.05; letter-spacing: -.01em;
+}
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero-address {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 16px; font-size: 14px; color: rgba(255,255,255,.6);
+}
+.hero-address svg { width: 14px; height: 14px; flex-shrink: 0; fill: var(--gold-light); }
+.hero-desc { font-size: 16px; color: rgba(255,255,255,.7); line-height: 1.75; margin-top: 14px; max-width: 440px; }
+.hero-btns { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+.btn-gold {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: white; font-size: 14px; font-weight: 600;
+  padding: 14px 28px; border-radius: 10px; transition: all .2s;
+}
+.btn-gold:hover { background: #a8790e; transform: translateY(-1px); }
+.btn-outline-w {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: white; font-size: 14px; font-weight: 500;
+  padding: 14px 28px; border-radius: 10px; border: 1.5px solid rgba(255,255,255,.35);
+  transition: all .2s;
+}
+.btn-outline-w:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.6); }
 
-  /* ─── GALLERY / SLIDER ─── */
-  #gallery { background: var(--navy); padding: 5rem 0; overflow: hidden; }
-  .gallery-header { text-align: center; padding: 0 2rem; margin-bottom: 3rem; }
-  .gallery-header .section-title { color: var(--white); }
-  .gallery-header .section-label { color: var(--gold); }
-  .gallery-header .section-divider { margin: 1.5rem auto; }
-  .gallery-header p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
-  .gallery-track-wrap { position: relative; }
-  .gallery-track { display: flex; gap: 1.5rem; padding: 0 4rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; }
-  .gallery-track::-webkit-scrollbar { display: none; }
-  .gallery-track.grabbing { cursor: grabbing; }
-  .gallery-slide {
-    min-width: 480px; height: 320px; flex-shrink: 0; scroll-snap-align: start;
-    position: relative; overflow: hidden;
-  }
-  .gallery-slide img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-  .gallery-slide:hover img { transform: scale(1.05); }
-  .gallery-slide-caption {
-    position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem;
-    background: linear-gradient(transparent, rgba(13,27,46,0.9));
-    color: white; font-size: 0.82rem; letter-spacing: 0.05em; opacity: 0; transition: opacity 0.3s;
-  }
-  .gallery-slide:hover .gallery-slide-caption { opacity: 1; }
-  .gallery-placeholder {
-    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-  }
-  .gallery-real-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
-  .gallery-slide:hover .gallery-real-img { transform: scale(1.06); }
-  .gallery-placeholder-text { position: absolute; bottom: 1rem; left: 1rem; right: 1rem; color: rgba(255,255,255,0.6); font-size: 0.8rem; }
-  .gallery-building-svg { position: absolute; opacity: 0.15; }
-  .gallery-nav { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
-  .gallery-btn { width: 44px; height: 44px; border: 1px solid rgba(184,152,58,0.4); background: none; color: var(--gold); cursor: pointer; font-size: 1rem; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
-  .gallery-btn:hover { background: var(--gold); color: var(--navy); }
-  .gallery-dots { display: flex; gap: 8px; align-items: center; }
-  .gallery-dot { width: 6px; height: 6px; background: rgba(255,255,255,0.2); border-radius: 50%; cursor: pointer; transition: all 0.2s; }
-  .gallery-dot.active { background: var(--gold); width: 20px; border-radius: 3px; }
-  .instagram-cta { text-align: center; margin-top: 2rem; }
-  .instagram-cta a { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase; border-bottom: 1px solid rgba(184,152,58,0.3); padding-bottom: 4px; transition: border-color 0.2s; }
-  .instagram-cta a:hover { border-color: var(--gold); }
+/* hero side stats */
+.hero-stats-side {
+  position: absolute; right: 5%; top: 50%; transform: translateY(-50%); z-index: 3;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.hss-card {
+  background: rgba(255,255,255,.1); backdrop-filter: blur(8px);
+  border: 0.5px solid rgba(255,255,255,.18); border-radius: 12px;
+  padding: 14px 20px; text-align: center; min-width: 110px;
+}
+.hss-card strong { display: block; font-size: 24px; font-weight: 600; color: white; line-height: 1; }
+.hss-card span { font-size: 11px; color: rgba(255,255,255,.55); margin-top: 4px; display: block; text-transform: uppercase; letter-spacing: .07em; }
 
-  /* ─── ABOUT ─── */
-  #about { background: var(--cream); padding: 7rem 4rem; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 1200px; margin: 0 auto; align-items: start; }
-  .about-visual { position: relative; }
+/* slide controls */
+.hero-controls {
+  position: absolute; bottom: 32px; left: 8%; z-index: 4;
+  display: flex; align-items: center; gap: 16px;
+}
+.hero-dots { display: flex; gap: 6px; }
+.hero-dot-btn {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.3); border: none; padding: 0; cursor: pointer; transition: all .3s;
+}
+.hero-dot-btn.active { background: var(--gold-light); width: 28px; border-radius: 4px; }
+.hero-nav-btns { display: flex; gap: 6px; }
+.hero-nav-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,.12); border: 0.5px solid rgba(255,255,255,.25);
+  color: white; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; transition: all .2s;
+}
+.hero-nav-btn:hover { background: rgba(255,255,255,.22); }
+.slide-counter { font-size: 13px; color: rgba(255,255,255,.5); font-weight: 500; }
 
-  /* Photo mosaic */
-  .about-photo-mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto; gap: 6px; }
-  .mosaic-main { grid-column: 1; grid-row: 1 / 3; position: relative; overflow: hidden; height: 460px; }
-  .mosaic-side { grid-column: 2; display: flex; flex-direction: column; gap: 6px; }
-  .mosaic-small { position: relative; overflow: hidden; height: 148px; flex-shrink: 0; }
-  .mosaic-main img, .mosaic-small img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
-  .mosaic-main:hover img, .mosaic-small:hover img { transform: scale(1.05); }
-  .mosaic-label {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 0.75rem 1rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(255,255,255,0.9); background: linear-gradient(transparent, rgba(13,27,46,0.85));
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .mosaic-main:hover .mosaic-label, .mosaic-small:hover .mosaic-label { opacity: 1; }
+/* scroll hint */
+.hero-scroll {
+  position: absolute; bottom: 36px; right: 8%; z-index: 4;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(255,255,255,.4); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,.4));
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%,100%{opacity:.4;transform:scaleY(.8)} 50%{opacity:1;transform:scaleY(1)} }
 
-  /* Cert strip below mosaic */
-  .about-cert-strip {
-    display: flex; align-items: center; justify-content: space-between;
-    background: var(--navy); padding: 1.25rem 1.5rem; margin-top: 6px;
-  }
-  .cert-item { display: flex; align-items: center; gap: 10px; color: var(--white); font-size: 0.78rem; line-height: 1.4; }
-  .cert-item strong { font-size: 0.85rem; color: var(--gold); display: block; }
-  .cert-icon { font-size: 1.3rem; }
-  .cert-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.15); }
+/* ─── TICKER / STATS BAR ─── */
+.stats-bar {
+  background: var(--navy-mid);
+  display: flex; overflow: hidden;
+}
+.stats-bar-item {
+  flex: 1; text-align: center; padding: 20px 16px;
+  border-right: 0.5px solid rgba(255,255,255,.07);
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.stats-bar-item:last-child { border-right: none; }
+.sbi-icon {
+  width: 36px; height: 36px; background: rgba(255,255,255,.08); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold-light);
+}
+.sbi-icon svg { width: 16px; height: 16px; fill: currentColor; }
+.sbi-text strong { display: block; font-size: 20px; font-weight: 600; color: white; line-height: 1; }
+.sbi-text span { font-size: 11px; color: rgba(255,255,255,.45); text-transform: uppercase; letter-spacing: .07em; margin-top: 3px; display: block; }
 
-  .about-content { padding-left: 1rem; }
-  .about-body { color: var(--text-muted); line-height: 1.9; font-size: 0.95rem; margin-bottom: 1.5rem; }
-  .about-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
-  .about-spec { border-left: 2px solid var(--gold); padding-left: 1rem; }
-  .about-spec-val { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--navy); }
-  .about-spec-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
-  .about-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
-  .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: var(--white); padding: 6px 14px; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .badge-gold { background: var(--gold); color: var(--navy); }
+/* ─── ABOUT ─── */
+.about { padding: 100px 0; background: var(--white); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.about-images { position: relative; }
+.about-img-main {
+  border-radius: var(--radius-xl); overflow: hidden;
+  height: 460px;
+}
+.about-img-main img { width: 100%; height: 100%; object-fit: cover; }
+.about-img-float {
+  position: absolute; bottom: -28px; right: -28px;
+  width: 200px; height: 160px; border-radius: var(--radius-lg); overflow: hidden;
+  border: 4px solid white; box-shadow: 0 8px 32px rgba(6,25,74,.18);
+}
+.about-img-float img { width: 100%; height: 100%; object-fit: cover; }
+.green-badge {
+  position: absolute; top: 20px; left: 20px;
+  background: white; border-radius: 10px; padding: 10px 14px;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+}
+.green-badge-dot { width: 10px; height: 10px; background: #22C55E; border-radius: 50%; }
+.green-badge span { font-size: 12px; font-weight: 600; color: var(--navy); }
+.about-text { }
+.about-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-top: 18px; }
+.about-text p + p { margin-top: 12px; }
+.about-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.chip {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500; color: var(--navy-mid);
+  background: #EBF1FF; padding: 7px 14px; border-radius: 999px;
+  border: 0.5px solid #C5D5F5;
+}
+.chip svg { width: 14px; height: 14px; fill: var(--blue); flex-shrink: 0; }
+.about-cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+.btn-navy {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--navy); color: white; font-size: 14px; font-weight: 500;
+  padding: 13px 26px; border-radius: 10px; transition: all .2s;
+}
+.btn-navy:hover { background: var(--navy-mid); transform: translateY(-1px); }
+.btn-outline-navy {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--navy); font-size: 14px; font-weight: 500;
+  padding: 13px 26px; border-radius: 10px; border: 1.5px solid var(--gray-100);
+  transition: all .2s;
+}
+.btn-outline-navy:hover { border-color: var(--navy); background: var(--gray-50); }
 
-  /* ─── FLOOR GUIDE ─── */
-  #floors { background: var(--navy); padding: 7rem 4rem; }
-  .floors-inner { max-width: 1200px; margin: 0 auto; }
-  .floors-header { text-align: center; margin-bottom: 4rem; }
-  .floors-header .section-title { color: var(--white); }
-  .floors-header .section-divider { margin: 1.5rem auto; }
-  .floors-header p { color: rgba(255,255,255,0.55); }
-  .floor-guide { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: rgba(255,255,255,0.06); }
-  .floor-card {
-    background: rgba(13,27,46,0.9); padding: 1.75rem; transition: all 0.3s;
-    border-bottom: 2px solid transparent; cursor: default;
-  }
-  .floor-card:hover { background: rgba(26,48,80,0.95); border-bottom-color: var(--gold); }
-  .floor-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--gold); line-height: 1; }
-  .floor-unit { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-  .floor-name { font-size: 0.9rem; font-weight: 500; color: var(--white); margin: 0.75rem 0 0.4rem; }
-  .floor-desc { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
-  .floor-tag { display: inline-block; margin-top: 0.75rem; padding: 3px 10px; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
-  .tag-available { background: rgba(184,152,58,0.15); color: var(--gold); border: 1px solid rgba(184,152,58,0.3); }
-  .tag-occupied { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.1); }
-  .tag-amenity { background: rgba(13,180,120,0.12); color: #4ECDA0; border: 1px solid rgba(13,180,120,0.25); }
-  .tag-parking { background: rgba(100,130,200,0.12); color: #8AAEE0; border: 1px solid rgba(100,130,200,0.25); }
+/* ─── GALLERY ─── */
+.gallery { padding: 80px 0; background: var(--off-white); }
+.gallery-header { text-align: center; margin-bottom: 40px; }
+.gallery-header .section-sub { margin: 10px auto 0; }
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr;
+  grid-template-rows: 280px 200px;
+  gap: 10px;
+}
+.g-cell { border-radius: var(--radius-lg); overflow: hidden; position: relative; cursor: pointer; }
+.g-cell img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.g-cell:hover img { transform: scale(1.05); }
+.g-cell-tall { grid-row: 1 / 3; }
+.g-cell-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(6,25,74,.7) 0%, transparent 100%);
+  padding: 20px 16px 12px;
+  font-size: 12px; font-weight: 500; color: rgba(255,255,255,.85);
+  opacity: 0; transition: opacity .3s;
+}
+.g-cell:hover .g-cell-label { opacity: 1; }
+.gallery-ig {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 24px; font-size: 13px; color: var(--text-muted);
+}
+.gallery-ig a { color: var(--blue); font-weight: 500; }
 
-  /* ─── AMENITIES ─── */
-  #amenities { background: var(--navy); padding: 7rem 4rem; }
-  .amenities-inner { max-width: 1300px; margin: 0 auto; }
-  .amenities-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
-  .amenities-header .section-title { color: var(--white); }
-  .amenities-header-right { color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.8; padding-bottom: 4px; }
+/* ─── FLOORS ─── */
+.floors { padding: 100px 0; background: var(--navy); }
+.floors-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+.floors-list { margin-top: 32px; display: flex; flex-direction: column; gap: 0; }
+.floor-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 16px 0; border-bottom: 0.5px solid rgba(255,255,255,.07);
+  cursor: pointer; transition: all .2s;
+}
+.floor-item:last-child { border-bottom: none; }
+.floor-item:hover .floor-num { background: var(--gold); color: white; }
+.floor-num {
+  min-width: 56px; height: 36px; border-radius: 8px;
+  background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600; color: rgba(255,255,255,.6);
+  transition: all .2s; flex-shrink: 0;
+}
+.floor-info h4 { font-size: 14px; font-weight: 500; color: white; }
+.floor-info p { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 3px; line-height: 1.5; }
+.floor-badge {
+  margin-left: auto; font-size: 10px; font-weight: 600; letter-spacing: .05em;
+  padding: 3px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+}
+.floor-badge.avail { background: rgba(34,197,94,.15); color: #4ADE80; }
+.floor-badge.bpjs { background: rgba(59,126,248,.15); color: #93C5FD; }
+.floor-badge.fac { background: rgba(200,150,26,.15); color: var(--gold-light); }
+.floor-visual {
+  position: sticky; top: 88px;
+  background: rgba(255,255,255,.04); border: 0.5px solid rgba(255,255,255,.1);
+  border-radius: var(--radius-xl); padding: 32px; overflow: hidden;
+}
+.building-diagram { display: flex; flex-direction: column-reverse; gap: 3px; }
+.bd-floor {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 12px; border-radius: 6px; transition: all .2s; cursor: pointer;
+}
+.bd-floor:hover, .bd-floor.highlight { background: rgba(255,255,255,.07); }
+.bd-floor-num { font-size: 10px; color: rgba(255,255,255,.35); width: 32px; text-align: right; flex-shrink: 0; }
+.bd-floor-bar-wrap { flex: 1; height: 8px; border-radius: 4px; overflow: hidden; background: rgba(255,255,255,.05); }
+.bd-floor-bar { height: 100%; border-radius: 4px; }
+.bd-floor-name { font-size: 10px; color: rgba(255,255,255,.45); min-width: 120px; }
+.bar-bpjs { background: #3B7EF8; }
+.bar-avail { background: #4ADE80; }
+.bar-fac { background: var(--gold-light); }
+.bar-other { background: rgba(255,255,255,.15); }
+.bd-legend { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+.bd-leg-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(255,255,255,.45); }
+.bd-leg-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
 
-  /* Hero amenity — big photo card */
-  .amenities-hero { position: relative; overflow: hidden; height: 420px; margin-bottom: 6px; cursor: pointer; }
-  .amenities-hero img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; display: block; }
-  .amenities-hero:hover img { transform: scale(1.04); }
-  .amenities-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,27,46,0.92) 0%, rgba(13,27,46,0.3) 50%, transparent 100%); }
-  .amenities-hero-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2.5rem 3rem; }
-  .amenities-hero-tag { display: inline-block; background: var(--gold); color: var(--navy); padding: 4px 14px; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; margin-bottom: 1rem; }
-  .amenities-hero-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 0.75rem; }
-  .amenities-hero-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 560px; }
-  .amenities-hero-floor { position: absolute; top: 2rem; right: 2rem; text-align: center; background: rgba(13,27,46,0.7); border: 1px solid rgba(184,152,58,0.4); padding: 0.75rem 1rem; backdrop-filter: blur(8px); }
-  .amenities-hero-floor .floor-big { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--gold); display: block; line-height: 1; }
-  .amenities-hero-floor .floor-small { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); display: block; margin-top: 4px; }
+/* ─── FACILITIES ─── */
+.facilities { padding: 100px 0; background: var(--white); }
+.fac-header { text-align: center; margin-bottom: 56px; }
+.fac-header .section-sub { margin: 10px auto 0; }
+.fac-hero-card {
+  background: var(--navy); border-radius: var(--radius-xl); overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1.2fr; margin-bottom: 20px;
+}
+.fhc-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+.fhc-content h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: white; }
+.fhc-content p { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.75; margin-top: 12px; }
+.fhc-features { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+.fhc-feature { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,.7); }
+.fhc-feature-icon {
+  width: 24px; height: 24px; border-radius: 6px; background: rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.fhc-feature-icon svg { width: 12px; height: 12px; fill: var(--gold-light); }
+.fhc-tag { font-size: 11px; font-weight: 600; color: var(--gold-light); background: rgba(200,150,26,.15); padding: 3px 10px; border-radius: 999px; margin-top: 20px; display: inline-flex; align-items: center; gap: 6px; }
+.fhc-image { overflow: hidden; }
+.fhc-image img { width: 100%; height: 100%; object-fit: cover; }
+.fac-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.fac-card {
+  background: var(--off-white); border: 0.5px solid var(--gray-100);
+  border-radius: var(--radius-lg); padding: 24px; transition: all .2s;
+}
+.fac-card:hover { background: white; border-color: var(--gray-300); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(6,25,74,.08); }
+.fac-icon {
+  width: 44px; height: 44px; border-radius: 10px; background: #EBF1FF;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: var(--blue);
+}
+.fac-icon svg { width: 20px; height: 20px; fill: currentColor; }
+.fac-card h4 { font-size: 15px; font-weight: 600; color: var(--navy); }
+.fac-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-top: 6px; }
+.fac-floor { font-size: 12px; color: var(--blue); font-weight: 500; margin-top: 12px; display: flex; align-items: center; gap: 5px; }
+.fac-floor svg { width: 12px; height: 12px; fill: currentColor; }
 
-  /* Secondary grid */
-  .amenities-secondary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 6px; }
-  .amenity-photo-card { position: relative; overflow: hidden; height: 260px; cursor: pointer; }
-  .amenity-photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
-  .amenity-photo-card:hover img { transform: scale(1.06); }
-  .amenity-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,27,46,0.88) 0%, transparent 55%); }
-  .amenity-photo-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; }
-  .amenity-photo-floor { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--gold); display: block; line-height: 1; }
-  .amenity-photo-name { font-size: 0.88rem; font-weight: 500; color: var(--white); margin: 0.35rem 0 0.25rem; }
-  .amenity-photo-desc { font-size: 0.75rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
-  .amenity-photo-tag { position: absolute; top: 1rem; left: 1rem; background: rgba(13,27,46,0.75); border: 1px solid rgba(184,152,58,0.35); padding: 3px 10px; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); backdrop-filter: blur(4px); }
+/* ─── PRICING ─── */
+.pricing { padding: 100px 0; background: var(--gray-50); }
+.pricing-header { text-align: center; margin-bottom: 48px; }
+.pricing-header .section-sub { margin: 10px auto 0; }
+.pricing-toggle {
+  display: flex; background: white; border: 0.5px solid var(--gray-100);
+  border-radius: 10px; padding: 4px; width: fit-content; margin: 24px auto 0;
+}
+.ptog-btn {
+  padding: 8px 24px; border-radius: 8px; font-size: 13px; font-weight: 500;
+  color: var(--text-muted); transition: all .2s;
+}
+.ptog-btn.active { background: var(--navy); color: white; }
+.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.price-card {
+  background: white; border: 0.5px solid var(--gray-100);
+  border-radius: var(--radius-xl); overflow: hidden; transition: all .2s;
+}
+.price-card:hover { box-shadow: 0 8px 32px rgba(6,25,74,.08); }
+.price-card.featured { border: 2px solid var(--navy); }
+.pc-head { padding: 28px 28px 20px; border-bottom: 0.5px solid var(--gray-100); }
+.price-card.featured .pc-head { background: var(--navy); border-bottom: none; }
+.pc-head-top { display: flex; align-items: center; justify-content: space-between; }
+.pc-head h3 { font-size: 18px; font-weight: 600; color: var(--navy); }
+.price-card.featured .pc-head h3 { color: white; }
+.pc-badge { font-size: 11px; font-weight: 600; background: rgba(255,255,255,.18); color: rgba(255,255,255,.85); padding: 4px 12px; border-radius: 999px; }
+.pc-desc { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+.price-card.featured .pc-desc { color: rgba(255,255,255,.5); }
+.pc-body { padding: 20px 28px; }
+.pc-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0; border-bottom: 0.5px solid var(--gray-50);
+}
+.pc-row:last-child { border-bottom: none; }
+.pc-row-left { display: flex; align-items: center; gap: 10px; }
+.pc-row-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--gray-50); display: flex; align-items: center; justify-content: center; }
+.pc-row-icon svg { width: 14px; height: 14px; fill: var(--gray-500); }
+.pc-row-name { font-size: 13px; color: var(--text-muted); }
+.pc-row-tag { font-size: 11px; background: var(--gray-50); color: var(--gray-500); padding: 2px 7px; border-radius: 999px; margin-left: 4px; }
+.pc-price { font-size: 15px; font-weight: 600; color: var(--navy); }
+.price-card.featured .pc-price { color: var(--blue-light); }
+.pricing-note { text-align: center; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
+.pricing-note a { color: var(--blue); }
 
-  /* Info strip at bottom */
-  .amenities-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .amenity-strip-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; transition: background 0.2s, border-color 0.2s; }
-  .amenity-strip-item:hover { background: rgba(184,152,58,0.07); border-color: rgba(184,152,58,0.25); }
-  .amenity-strip-icon { width: 42px; height: 42px; background: rgba(184,152,58,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-  .amenity-strip-name { font-size: 0.85rem; font-weight: 500; color: var(--white); margin-bottom: 3px; }
-  .amenity-strip-desc { font-size: 0.72rem; color: rgba(255,255,255,0.4); line-height: 1.4; }
+/* ─── TENANTS ─── */
+.tenants { padding: 80px 0; background: white; overflow: hidden; }
+.tenants-header { text-align: center; margin-bottom: 40px; }
+.tenants-strip {
+  display: flex; gap: 12px;
+  animation: tenantScroll 20s linear infinite;
+  width: max-content;
+}
+.tenants-strip:hover { animation-play-state: paused; }
+.tenant-chip {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--gray-50); border: 0.5px solid var(--gray-100);
+  border-radius: 10px; padding: 12px 20px; white-space: nowrap; flex-shrink: 0;
+}
+.tenant-chip-icon { width: 32px; height: 32px; border-radius: 8px; background: #EBF1FF; display: flex; align-items: center; justify-content: center; }
+.tenant-chip-icon svg { width: 16px; height: 16px; fill: var(--blue); }
+.tenant-chip strong { font-size: 13px; font-weight: 600; color: var(--navy); }
+.tenant-chip span { font-size: 11px; color: var(--text-muted); display: block; }
+@keyframes tenantScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-  /* ─── REVIEWS ─── */
-  #reviews { background: var(--navy-mid); padding: 7rem 4rem; }
-  .reviews-inner { max-width: 1200px; margin: 0 auto; }
-  .reviews-header { text-align: center; margin-bottom: 4rem; }
-  .reviews-header .section-title { color: var(--white); }
-  .reviews-header .section-divider { margin: 1.5rem auto; }
-  .reviews-rating-big { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem; }
-  .reviews-rating-big .num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: var(--gold); }
-  .reviews-rating-big .stars { display: flex; gap: 4px; }
-  .star { color: var(--gold); font-size: 1.2rem; }
-  .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-  .review-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; transition: border-color 0.3s; }
-  .review-card:hover { border-color: rgba(184,152,58,0.3); }
-  .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
-  .review-avatar { width: 40px; height: 40px; background: var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 0.9rem; color: var(--navy); border-radius: 50%; flex-shrink: 0; }
-  .review-name { font-size: 0.9rem; font-weight: 500; color: var(--white); }
-  .review-date { font-size: 0.72rem; color: rgba(255,255,255,0.35); }
-  .review-stars { display: flex; gap: 3px; margin-bottom: 0.75rem; }
-  .review-stars .star { font-size: 0.85rem; }
-  .review-text { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
-  .google-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06); padding: 6px 14px; border-radius: 2px; margin-bottom: 2rem; }
-  .google-badge img { width: 16px; height: 16px; }
-  .google-badge span { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+/* ─── REVIEWS ─── */
+.reviews { padding: 100px 0; background: var(--off-white); }
+.reviews-header { margin-bottom: 48px; }
+.reviews-header-inner { display: flex; align-items: flex-end; justify-content: space-between; }
+.rev-summary {
+  display: flex; align-items: center; gap: 24px;
+  background: white; border: 0.5px solid var(--gray-100); border-radius: var(--radius-xl);
+  padding: 28px 32px; margin-top: 20px;
+}
+.rev-big-num { font-size: 64px; font-weight: 700; line-height: 1; color: var(--navy); font-family: 'Playfair Display', serif; }
+.rev-right { flex: 1; }
+.rev-stars-big { display: flex; gap: 3px; margin-bottom: 6px; }
+.rev-star-big { color: #F59E0B; font-size: 22px; }
+.rev-star-half { color: #F59E0B; font-size: 22px; opacity: .5; }
+.rev-source-line { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); }
+.g-logo { font-weight: 700; color: #4285F4; letter-spacing: -.01em; }
+.rev-bars { flex: 1.5; }
+.rev-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.rev-bar-row:last-child { margin-bottom: 0; }
+.rev-bar-label { font-size: 12px; color: var(--text-muted); width: 12px; text-align: center; }
+.rev-bar-track { flex: 1; height: 6px; background: var(--gray-100); border-radius: 3px; overflow: hidden; }
+.rev-bar-fill { height: 100%; background: #F59E0B; border-radius: 3px; }
+.rev-bar-pct { font-size: 11px; color: var(--text-muted); width: 28px; text-align: right; }
 
-  /* ─── TENANTS ─── */
-  #tenants { background: var(--cream); padding: 5rem 4rem; }
-  .tenants-inner { max-width: 1200px; margin: 0 auto; }
-  .tenants-header { text-align: center; margin-bottom: 3rem; }
-  .tenants-label { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
-  .tenants-grid { display: flex; flex-wrap: wrap; gap: 0; justify-content: center; border: 1px solid rgba(0,0,0,0.08); }
-  .tenant-logo {
-    width: calc(100% / 5); padding: 2rem; display: flex; align-items: center; justify-content: center;
-    border-right: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08);
-    transition: background 0.2s; min-height: 100px;
-  }
-  .tenant-logo:nth-child(5n) { border-right: none; }
-  .tenant-logo:hover { background: var(--white); }
-  .tenant-logo-inner { text-align: center; }
-  .tenant-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--navy); letter-spacing: 0.05em; }
-  .tenant-logo-type { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-top: 3px; }
-  .tenant-logo-icon { font-size: 1.6rem; margin-bottom: 4px; }
+.rev-nav-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.rev-arrows { display: flex; gap: 8px; }
+.rev-arrow-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: white; border: 0.5px solid var(--gray-100);
+  color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+  font-size: 16px; transition: all .2s;
+}
+.rev-arrow-btn:hover { background: var(--navy); color: white; border-color: var(--navy); }
+.rev-viewport { overflow: hidden; }
+.rev-track { display: flex; gap: 16px; transition: transform .4s ease; }
+.rev-card {
+  min-width: calc(50% - 8px); background: white;
+  border: 0.5px solid var(--gray-100); border-radius: var(--radius-lg);
+  padding: 24px; flex-shrink: 0;
+}
+.rc-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.rc-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: #EBF1FF; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; color: var(--blue); flex-shrink: 0;
+}
+.rc-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+.rc-date { font-size: 12px; color: var(--text-muted); }
+.rc-stars { display: flex; gap: 2px; }
+.rc-star { color: #F59E0B; font-size: 14px; }
+.rc-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+.rc-source { display: flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 12px; color: var(--gray-300); }
+.rc-g { font-weight: 700; color: #4285F4; font-size: 13px; }
+.rev-dots { display: flex; gap: 6px; justify-content: center; margin-top: 20px; }
+.rev-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gray-100); border: none; cursor: pointer; padding: 0; transition: all .3s; }
+.rev-dot.active { background: var(--navy); width: 24px; border-radius: 4px; }
 
-  /* ─── CONTACT ─── */
-  #contact { background: var(--navy); padding: 7rem 4rem; }
-  .contact-inner { max-width: 1100px; margin: 0 auto; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-  .contact-info .section-title { color: var(--white); }
-  .contact-info .section-divider { }
-  .contact-body { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.8; margin-bottom: 2rem; }
-  .contact-items { display: flex; flex-direction: column; gap: 1.5rem; }
-  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
-  .contact-item-icon { width: 40px; height: 40px; border: 1px solid rgba(184,152,58,0.3); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1rem; flex-shrink: 0; }
-  .contact-item-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
-  .contact-item-val { font-size: 0.9rem; color: var(--white); }
-  .contact-item-val a { color: var(--gold); text-decoration: none; }
-  .contact-item-val a:hover { text-decoration: underline; }
-  .contact-form-wrap { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; }
-  .form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: 0.5rem; }
-  .form-sub { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin-bottom: 2rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-group { margin-bottom: 1.2rem; }
-  .form-group label { display: block; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
-  .form-group input, .form-group select, .form-group textarea {
-    width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    color: var(--white); padding: 10px 14px; font-size: 0.88rem; font-family: 'DM Sans', sans-serif;
-    outline: none; transition: border-color 0.2s;
-  }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
-  .form-group select option { background: var(--navy); }
-  .form-group textarea { resize: vertical; min-height: 90px; }
-  .form-actions { display: flex; gap: 1rem; margin-top: 0.5rem; }
-  .btn-wa { background: #25D366; color: white; padding: 12px 24px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.05em; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background 0.2s; text-decoration: none; }
-  .btn-wa:hover { background: #1ebd5a; }
-  .btn-mail { background: none; border: 1px solid rgba(255,255,255,0.2); color: var(--white); padding: 12px 24px; font-size: 0.82rem; letter-spacing: 0.05em; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; text-decoration: none; }
-  .btn-mail:hover { border-color: var(--gold); color: var(--gold); }
+/* ─── CONTACT ─── */
+.contact { padding: 100px 0; background: var(--navy); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.contact-info h2 { color: white; }
+.contact-info .section-sub { color: rgba(255,255,255,.55); }
+.contact-cards { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+.contact-card {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(255,255,255,.06); border: 0.5px solid rgba(255,255,255,.1);
+  border-radius: var(--radius-md); padding: 16px 18px; transition: all .2s;
+}
+.contact-card:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); }
+.cc-icon {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.cc-icon.wa { background: rgba(37,211,102,.2); color: #25D366; }
+.cc-icon.blue { background: rgba(21,86,200,.3); color: #93C5FD; }
+.cc-icon.gold { background: rgba(200,150,26,.2); color: var(--gold-light); }
+.cc-icon svg { width: 18px; height: 18px; fill: currentColor; }
+.cc-label { font-size: 11px; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .07em; }
+.cc-value { font-size: 14px; font-weight: 500; color: white; margin-top: 2px; }
+.social-links { display: flex; gap: 10px; margin-top: 24px; }
+.social-link {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(255,255,255,.08); border: 0.5px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.6); font-size: 16px; transition: all .2s;
+}
+.social-link:hover { background: rgba(255,255,255,.16); color: white; }
+.social-link svg { width: 16px; height: 16px; fill: currentColor; }
+.contact-form {
+  background: rgba(255,255,255,.04); border: 0.5px solid rgba(255,255,255,.1);
+  border-radius: var(--radius-xl); padding: 36px;
+}
+.contact-form h3 { font-size: 18px; font-weight: 600; color: white; margin-bottom: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label { font-size: 12px; font-weight: 500; color: rgba(255,255,255,.5); letter-spacing: .05em; text-transform: uppercase; }
+.form-field input, .form-field select, .form-field textarea {
+  background: rgba(255,255,255,.06); border: 0.5px solid rgba(255,255,255,.15);
+  border-radius: 8px; padding: 12px 14px; font-size: 14px; color: white;
+  font-family: 'Inter', sans-serif; transition: all .2s; outline: none;
+  -webkit-appearance: none;
+}
+.form-field input::placeholder, .form-field textarea::placeholder { color: rgba(255,255,255,.25); }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  border-color: var(--blue-light); background: rgba(255,255,255,.09);
+}
+.form-field select option { background: var(--navy); color: white; }
+.form-field textarea { resize: vertical; min-height: 90px; }
+.form-btns { display: flex; gap: 10px; margin-top: 20px; }
+.btn-wa-full {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: #25D366; color: white; font-size: 14px; font-weight: 600;
+  padding: 14px; border-radius: 10px; transition: background .2s;
+}
+.btn-wa-full:hover { background: #1ebc58; }
+.btn-email-full {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: rgba(255,255,255,.08); color: rgba(255,255,255,.8); font-size: 14px;
+  padding: 14px; border-radius: 10px; border: 0.5px solid rgba(255,255,255,.15);
+  transition: all .2s;
+}
+.btn-email-full:hover { background: rgba(255,255,255,.14); }
 
-  /* ─── BOOKING CTA ─── */
-  #booking-cta { background: var(--gold); padding: 5rem 4rem; text-align: center; }
-  .booking-cta-inner { max-width: 700px; margin: 0 auto; }
-  .booking-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,5vw,3.5rem); font-weight: 300; color: var(--navy); margin-bottom: 1rem; }
-  .booking-body { color: rgba(13,27,46,0.7); font-size: 0.95rem; margin-bottom: 2.5rem; }
-  .btn-dark { background: var(--navy); color: var(--white); padding: 14px 36px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; gap: 10px; }
-  .btn-dark:hover { background: var(--navy-soft); }
+/* ─── CTA BANNER ─── */
+.cta-banner {
+  background: var(--gold); padding: 60px 0;
+}
+.cta-banner-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+}
+.cta-banner h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: white; font-weight: 700; }
+.cta-banner p { font-size: 15px; color: rgba(255,255,255,.75); margin-top: 6px; }
+.cta-banner-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white; color: var(--gold); font-size: 14px; font-weight: 600;
+  padding: 14px 28px; border-radius: 10px; transition: all .2s;
+}
+.btn-white:hover { background: rgba(255,255,255,.9); transform: translateY(-1px); }
+.btn-outline-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: white; font-size: 14px; font-weight: 500;
+  padding: 14px 28px; border-radius: 10px; border: 2px solid rgba(255,255,255,.5);
+  transition: all .2s;
+}
+.btn-outline-white:hover { border-color: white; background: rgba(255,255,255,.1); }
 
-  /* ─── FOOTER ─── */
-  footer { background: #060E1A; padding: 4rem 4rem 2rem; }
-  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .footer-brand .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: 0.25rem; }
-  .footer-brand .logo-sub { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); }
-  .footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.8; margin-top: 1rem; max-width: 260px; }
-  .footer-social { display: flex; gap: 10px; margin-top: 1.5rem; }
-  .social-btn { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 0.75rem; text-decoration: none; transition: all 0.2s; }
-  .social-btn:hover { border-color: var(--gold); color: var(--gold); }
-  .footer-col h4 { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 0.6rem; }
-  .footer-col ul li a { font-size: 0.82rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-  .footer-col ul li a:hover { color: var(--white); }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; flex-wrap: gap; }
-  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
-  .footer-sip { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
-  .footer-sip a { color: var(--gold); text-decoration: none; }
+/* ─── FOOTER ─── */
+.footer { background: #040E2E; padding: 64px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+.footer-brand-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.footer-brand-box { width: 36px; height: 36px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.footer-brand-box svg { width: 18px; height: 18px; fill: white; }
+.footer-brand-text strong { font-size: 15px; font-weight: 600; color: white; }
+.footer-brand-text span { font-size: 11px; color: rgba(255,255,255,.35); }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.7; }
+.footer-brand-socials { display: flex; gap: 8px; margin-top: 16px; }
+.footer-social {
+  width: 32px; height: 32px; border-radius: 7px;
+  background: rgba(255,255,255,.07); border: 0.5px solid rgba(255,255,255,.08);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.4); transition: all .2s;
+}
+.footer-social:hover { background: rgba(255,255,255,.14); color: rgba(255,255,255,.8); }
+.footer-social svg { width: 14px; height: 14px; fill: currentColor; }
+.footer-col h4 { font-size: 11px; font-weight: 600; color: rgba(255,255,255,.35); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 9px; transition: color .2s; }
+.footer-col a:hover { color: rgba(255,255,255,.85); }
+.footer-bottom {
+  margin-top: 48px; padding: 20px 0; border-top: 0.5px solid rgba(255,255,255,.07);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,.3); }
+.footer-bottom a { color: rgba(255,255,255,.45); }
 
-  /* ─── FLOATING WA ─── */
-  .floating-wa {
-    position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
-    width: 56px; height: 56px; background: #25D366; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none;
-    transition: transform 0.2s;
-  }
-  .floating-wa:hover { transform: scale(1.1); }
-  .floating-wa svg { width: 28px; height: 28px; fill: white; }
-  .floating-wa-pulse {
-    position: absolute; inset: -4px; border-radius: 50%;
-    border: 2px solid rgba(37,211,102,0.4); animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0% { transform: scale(1); opacity:1; } 100% { transform: scale(1.4); opacity:0; } }
+/* ─── WA FLOAT ─── */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 99;
+  width: 54px; height: 54px; border-radius: 50%;
+  background: #25D366; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(37,211,102,.4);
+  animation: waFloat 3s ease-in-out infinite;
+  transition: transform .2s;
+}
+.wa-float:hover { transform: scale(1.1); }
+.wa-float svg { width: 26px; height: 26px; fill: white; }
+@keyframes waFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+.wa-float:hover { animation: none; transform: scale(1.1); }
 
-  /* ─── MOBILE ─── */
-  @media (max-width: 900px) {
-    nav { padding: 0 1.5rem; }
-    .nav-links, .nav-cta { display: none; }
-    .nav-burger { display: block; }
-    #hero .hero-stats { display: none; }
-    .about-grid, .contact-grid, .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-    .about-img-accent { display: none; }
-    #about, #floors, #amenities, #reviews, #tenants, #contact { padding: 4rem 1.5rem; }
-    .reviews-grid, .amenities-grid { grid-template-columns: 1fr; }
-    .gallery-slide { min-width: 280px; }
-    .tenant-logo { width: 33.33%; }
-    .tenant-logo:nth-child(5n) { border-right: 1px solid rgba(0,0,0,0.08); }
-    .tenant-logo:nth-child(3n) { border-right: none; }
-    .form-row { grid-template-columns: 1fr; }
-    footer { padding: 3rem 1.5rem 1.5rem; }
-    .floor-guide { grid-template-columns: 1fr 1fr; }
-    .hero-actions { flex-direction: column; align-items: center; }
-  }
+/* ─── SCROLL REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
 </style>
 </head>
 <body>
 
-<!-- PRELOADER -->
-<div id="preloader">
-  <div class="preloader-logo">
-    <div class="brand">Plaza BPJamsostek</div>
-    <div class="sub">Grade A · Kuningan · Jakarta</div>
-  </div>
-  <div class="preloader-bar"><div class="preloader-fill"></div></div>
-</div>
-
-<!-- FLOATING WA -->
-<a href="https://wa.me/6285211566707?text=Halo%2C%20saya%20ingin%20informasi%20mengenai%20Plaza%20BPJamsostek." class="floating-wa" target="_blank" title="Chat via WhatsApp">
-  <div class="floating-wa-pulse"></div>
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+<!-- WA FLOAT -->
+<a href="https://wa.me/6285211566707?text=Halo%2C%20saya%20ingin%20informasi%20mengenai%20Plaza%20BPJamsostek." class="wa-float" aria-label="Hubungi via WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <nav id="navbar">
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-mark"><span>P</span></div>
-    <div class="nav-logo-text">
-      <span class="l1">Plaza BPJamsostek</span>
-      <span class="l2">Grade A Office Tower</span>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-box">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      </div>
+      <div class="nav-logo-text">
+        <strong>Plaza BPJamsostek</strong>
+        <span>Grade A · Kuningan, Jakarta</span>
+      </div>
     </div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">Tentang</a></li>
-    <li><a href="#floors">Lantai</a></li>
-    <li><a href="#amenities">Fasilitas</a></li>
-    <li><a href="#reviews">Review</a></li>
-    <li><a href="#tenants">Tenant</a></li>
-    <li><a href="#contact">Kontak</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Sewa Sekarang</a>
-  <button class="nav-burger" onclick="toggleMobileMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+    <div class="nav-links">
+      <a href="#about">Tentang</a>
+      <a href="#floors">Lantai</a>
+      <a href="#facilities">Fasilitas</a>
+      <a href="#pricing">Tarif</a>
+      <a href="#reviews">Review</a>
+      <a href="#contact">Kontak</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://wa.me/6285211566707" class="nav-wa">
+        <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="#contact" class="nav-sewa">
+        <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:white"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        Sewa Sekarang
+      </a>
+    </div>
+  </div>
 </nav>
 
-<!-- ─── HERO ─── -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-overlay"></div>
+<!-- HERO -->
+<section class="hero" id="hero-section">
+  <div class="hero-slide active" id="hs0">
+    <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-jamsostek.jpg" alt="Plaza BPJamsostek tampak depan" loading="eager">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-slide" id="hs1">
+    <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek.jpg" alt="Eksterior Plaza BPJamsostek" loading="lazy">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-slide" id="hs2">
+    <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-3.jpg" alt="Area Plaza BPJamsostek" loading="lazy">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-slide" id="hs3">
+    <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-2.jpg" alt="Interior Plaza BPJamsostek" loading="lazy">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-slide" id="hs4">
+    <img src="https://www.sinergiinvestasiproperti.co.id/media/library/bj-jamsostek.jpg" alt="Plaza BPJamsostek green building" loading="lazy">
+    <div class="hero-overlay"></div>
+  </div>
+
   <div class="hero-content">
-    <div class="hero-badge">Grade A · Green Building Certified</div>
-    <h1 class="hero-title">Plaza<br><em>BPJamsostek</em></h1>
-    <p class="hero-subtitle">Jl. HR Rasuna Said Kav 112B, Kuningan, Jakarta</p>
-    <div class="hero-divider"></div>
-    <p class="hero-desc">Gedung perkantoran kelas premium bersertifikasi Green Building dengan lokasi strategis di jantung kawasan bisnis Kuningan, Jakarta Selatan.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Jadwalkan Kunjungan</a>
-      <a href="#floors" class="btn-outline">Lihat Denah Lantai</a>
+    <div class="hero-eyebrow">
+      <div class="hero-dot"></div>
+      <span>Grade A · Green Building Certified · Kuningan Jakarta</span>
+    </div>
+    <h1>Plaza <em>BPJamsostek</em></h1>
+    <div class="hero-address">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Jl. HR Rasuna Said Kav 112B, Kuningan, Setiabudi, Jakarta 12930
+    </div>
+    <p class="hero-desc">Gedung perkantoran premium bersertifikasi Green Building dengan fasilitas ballroom, gym, food court, dan ruang meeting berstandar internasional.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-gold">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="white" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke="white" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke="white" stroke-width="2"/></svg>
+        Jadwalkan Kunjungan
+      </a>
+      <a href="#floors" class="btn-outline-w">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:white;stroke-width:2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Lihat Denah Lantai
+      </a>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat"><span class="hero-stat-num">26.782</span><span class="hero-stat-label">m² Luas Area</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">30</span><span class="hero-stat-label">Lantai</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">Grade A</span><span class="hero-stat-label">Klasifikasi</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">Green</span><span class="hero-stat-label">Bersertifikasi</span></div>
+
+  <div class="hero-stats-side">
+    <div class="hss-card"><strong>26.782</strong><span>m² Total Area</span></div>
+    <div class="hss-card"><strong>30</strong><span>Lantai</span></div>
+    <div class="hss-card"><strong>Grade A</strong><span>Klasifikasi</span></div>
+    <div class="hss-card"><strong>4.5 ★</strong><span>Google Rating</span></div>
   </div>
+
+  <div class="hero-controls">
+    <div class="hero-dots" id="hero-dots">
+      <button class="hero-dot-btn active" data-i="0" aria-label="Foto 1"></button>
+      <button class="hero-dot-btn" data-i="1" aria-label="Foto 2"></button>
+      <button class="hero-dot-btn" data-i="2" aria-label="Foto 3"></button>
+      <button class="hero-dot-btn" data-i="3" aria-label="Foto 4"></button>
+      <button class="hero-dot-btn" data-i="4" aria-label="Foto 5"></button>
+    </div>
+    <div class="hero-nav-btns">
+      <button class="hero-nav-btn" id="hp" aria-label="Sebelumnya">&#8592;</button>
+      <button class="hero-nav-btn" id="hn" aria-label="Berikutnya">&#8594;</button>
+    </div>
+    <span class="slide-counter" id="sc">01 / 05</span>
+  </div>
+
   <div class="hero-scroll">
-    <span>Scroll</span>
     <div class="scroll-line"></div>
+    <span>Scroll</span>
   </div>
 </section>
 
-<!-- ─── GALLERY ─── -->
-<section id="gallery">
-  <div class="gallery-header">
-    <div class="section-label">📸 Instagram @plazabpjamsostek</div>
-    <h2 class="section-title">Galeri &amp; Foto Gedung</h2>
-    <div class="section-divider" style="margin:1.5rem auto;"></div>
-    <p>Temukan keindahan dan kecanggihan Plaza BPJamsostek lewat galeri kami</p>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-item">
+    <div class="sbi-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+    <div class="sbi-text"><strong>26.782 m²</strong><span>Total luas area</span></div>
   </div>
-  <div class="gallery-track-wrap">
-    <div class="gallery-track" id="galleryTrack">
-      <div class="gallery-slide">
-        <div class="gallery-placeholder">
-          <img class="gallery-real-img" src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-jamsostek.jpg" alt="Gedung Plaza BPJamsostek tampak depan" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div style="display:none;width:100%;height:100%;background:linear-gradient(135deg,#1A3050,#0D2340);align-items:center;justify-content:center;"><span style="color:rgba(184,152,58,0.5);font-size:3rem;">🏢</span></div>
+  <div class="stats-bar-item">
+    <div class="sbi-icon"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+    <div class="sbi-text"><strong>30 Lantai</strong><span>Tinggi gedung</span></div>
+  </div>
+  <div class="stats-bar-item">
+    <div class="sbi-icon"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+    <div class="sbi-text"><strong>Grade A</strong><span>Klasifikasi gedung</span></div>
+  </div>
+  <div class="stats-bar-item">
+    <div class="sbi-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+    <div class="sbi-text"><strong>Green Building</strong><span>Bersertifikasi</span></div>
+  </div>
+  <div class="stats-bar-item">
+    <div class="sbi-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+    <div class="sbi-text"><strong>1000+ Tamu</strong><span>Kapasitas ballroom</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-images">
+        <div class="about-img-main">
+          <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-jamsostek.jpg" alt="Gedung Plaza BPJamsostek">
         </div>
-        <div class="gallery-slide-caption">🏢 Gedung Plaza BPJamsostek — Tampak Depan, Kuningan Jakarta</div>
+        <div class="about-img-float">
+          <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-2.jpg" alt="Interior gedung">
+        </div>
+        <div class="green-badge">
+          <div class="green-badge-dot"></div>
+          <span>Green Building Certified</span>
+        </div>
       </div>
-      <div class="gallery-slide">
-        <div class="gallery-placeholder">
-          <img class="gallery-real-img" src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek.jpg" alt="Plaza BPJamsostek eksterior" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div style="display:none;width:100%;height:100%;background:linear-gradient(135deg,#0D2340,#243550);align-items:center;justify-content:center;"><span style="color:rgba(184,152,58,0.5);font-size:3rem;">🏢</span></div>
+      <div class="about-text">
+        <div class="label-tag">Tentang gedung</div>
+        <h2 class="section-title">Gedung perkantoran Grade A premium</h2>
+        <p>Plaza BPJamsostek adalah gedung perkantoran kelas premium bersertifikasi Green Building yang berlokasi strategis di Jl. HR Rasuna Said Kav 112B, Kuningan, Jakarta Selatan.</p>
+        <p>Dikelola oleh <strong>PT Sinergi Investasi Properti</strong> — anak perusahaan BPJS Ketenagakerjaan — gedung ini hadir sebagai ekosistem bisnis lengkap: ruang kantor, ballroom premium, gym SinergiFit, food court satu lantai penuh, dan parkir luas berkapasitas tinggi.</p>
+        <div class="about-chips">
+          <span class="chip"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg> 30 Lantai</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Eco-certified</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> CBD Kuningan</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Keamanan 24 jam</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Video conferencing</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> Akses 24 jam</span>
         </div>
-        <div class="gallery-slide-caption">🏢 Eksterior Plaza BPJamsostek — Grade A Green Building</div>
-      </div>
-      <div class="gallery-slide">
-        <div class="gallery-placeholder">
-          <img class="gallery-real-img" src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-3.jpg" alt="Plaza BPJamsostek area gedung" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div style="display:none;width:100%;height:100%;background:linear-gradient(135deg,#243550,#1A2E45);align-items:center;justify-content:center;"><span style="color:rgba(184,152,58,0.5);font-size:3rem;">🏢</span></div>
+        <div class="about-cta-row">
+          <a href="#contact" class="btn-navy">
+            <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:white"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10" stroke="white" stroke-width="2"/></svg>
+            Jadwalkan Kunjungan
+          </a>
+          <a href="#" class="btn-outline-navy">
+            <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Company Profile
+          </a>
         </div>
-        <div class="gallery-slide-caption">✨ Area & Lingkungan Plaza BPJamsostek</div>
-      </div>
-      <div class="gallery-slide">
-        <div class="gallery-placeholder">
-          <img class="gallery-real-img" src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-2.jpg" alt="Plaza BPJamsostek interior" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div style="display:none;width:100%;height:100%;background:linear-gradient(135deg,#1A2E45,#0D1B2E);align-items:center;justify-content:center;"><span style="color:rgba(184,152,58,0.5);font-size:3rem;">🏢</span></div>
-        </div>
-        <div class="gallery-slide-caption">🌟 Interior & Fasilitas Premium Plaza BPJamsostek</div>
-      </div>
-      <div class="gallery-slide">
-        <div class="gallery-placeholder">
-          <img class="gallery-real-img" src="https://www.sinergiinvestasiproperti.co.id/media/library/bj-jamsostek.jpg" alt="Plaza BPJamsostek hero" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div style="display:none;width:100%;height:100%;background:linear-gradient(135deg,#0D1B2E,#1A3050);align-items:center;justify-content:center;"><span style="color:rgba(184,152,58,0.5);font-size:3rem;">🌿</span></div>
-        </div>
-        <div class="gallery-slide-caption">🌿 Plaza BPJamsostek — Bersertifikat Green Building</div>
       </div>
     </div>
-  </div>
-  <div class="gallery-nav">
-    <button class="gallery-btn" onclick="scrollGallery(-1)">&#8592;</button>
-    <div class="gallery-dots" id="galleryDots">
-      <div class="gallery-dot active"></div>
-      <div class="gallery-dot"></div>
-      <div class="gallery-dot"></div>
-      <div class="gallery-dot"></div>
-      <div class="gallery-dot"></div>
-    </div>
-    <button class="gallery-btn" onclick="scrollGallery(1)">&#8594;</button>
-  </div>
-  <div class="instagram-cta">
-    <a href="https://www.instagram.com/plazabpjamsostek/" target="_blank">
-      📷 &nbsp;Ikuti kami di Instagram @plazabpjamsostek &nbsp;→
-    </a>
   </div>
 </section>
 
-<!-- ─── ABOUT ─── -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-visual">
-      <div class="about-photo-mosaic">
-        <div class="mosaic-main">
-          <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-jamsostek.jpg"
-               alt="Gedung Plaza BPJamsostek tampak depan"
-               onerror="this.parentElement.style.background='linear-gradient(135deg,#1A3050,#0D2340)';this.style.display='none'">
-          <div class="mosaic-label">Tampak Depan</div>
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <div class="label-tag">Galeri foto</div>
+      <h2 class="section-title">Lihat gedungnya</h2>
+      <p class="section-sub">Foto-foto asli Plaza BPJamsostek — eksterior, interior, dan area fasilitas unggulan.</p>
+    </div>
+    <div class="gallery-mosaic reveal">
+      <div class="g-cell g-cell-tall">
+        <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-jamsostek.jpg" alt="Tampak depan Plaza BPJamsostek">
+        <div class="g-cell-label">Tampak depan — Jl. HR Rasuna Said</div>
+      </div>
+      <div class="g-cell">
+        <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek.jpg" alt="Eksterior Plaza BPJamsostek">
+        <div class="g-cell-label">Eksterior — Grade A</div>
+      </div>
+      <div class="g-cell">
+        <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-3.jpg" alt="Area Plaza BPJamsostek">
+        <div class="g-cell-label">Area gedung</div>
+      </div>
+      <div class="g-cell">
+        <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-2.jpg" alt="Interior Plaza BPJamsostek">
+        <div class="g-cell-label">Interior premium</div>
+      </div>
+      <div class="g-cell">
+        <img src="https://www.sinergiinvestasiproperti.co.id/media/library/bj-jamsostek.jpg" alt="Green building Plaza BPJamsostek">
+        <div class="g-cell-label">Green building certified</div>
+      </div>
+    </div>
+    <div class="gallery-ig reveal">
+      <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#E1306C;stroke-width:2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/></svg>
+      Ikuti kami di Instagram <a href="https://www.instagram.com/plazabpjamsostek/" target="_blank">@plazabpjamsostek</a> untuk foto terbaru
+    </div>
+  </div>
+</section>
+
+<!-- FLOORS -->
+<section class="floors" id="floors">
+  <div class="container">
+    <div class="floors-grid">
+      <div class="reveal">
+        <div class="label-tag white">Panduan lantai</div>
+        <h2 class="section-title light">Denah &amp; panduan lantai</h2>
+        <p class="section-sub light">Dari parkir bawah tanah hingga kantor eksekutif — temukan semua yang ada di Plaza BPJamsostek.</p>
+        <div class="floors-list">
+          <div class="floor-item"><div class="floor-num">19–30</div><div class="floor-info"><h4>BPJS Ketenagakerjaan</h4><p>Kantor pusat operasional BPJS Ketenagakerjaan</p></div><span class="floor-badge bpjs">BPJS</span></div>
+          <div class="floor-item"><div class="floor-num">18,16,10,2</div><div class="floor-info"><h4>Ruang tersedia untuk disewa</h4><p>Layout fleksibel untuk korporat &amp; startup</p></div><span class="floor-badge avail">Tersedia</span></div>
+          <div class="floor-item"><div class="floor-num">17</div><div class="floor-info"><h4>SinergiFit — Gym &amp; Wellness</h4><p>Pusat kebugaran premium dengan peralatan modern</p></div><span class="floor-badge fac">Fasilitas</span></div>
+          <div class="floor-item"><div class="floor-num">12</div><div class="floor-info"><h4>PT Sinergi Investasi Properti</h4><p>Kantor pusat pengelola gedung</p></div><span class="floor-badge bpjs">Pengelola</span></div>
+          <div class="floor-item"><div class="floor-num">10</div><div class="floor-info"><h4>PT Jofter Group</h4><p>Tenant korporat Plaza BPJamsostek</p></div><span class="floor-badge avail">Tenant</span></div>
+          <div class="floor-item"><div class="floor-num">8</div><div class="floor-info"><h4>Food Court Area</h4><p>Satu lantai penuh pilihan kuliner</p></div><span class="floor-badge fac">F&amp;B</span></div>
+          <div class="floor-item"><div class="floor-num">6</div><div class="floor-info"><h4>Ballroom &amp; Meeting Room</h4><p>Event korporat dan sosial berkapasitas besar</p></div><span class="floor-badge fac">Event</span></div>
+          <div class="floor-item"><div class="floor-num">B2</div><div class="floor-info"><h4>Tenant Relations Officer</h4><p>Pusat layanan dan koordinasi tenant</p></div><span class="floor-badge bpjs">Manajemen</span></div>
+          <div class="floor-item"><div class="floor-num">P3–P5</div><div class="floor-info"><h4>Parkir Mobil</h4><p>3 lantai kapasitas besar, aman 24 jam</p></div><span class="floor-badge fac">Parkir</span></div>
         </div>
-        <div class="mosaic-side">
-          <div class="mosaic-small">
-            <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek.jpg"
-                 alt="Plaza BPJamsostek eksterior"
-                 onerror="this.parentElement.style.background='linear-gradient(135deg,#0D2340,#243550)';this.style.display='none'">
-            <div class="mosaic-label">Eksterior</div>
+      </div>
+      <div class="floor-visual reveal">
+        <div style="font-size:12px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;">Diagram gedung</div>
+        <div class="building-diagram" id="bd">
+          <div class="bd-floor"><span class="bd-floor-num">P3-5</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-fac" style="width:30%"></div></div><span class="bd-floor-name">Parkir mobil</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">B2</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-other" style="width:25%"></div></div><span class="bd-floor-name">Tenant relations</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">2</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-avail" style="width:40%"></div></div><span class="bd-floor-name">Tersedia disewa</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">6</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-fac" style="width:65%"></div></div><span class="bd-floor-name">Ballroom &amp; meeting</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">8</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-fac" style="width:55%"></div></div><span class="bd-floor-name">Food court</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">10</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-avail" style="width:45%"></div></div><span class="bd-floor-name">Jofter Group / sewa</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">12</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-bpjs" style="width:50%"></div></div><span class="bd-floor-name">PT SIP office</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">16</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-avail" style="width:42%"></div></div><span class="bd-floor-name">Tersedia disewa</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">17</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-fac" style="width:48%"></div></div><span class="bd-floor-name">SinergiFit gym</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">18</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-avail" style="width:44%"></div></div><span class="bd-floor-name">Tersedia disewa</span></div>
+          <div class="bd-floor"><span class="bd-floor-num">19–30</span><div class="bd-floor-bar-wrap"><div class="bd-floor-bar bar-bpjs" style="width:100%"></div></div><span class="bd-floor-name">BPJS Ketenagakerjaan</span></div>
+        </div>
+        <div class="bd-legend">
+          <div class="bd-leg-item"><div class="bd-leg-dot" style="background:#3B7EF8"></div>BPJS / Pengelola</div>
+          <div class="bd-leg-item"><div class="bd-leg-dot" style="background:#4ADE80"></div>Tersedia sewa</div>
+          <div class="bd-leg-item"><div class="bd-leg-dot" style="background:#F0B429"></div>Fasilitas umum</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="facilities" id="facilities">
+  <div class="container">
+    <div class="fac-header reveal">
+      <div class="label-tag">Fasilitas unggulan</div>
+      <h2 class="section-title">Ekosistem gedung lengkap</h2>
+      <p class="section-sub">Plaza BPJamsostek dirancang sebagai ekosistem perkantoran yang mandiri — semua kebutuhan Anda tersedia dalam satu gedung.</p>
+    </div>
+    <div class="fac-hero-card reveal">
+      <div class="fhc-content">
+        <div class="fhc-tag">
+          <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#F0B429"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          Lantai 6 — Venue Utama
+        </div>
+        <h3>Ballroom &amp; Meeting Room</h3>
+        <p>Venue premium untuk wedding, seminar, konferensi korporat, dan gala dinner. Dilengkapi sistem sound profesional, lighting modern, dan layanan catering.</p>
+        <div class="fhc-features">
+          <div class="fhc-feature"><div class="fhc-feature-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>Kapasitas hingga 1000+ tamu</div>
+          <div class="fhc-feature"><div class="fhc-feature-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>Sound system &amp; lighting profesional</div>
+          <div class="fhc-feature"><div class="fhc-feature-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>Ruang meeting 10+ unit tersedia</div>
+          <div class="fhc-feature"><div class="fhc-feature-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg></div>Catering &amp; coffee break tersedia</div>
+        </div>
+        <a href="#contact" class="btn-gold" style="margin-top:28px;display:inline-flex">
+          <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:white"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10" stroke="white" stroke-width="2"/></svg>
+          Booking Sekarang
+        </a>
+      </div>
+      <div class="fhc-image">
+        <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek.jpg" alt="Ballroom Plaza BPJamsostek">
+      </div>
+    </div>
+    <div class="fac-grid reveal">
+      <div class="fac-card">
+        <div class="fac-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+        <h4>Food Court — Lt. 8</h4>
+        <p>Satu lantai penuh pilihan kuliner dari berbagai menu untuk seluruh occupant dan pengunjung gedung.</p>
+        <div class="fac-floor"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Lantai 8</div>
+      </div>
+      <div class="fac-card">
+        <div class="fac-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div>
+        <h4>SinergiFit Gym — Lt. 17</h4>
+        <p>Pusat kebugaran premium dengan peralatan modern, kelas fitness, dan instruktur profesional bersertifikat.</p>
+        <div class="fac-floor"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Lantai 17</div>
+      </div>
+      <div class="fac-card">
+        <div class="fac-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <h4>Parkir Luas</h4>
+        <p>3 lantai parkir mobil (P3–P5) dan 1 lantai parkir motor (B3). Kapasitas besar, aman, dan terawat 24 jam.</p>
+        <div class="fac-floor"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>P3–P5 &amp; B3</div>
+      </div>
+      <div class="fac-card">
+        <div class="fac-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Green Building</h4>
+        <p>Sertifikasi green building internasional. Sistem hemat energi, sirkulasi udara optimal, dan ramah lingkungan.</p>
+        <div class="fac-floor" style="color:#22C55E"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>Certified</div>
+      </div>
+      <div class="fac-card">
+        <div class="fac-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h4>Ruang Kantor Premium</h4>
+        <p>Lantai 2, 10, 16, dan 18 tersedia untuk disewa. Layout fleksibel untuk berbagai kebutuhan bisnis korporat.</p>
+        <div class="fac-floor"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Lt. 2, 10, 16, 18</div>
+      </div>
+      <div class="fac-card">
+        <div class="fac-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Keamanan 24 Jam</h4>
+        <p>CCTV terintegrasi di seluruh area gedung, sistem akses kartu, dan petugas keamanan profesional 24 jam.</p>
+        <div class="fac-floor"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>24 / 7</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-header reveal">
+      <div class="label-tag">Tarif sewa</div>
+      <h2 class="section-title">Harga transparan</h2>
+      <p class="section-sub">Dua kategori tarif untuk memberikan pilihan terbaik bagi semua kebutuhan Anda.</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="pc-head">
+          <div class="pc-head-top">
+            <h3>Tarif Umum</h3>
           </div>
-          <div class="mosaic-small">
-            <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-3.jpg"
-                 alt="Area Plaza BPJamsostek"
-                 onerror="this.parentElement.style.background='linear-gradient(135deg,#243550,#1A2E45)';this.style.display='none'">
-            <div class="mosaic-label">Area Gedung</div>
+          <p class="pc-desc">Untuk perusahaan dan perorangan umum</p>
+        </div>
+        <div class="pc-body">
+          <div class="pc-row">
+            <div class="pc-row-left">
+              <div class="pc-row-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+              <div><div class="pc-row-name">Ballroom<span class="pc-row-tag">Weekday</span></div></div>
+            </div>
+            <span class="pc-price">Rp 35.000.000</span>
           </div>
-          <div class="mosaic-small">
-            <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-2.jpg"
-                 alt="Interior Plaza BPJamsostek"
-                 onerror="this.parentElement.style.background='linear-gradient(135deg,#1A2E45,#0D1B2E)';this.style.display='none'">
-            <div class="mosaic-label">Interior</div>
+          <div class="pc-row">
+            <div class="pc-row-left">
+              <div class="pc-row-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+              <div><div class="pc-row-name">Ballroom<span class="pc-row-tag">Weekend</span></div></div>
+            </div>
+            <span class="pc-price">Rp 70.000.000</span>
+          </div>
+          <div class="pc-row">
+            <div class="pc-row-left">
+              <div class="pc-row-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+              <div><div class="pc-row-name">Meeting Room<span class="pc-row-tag">Halfday</span></div></div>
+            </div>
+            <span class="pc-price">Rp 5.000.000</span>
+          </div>
+          <div class="pc-row">
+            <div class="pc-row-left">
+              <div class="pc-row-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+              <div><div class="pc-row-name">Meeting Room<span class="pc-row-tag">Fullday</span></div></div>
+            </div>
+            <span class="pc-price">Rp 6.000.000</span>
           </div>
         </div>
       </div>
-      <div class="about-cert-strip">
-        <div class="cert-item"><span class="cert-icon">🌿</span><span>Green Building<br><strong>Certified</strong></span></div>
-        <div class="cert-divider"></div>
-        <div class="cert-item"><span class="cert-icon">⭐</span><span>Klasifikasi<br><strong>Grade A</strong></span></div>
-        <div class="cert-divider"></div>
-        <div class="cert-item"><span class="cert-icon">📐</span><span>Total Area<br><strong>26.782 m²</strong></span></div>
-      </div>
-    </div>
-    <div class="about-content">
-      <div class="section-label">Tentang Gedung</div>
-      <h2 class="section-title">Gedung Perkantoran<br>Grade A Premium</h2>
-      <div class="section-divider"></div>
-      <p class="about-body">Gedung Plaza BPJamsostek merupakan gedung perkantoran Grade A yang berlokasi strategis di Jl. HR Rasuna Said Kav 112B, Kuningan, Setiabudi, Jakarta 12930. Gedung ini memiliki sertifikasi green building dengan total luasan area sebesar 26.782 m².</p>
-      <p class="about-body">Dikelola oleh <strong>PT. Sinergi Investasi Properti</strong> — anak perusahaan BPJS Ketenagakerjaan — gedung ini menawarkan ruang kantor kelas premium yang dilengkapi dengan fasilitas lengkap, mulai dari ballroom, pusat kebugaran, food court, hingga ruang meeting berstandar tinggi.</p>
-      <div class="about-specs">
-        <div class="about-spec">
-          <div class="about-spec-val">26.782 m²</div>
-          <div class="about-spec-label">Total Luas Area</div>
-        </div>
-        <div class="about-spec">
-          <div class="about-spec-val">30 Lantai</div>
-          <div class="about-spec-label">Tinggi Gedung</div>
-        </div>
-        <div class="about-spec">
-          <div class="about-spec-val">Grade A</div>
-          <div class="about-spec-label">Klasifikasi Gedung</div>
-        </div>
-        <div class="about-spec">
-          <div class="about-spec-val">Kuningan</div>
-          <div class="about-spec-label">Kawasan Bisnis CBD</div>
-        </div>
-      </div>
-      <div class="about-badges">
-        <span class="badge badge-gold">🌿 Green Building</span>
-        <span class="badge">Grade A Office</span>
-        <span class="badge">PT Sinergi Investasi Properti</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FLOORS ─── -->
-<section id="floors">
-  <div class="floors-inner">
-    <div class="floors-header">
-      <div class="section-label">Panduan Lantai</div>
-      <h2 class="section-title" style="color:white;">Denah &amp; Panduan Lantai</h2>
-      <div class="section-divider" style="margin:1.5rem auto;"></div>
-      <p>Dari parkir bawah tanah hingga kantor eksekutif, temukan semua yang ada di Plaza BPJamsostek</p>
-    </div>
-    <div class="floor-guide">
-      <div class="floor-card">
-        <div class="floor-num">19–30</div>
-        <div class="floor-unit">Floor</div>
-        <div class="floor-name">BPJS Ketenagakerjaan Officer</div>
-        <div class="floor-desc">Kantor pusat operasional BPJS Ketenagakerjaan, menempati 12 lantai eksklusif di area premium gedung.</div>
-        <span class="floor-tag tag-occupied">BPJS Ketenagakerjaan</span>
-      </div>
-      <div class="floor-card">
-        <div class="floor-num">18, 16, 10, 2</div>
-        <div class="floor-unit">Floor</div>
-        <div class="floor-name">Ruang Tersedia untuk Disewa</div>
-        <div class="floor-desc">Lantai pilihan tersedia untuk disewa. Cocok untuk kantor korporat maupun startup berkembang.</div>
-        <span class="floor-tag tag-available">✦ Tersedia Disewa</span>
-      </div>
-      <div class="floor-card">
-        <div class="floor-num">17</div>
-        <div class="floor-unit">Floor</div>
-        <div class="floor-name">SinergiFit — Gym & Wellness</div>
-        <div class="floor-desc">Pusat kebugaran premium SinergiFit dengan peralatan modern dan instruktur profesional.</div>
-        <span class="floor-tag tag-amenity">Fasilitas Umum</span>
-      </div>
-      <div class="floor-card">
-        <div class="floor-num">12</div>
-        <div class="floor-unit">Floor</div>
-        <div class="floor-name">PT Sinergi Investasi Properti</div>
-        <div class="floor-desc">Kantor pusat PT Sinergi Investasi Properti selaku pengelola gedung Plaza BPJamsostek.</div>
-        <span class="floor-tag tag-occupied">Pengelola Gedung</span>
-      </div>
-      <div class="floor-card">
-        <div class="floor-num">10</div>
-        <div class="floor-unit">Floor</div>
-        <div class="floor-name">PT Jofter Group</div>
-        <div class="floor-desc">Kantor PT Jofter Group, salah satu tenant korporat di Plaza BPJamsostek.</div>
-        <span class="floor-tag tag-occupied">PT Jofter Group</span>
-      </div>
-      <div class="floor-card">
-        <div class="floor-num">8</div>
-        <div class="floor-unit">Floor</div>
-        <div class="floor-name">Food Court Area</div>
-        <div class="floor-desc">Area kuliner lengkap 1 lantai penuh dengan berbagai pilihan menu makanan & minuman untuk seluruh penghuni gedung.</div>
-        <span class="floor-tag tag-amenity">Fasilitas F&B</span>
-      </div>
-      <div class="floor-card">
-        <div class="floor-num">6</div>
-        <div class="floor-unit">Floor</div>
-        <div class="floor-name">Ballroom &amp; Meeting Room</div>
-        <div class="floor-desc">Ruang ballroom berkapasitas besar dan ruang pertemuan premium untuk berbagai event korporat dan sosial.</div>
-        <span class="floor-tag tag-amenity">Event &amp; Meeting</span>
-      </div>
-      <div class="floor-card">
-        <div class="floor-num">B2</div>
-        <div class="floor-unit">Basement</div>
-        <div class="floor-name">Tenant Relations Officer</div>
-        <div class="floor-desc">Kantor Tenant Relations — pusat layanan dan koordinasi untuk semua kebutuhan tenant.</div>
-        <span class="floor-tag tag-occupied">Management Office</span>
-      </div>
-      <div class="floor-card">
-        <div class="floor-num">B3</div>
-        <div class="floor-unit">Basement</div>
-        <div class="floor-name">Parkir Motor</div>
-        <div class="floor-desc">Area parkir sepeda motor yang luas dan aman dengan akses mudah dari dan ke gedung.</div>
-        <span class="floor-tag tag-parking">Parkir Motor</span>
-      </div>
-      <div class="floor-card">
-        <div class="floor-num">P3–P5</div>
-        <div class="floor-unit">Parkir</div>
-        <div class="floor-name">Parkir Mobil</div>
-        <div class="floor-desc">3 lantai area parkir mobil dengan kapasitas besar untuk tenant, tamu, dan pengunjung gedung.</div>
-        <span class="floor-tag tag-parking">Parkir Mobil</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── AMENITIES ─── -->
-<section id="amenities">
-  <div class="amenities-inner">
-    <div class="amenities-header">
-      <div>
-        <div class="section-label">Fasilitas Unggulan</div>
-        <h2 class="section-title">Fasilitas<br>Kelas Premium</h2>
-        <div class="section-divider"></div>
-      </div>
-      <div class="amenities-header-right">
-        Plaza BPJamsostek menghadirkan ekosistem gedung perkantoran yang lengkap — dari pusat kebugaran, ballroom, food court, hingga area parkir luas. Semua dirancang untuk kenyamanan dan produktivitas penghuni setiap hari.
-      </div>
-    </div>
-
-    <!-- Hero: Foto Gedung Utama -->
-    <div class="amenities-hero">
-      <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-jamsostek.jpg"
-           alt="Gedung Plaza BPJamsostek"
-           onerror="this.style.display='none';this.nextElementSibling.style.background='linear-gradient(135deg,#1A3050,#0D2340)'">
-      <div class="amenities-hero-overlay"></div>
-      <div class="amenities-hero-content">
-        <div class="amenities-hero-tag">Gedung Utama</div>
-        <div class="amenities-hero-title">Plaza BPJamsostek<br>Grade A · Kuningan Jakarta</div>
-        <div class="amenities-hero-desc">Gedung perkantoran Grade A bersertifikasi Green Building dengan luas 26.782 m², menawarkan standar fasilitas tertinggi di kawasan bisnis Kuningan, Jakarta Selatan.</div>
-      </div>
-      <div class="amenities-hero-floor">
-        <span class="floor-big">30</span>
-        <span class="floor-small">Lantai</span>
-      </div>
-    </div>
-
-    <!-- Secondary 3-photo grid -->
-    <div class="amenities-secondary">
-      <div class="amenity-photo-card">
-        <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek.jpg"
-             alt="Eksterior Plaza BPJamsostek"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#0D2340,#1A3050)'">
-        <div class="amenity-photo-overlay"></div>
-        <div class="amenity-photo-tag">Eksterior</div>
-        <div class="amenity-photo-content">
-          <span class="amenity-photo-floor">lt. 1–30</span>
-          <div class="amenity-photo-name">Ruang Kantor Premium</div>
-          <div class="amenity-photo-desc">Lantai 2, 10, 16, 18 tersedia untuk disewa dengan layout fleksibel</div>
-        </div>
-      </div>
-      <div class="amenity-photo-card">
-        <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-3.jpg"
-             alt="Area Plaza BPJamsostek"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#243550,#1A2E45)'">
-        <div class="amenity-photo-overlay"></div>
-        <div class="amenity-photo-tag">Area Gedung</div>
-        <div class="amenity-photo-content">
-          <span class="amenity-photo-floor">lt. 6</span>
-          <div class="amenity-photo-name">Ballroom &amp; Meeting Room</div>
-          <div class="amenity-photo-desc">Event korporat, seminar, dan gala dinner berkapasitas besar</div>
-        </div>
-      </div>
-      <div class="amenity-photo-card">
-        <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-2.jpg"
-             alt="Interior Plaza BPJamsostek"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#1A2E45,#0D1B2E)'">
-        <div class="amenity-photo-overlay"></div>
-        <div class="amenity-photo-tag">Interior</div>
-        <div class="amenity-photo-content">
-          <span class="amenity-photo-floor">lt. 17</span>
-          <div class="amenity-photo-name">SinergiFit Gym &amp; Wellness</div>
-          <div class="amenity-photo-desc">Pusat kebugaran premium dengan peralatan modern</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom info strip -->
-    <div class="amenities-strip">
-      <div class="amenity-strip-item">
-        <div class="amenity-strip-icon">🌿</div>
-        <div>
-          <div class="amenity-strip-name">Green Building</div>
-          <div class="amenity-strip-desc">Bersertifikat internasional, hemat energi &amp; ramah lingkungan</div>
-        </div>
-      </div>
-      <div class="amenity-strip-item">
-        <div class="amenity-strip-icon">🍽️</div>
-        <div>
-          <div class="amenity-strip-name">Food Court — Lt. 8</div>
-          <div class="amenity-strip-desc">Satu lantai penuh pilihan kuliner untuk seluruh occupant</div>
-        </div>
-      </div>
-      <div class="amenity-strip-item">
-        <div class="amenity-strip-icon">🚗</div>
-        <div>
-          <div class="amenity-strip-name">Parkir Luas</div>
-          <div class="amenity-strip-desc">3 lantai mobil (P3–P5) + 1 lantai motor (B3), aman 24 jam</div>
-        </div>
-      </div>
-      <div class="amenity-strip-item">
-        <div class="amenity-strip-icon">🔒</div>
-        <div>
-          <div class="amenity-strip-name">Keamanan 24 Jam</div>
-          <div class="amenity-strip-desc">CCTV terintegrasi, akses kartu, petugas profesional</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── REVIEWS ─── -->
-<section id="reviews">
-  <div class="reviews-inner">
-    <div class="reviews-header">
-      <div class="section-label">Google Reviews</div>
-      <h2 class="section-title" style="color:white;">Apa Kata Mereka</h2>
-      <div class="section-divider" style="margin:1.5rem auto;"></div>
-      <div class="reviews-rating-big">
-        <span class="num">4.5</span>
-        <div>
-          <div class="stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:0.5">★</span>
+      <div class="price-card featured">
+        <div class="pc-head">
+          <div class="pc-head-top">
+            <h3>Tarif BPJS</h3>
+            <span class="pc-badge">Member rate</span>
           </div>
-          <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:4px;">Berdasarkan ulasan Google</div>
+          <p class="pc-desc">Khusus peserta BPJS Ketenagakerjaan</p>
+        </div>
+        <div class="pc-body">
+          <div class="pc-row">
+            <div class="pc-row-left">
+              <div class="pc-row-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+              <div><div class="pc-row-name">Ballroom<span class="pc-row-tag">Weekday</span></div></div>
+            </div>
+            <span class="pc-price">Rp 16.000.000</span>
+          </div>
+          <div class="pc-row">
+            <div class="pc-row-left">
+              <div class="pc-row-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+              <div><div class="pc-row-name">Ballroom<span class="pc-row-tag">Weekend</span></div></div>
+            </div>
+            <span class="pc-price">Rp 50.000.000</span>
+          </div>
+          <div class="pc-row">
+            <div class="pc-row-left">
+              <div class="pc-row-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+              <div><div class="pc-row-name">Meeting Room<span class="pc-row-tag">Halfday</span></div></div>
+            </div>
+            <span class="pc-price">Rp 3.500.000</span>
+          </div>
+          <div class="pc-row">
+            <div class="pc-row-left">
+              <div class="pc-row-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+              <div><div class="pc-row-name">Meeting Room<span class="pc-row-tag">Fullday</span></div></div>
+            </div>
+            <span class="pc-price">Rp 4.750.000</span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar">AR</div>
-          <div><div class="review-name">Ahmad Rasyid</div><div class="review-date">3 bulan lalu · Google</div></div>
-        </div>
-        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-        <div class="review-text">Gedung sangat representatif dan strategis di kawasan Kuningan. Fasilitas lengkap, lobby mewah, dan tim manajemen sangat profesional. Sangat merekomendasikan untuk kantor korporat.</div>
-      </div>
-      <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar" style="background:#4ECDA0;color:#0D2E1E;">SW</div>
-          <div><div class="review-name">Siti Wulandari</div><div class="review-date">5 bulan lalu · Google</div></div>
-        </div>
-        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-        <div class="review-text">SinergiFit-nya bagus banget! Peralatan gym lengkap dan modern. Gedungnya juga bersih dan terawat dengan baik. Food court di lantai 8 juga pilihan menunya banyak.</div>
-      </div>
-      <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar" style="background:#8AAEE0;color:#042C53;">BP</div>
-          <div><div class="review-name">Budi Prasetyo</div><div class="review-date">7 bulan lalu · Google</div></div>
-        </div>
-        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:0.4">★</span></div>
-        <div class="review-text">Lokasi sangat mudah dijangkau, dekat dengan berbagai transportasi publik. Ballroom dan meeting room di lantai 6 sangat memuaskan untuk event perusahaan kami.</div>
-      </div>
-      <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar" style="background:#D4B05A;color:#2A1E00;">DM</div>
-          <div><div class="review-name">Dewi Maharani</div><div class="review-date">1 bulan lalu · Google</div></div>
-        </div>
-        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-        <div class="review-text">Tenant Relations sangat responsif dan membantu. Proses sewa kantor berjalan lancar dan transparan. Gedung ini benar-benar Grade A dalam segala hal.</div>
-      </div>
-      <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar" style="background:#F09595;color:#501313;">HN</div>
-          <div><div class="review-name">Hendra Nugraha</div><div class="review-date">2 bulan lalu · Google</div></div>
-        </div>
-        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-        <div class="review-text">Sertifikasi green building bukan sekadar label — gedung ini benar-benar terasa sejuk, hemat energi, dan nyaman. Sistem sirkulasi udara sangat baik.</div>
-      </div>
-      <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar" style="background:#AFA9EC;color:#26215C;">RL</div>
-          <div><div class="review-name">Rina Lestari</div><div class="review-date">4 bulan lalu · Google</div></div>
-        </div>
-        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:0.4">★</span></div>
-        <div class="review-text">Parkir mobil dan motor luas sekali, tidak perlu khawatir soal tempat parkir. Keamanan gedung juga sangat terjaga. Overall sangat puas dengan gedung ini.</div>
-      </div>
+    <p class="pricing-note reveal">Semua harga belum termasuk PPN. Untuk penawaran khusus atau event berskala besar, <a href="#contact">hubungi marketing kami</a>.</p>
+  </div>
+</section>
+
+<!-- TENANTS -->
+<section class="tenants" id="tenants">
+  <div class="container">
+    <div class="tenants-header reveal">
+      <div class="label-tag">Tenant &amp; occupant</div>
+      <h2 class="section-title">Dipercaya oleh</h2>
+    </div>
+  </div>
+  <div style="overflow:hidden;margin-top:28px;padding:4px 0">
+    <div class="tenants-strip" id="ts">
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#185FA5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><strong>BPJS Ketenagakerjaan</strong><span>Lt. 19–30</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#185FA5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><strong>PT Sinergi Investasi Properti</strong><span>Lt. 12</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#185FA5"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div><div><strong>PT Jofter Group</strong><span>Lt. 10</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#C8961A"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div><div><strong>SinergiFit Gym &amp; Wellness</strong><span>Lt. 17</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#C8961A"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><strong>Ballroom &amp; Meeting Center</strong><span>Lt. 6</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#185FA5"><path d="M18 8h1a4 4 0 010 8h-1"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div><div><strong>Food Court</strong><span>Lt. 8</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#22C55E"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><strong>Green Building</strong><span>Certified</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#185FA5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><strong>BPJS Ketenagakerjaan</strong><span>Lt. 19–30</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#185FA5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><strong>PT Sinergi Investasi Properti</strong><span>Lt. 12</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#185FA5"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div><div><strong>PT Jofter Group</strong><span>Lt. 10</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#C8961A"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div><div><strong>SinergiFit Gym &amp; Wellness</strong><span>Lt. 17</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#C8961A"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><strong>Ballroom &amp; Meeting Center</strong><span>Lt. 6</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#185FA5"><path d="M18 8h1a4 4 0 010 8h-1"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div><div><strong>Food Court</strong><span>Lt. 8</span></div></div>
+      <div class="tenant-chip"><div class="tenant-chip-icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#22C55E"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><strong>Green Building</strong><span>Certified</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ─── TENANTS ─── -->
-<section id="tenants">
-  <div class="tenants-inner">
-    <div class="tenants-header">
-      <div class="tenants-label">Didukung oleh Tenant Kami</div>
-      <h2 class="section-title" style="font-size:1.8rem;">Tenant &amp; Penghuni Gedung</h2>
-    </div>
-    <div class="tenants-grid">
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">🏛️</div>
-          <div class="tenant-logo-name">BPJS</div>
-          <div class="tenant-logo-type">Ketenagakerjaan</div>
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-header reveal">
+      <div class="reviews-header-inner">
+        <div>
+          <div class="label-tag">Google reviews</div>
+          <h2 class="section-title">Apa kata mereka</h2>
         </div>
+        <a href="https://maps.google.com" target="_blank" style="font-size:13px;color:var(--blue);font-weight:500;display:flex;align-items:center;gap:5px">
+          Lihat semua ulasan
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+        </a>
       </div>
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">🏢</div>
-          <div class="tenant-logo-name">Sinergi</div>
-          <div class="tenant-logo-type">Investasi Properti</div>
+      <div class="rev-summary">
+        <div class="rev-big-num">4.5</div>
+        <div class="rev-right">
+          <div class="rev-stars-big">
+            <span class="rev-star-big">★</span><span class="rev-star-big">★</span><span class="rev-star-big">★</span><span class="rev-star-big">★</span><span class="rev-star-half">★</span>
+          </div>
+          <div class="rev-source-line">
+            <span class="g-logo">Google</span> Reviews · Diverifikasi
+          </div>
         </div>
-      </div>
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">💼</div>
-          <div class="tenant-logo-name">Jofter</div>
-          <div class="tenant-logo-type">Group · Lt. 10</div>
-        </div>
-      </div>
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">🏋️</div>
-          <div class="tenant-logo-name">SinergiFit</div>
-          <div class="tenant-logo-type">Gym & Wellness · Lt. 17</div>
-        </div>
-      </div>
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">🎉</div>
-          <div class="tenant-logo-name">Ballroom</div>
-          <div class="tenant-logo-type">Event & Meeting · Lt. 6</div>
-        </div>
-      </div>
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">🍜</div>
-          <div class="tenant-logo-name">Food Court</div>
-          <div class="tenant-logo-type">F&B Area · Lt. 8</div>
-        </div>
-      </div>
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">🌿</div>
-          <div class="tenant-logo-name">Green</div>
-          <div class="tenant-logo-type">Building Certified</div>
-        </div>
-      </div>
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">⭐</div>
-          <div class="tenant-logo-name">Grade A</div>
-          <div class="tenant-logo-type">Premium Office</div>
-        </div>
-      </div>
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">🏠</div>
-          <div class="tenant-logo-name">Ruang</div>
-          <div class="tenant-logo-type">Tersedia Disewa</div>
-        </div>
-      </div>
-      <div class="tenant-logo">
-        <div class="tenant-logo-inner">
-          <div class="tenant-logo-icon">📍</div>
-          <div class="tenant-logo-name">Kuningan</div>
-          <div class="tenant-logo-type">CBD Jakarta</div>
+        <div class="rev-bars">
+          <div class="rev-bar-row"><span class="rev-bar-label">5</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:70%"></div></div><span class="rev-bar-pct">70%</span></div>
+          <div class="rev-bar-row"><span class="rev-bar-label">4</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:18%"></div></div><span class="rev-bar-pct">18%</span></div>
+          <div class="rev-bar-row"><span class="rev-bar-label">3</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:7%"></div></div><span class="rev-bar-pct">7%</span></div>
+          <div class="rev-bar-row"><span class="rev-bar-label">2</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:3%"></div></div><span class="rev-bar-pct">3%</span></div>
+          <div class="rev-bar-row"><span class="rev-bar-label">1</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:2%"></div></div><span class="rev-bar-pct">2%</span></div>
         </div>
       </div>
     </div>
+    <div class="rev-nav-row reveal">
+      <div style="font-size:14px;color:var(--text-muted)">6 ulasan terbaru</div>
+      <div class="rev-arrows">
+        <button class="rev-arrow-btn" id="rp" aria-label="Ulasan sebelumnya">&#8592;</button>
+        <button class="rev-arrow-btn" id="rn" aria-label="Ulasan berikutnya">&#8594;</button>
+      </div>
+    </div>
+    <div class="rev-viewport reveal">
+      <div class="rev-track" id="rt">
+        <div class="rev-card">
+          <div class="rc-top"><div class="rc-avatar">AR</div><div><div class="rc-name">Ahmad Rasyid</div><div class="rc-date">3 bulan lalu</div></div><div class="rc-stars" style="margin-left:auto"><span class="rc-star">★★★★★</span></div></div>
+          <p class="rc-text">Gedung sangat representatif dan strategis di kawasan Kuningan. Fasilitas lengkap, lobby mewah, dan tim manajemen sangat profesional. Sangat merekomendasikan untuk kantor korporat.</p>
+          <div class="rc-source"><span class="rc-g">G</span> Google · Diverifikasi</div>
+        </div>
+        <div class="rev-card">
+          <div class="rc-top"><div class="rc-avatar" style="background:#FEF4D6;color:#8A6000">SW</div><div><div class="rc-name">Siti Wulandari</div><div class="rc-date">5 bulan lalu</div></div><div class="rc-stars" style="margin-left:auto"><span class="rc-star">★★★★★</span></div></div>
+          <p class="rc-text">SinergiFit-nya bagus banget! Peralatan gym lengkap dan modern. Gedungnya juga bersih dan terawat. Food court di lantai 8 pilihan menunya sangat beragam.</p>
+          <div class="rc-source"><span class="rc-g">G</span> Google · Diverifikasi</div>
+        </div>
+        <div class="rev-card">
+          <div class="rc-top"><div class="rc-avatar" style="background:#F0FFF4;color:#166534">BP</div><div><div class="rc-name">Budi Prasetyo</div><div class="rc-date">7 bulan lalu</div></div><div class="rc-stars" style="margin-left:auto"><span class="rc-star">★★★★★</span></div></div>
+          <p class="rc-text">Lokasi sangat mudah dijangkau, dekat berbagai transportasi publik. Ballroom dan meeting room di lantai 6 sangat memuaskan untuk event perusahaan kami.</p>
+          <div class="rc-source"><span class="rc-g">G</span> Google · Diverifikasi</div>
+        </div>
+        <div class="rev-card">
+          <div class="rc-top"><div class="rc-avatar" style="background:#FFF0F3;color:#9D1C42">DM</div><div><div class="rc-name">Dewi Maharani</div><div class="rc-date">1 bulan lalu</div></div><div class="rc-stars" style="margin-left:auto"><span class="rc-star">★★★★★</span></div></div>
+          <p class="rc-text">Tenant Relations sangat responsif dan membantu. Proses sewa kantor berjalan lancar dan transparan. Gedung ini benar-benar Grade A dalam segala hal.</p>
+          <div class="rc-source"><span class="rc-g">G</span> Google · Diverifikasi</div>
+        </div>
+        <div class="rev-card">
+          <div class="rc-top"><div class="rc-avatar" style="background:#FFFBEB;color:#78350F">HN</div><div><div class="rc-name">Hendra Nugraha</div><div class="rc-date">2 bulan lalu</div></div><div class="rc-stars" style="margin-left:auto"><span class="rc-star">★★★★★</span></div></div>
+          <p class="rc-text">Sertifikasi green building bukan sekadar label — gedung ini benar-benar terasa sejuk dan nyaman. Sistem sirkulasi udara sangat baik dan hemat energi.</p>
+          <div class="rc-source"><span class="rc-g">G</span> Google · Diverifikasi</div>
+        </div>
+        <div class="rev-card">
+          <div class="rc-top"><div class="rc-avatar" style="background:#F0F9FF;color:#0C4A6E">RL</div><div><div class="rc-name">Rina Lestari</div><div class="rc-date">4 bulan lalu</div></div><div class="rc-stars" style="margin-left:auto"><span class="rc-star">★★★★★</span></div></div>
+          <p class="rc-text">Parkir mobil dan motor luas, tidak perlu khawatir soal tempat parkir. Keamanan gedung sangat terjaga. Overall sangat puas dengan fasilitas dan pelayanan di sini.</p>
+          <div class="rc-source"><span class="rc-g">G</span> Google · Diverifikasi</div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-dots" id="rd"></div>
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
-<section id="contact">
-  <div class="contact-inner">
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
     <div class="contact-grid">
-      <div class="contact-info">
-        <div class="section-label">Hubungi Kami</div>
-        <h2 class="section-title" style="color:white;">Mari Mulai Diskusi</h2>
-        <div class="section-divider"></div>
-        <p class="contact-body">Tim kami siap membantu Anda menemukan ruang kantor ideal di Plaza BPJamsostek. Hubungi kami melalui WhatsApp, email, atau kunjungi kami langsung.</p>
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
-            <div>
-              <div class="contact-item-label">Alamat</div>
-              <div class="contact-item-val">Jl. HR Rasuna Said Kav 112B, Kuningan,<br>Setiabudi, Jakarta 12930 – Indonesia</div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">💬</div>
-            <div>
-              <div class="contact-item-label">Customer Service (WhatsApp)</div>
-              <div class="contact-item-val"><a href="https://wa.me/6285211566707" target="_blank">+62 852-1156-6707</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">✉️</div>
-            <div>
-              <div class="contact-item-label">Email Customer Service</div>
-              <div class="contact-item-val"><a href="mailto:tr.plaza.bpjamsostek@gmail.com">tr.plaza.bpjamsostek@gmail.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">📞</div>
-            <div>
-              <div class="contact-item-label">Tenant Relations (Booking Meet)</div>
-              <div class="contact-item-val"><a href="https://wa.me/6281314012300" target="_blank">+62 813-1401-2300</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">📸</div>
-            <div>
-              <div class="contact-item-label">Instagram</div>
-              <div class="contact-item-val"><a href="https://www.instagram.com/plazabpjamsostek/" target="_blank">@plazabpjamsostek</a></div>
-            </div>
+      <div class="reveal">
+        <div class="label-tag white">Hubungi kami</div>
+        <h2 class="section-title light">Mari mulai diskusi</h2>
+        <p class="section-sub light">Tim kami siap membantu Anda menemukan ruang kantor ideal atau merencanakan acara terbaik di Plaza BPJamsostek.</p>
+        <div class="contact-cards">
+          <a href="https://wa.me/6285211566707" class="contact-card">
+            <div class="cc-icon wa"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+            <div><div class="cc-label">Customer Service (WhatsApp)</div><div class="cc-value">+62 852-1156-6707</div></div>
+          </a>
+          <a href="https://wa.me/6281314012300" class="contact-card">
+            <div class="cc-icon blue"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7a2 2 0 011.72 2.02z"/></svg></div>
+            <div><div class="cc-label">Tenant Relations (Booking Meet)</div><div class="cc-value">+62 813-1401-2300</div></div>
+          </a>
+          <a href="mailto:tr.plaza.bpjamsostek@gmail.com" class="contact-card">
+            <div class="cc-icon gold"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="cc-label">Email</div><div class="cc-value">tr.plaza.bpjamsostek@gmail.com</div></div>
+          </a>
+          <div class="contact-card">
+            <div class="cc-icon blue"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div>
+            <div><div class="cc-label">Alamat</div><div class="cc-value">Jl. HR Rasuna Said Kav 112B, Kuningan, Jakarta 12930</div></div>
           </div>
         </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/plazabpjamsostek/" target="_blank" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/sinergi-investasi-properti/" target="_blank" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://youtube.com/@sinergiinvestasiproperti3589" target="_blank" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="var(--navy-mid)"/></svg>
+          </a>
+          <a href="https://www.sinergiinvestasiproperti.co.id" target="_blank" class="social-link" aria-label="Website">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </a>
+        </div>
       </div>
-      <div>
-        <div class="contact-form-wrap">
-          <div class="form-title">Kirim Pesan kepada Kami</div>
-          <div class="form-sub">Isi form di bawah, kami akan menghubungi Anda segera</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nama Lengkap</label>
-              <input type="text" id="f-name" placeholder="John Doe">
-            </div>
-            <div class="form-group">
-              <label>Nomor WhatsApp</label>
-              <input type="text" id="f-phone" placeholder="+62 8xx xxxx xxxx">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Perusahaan</label>
-            <input type="text" id="f-company" placeholder="PT Nama Perusahaan">
-          </div>
-          <div class="form-group">
-            <label>Kebutuhan</label>
-            <select id="f-need">
-              <option value="">— Pilih Kebutuhan —</option>
+      <div class="contact-form reveal">
+        <h3>Kirim pesan kepada kami</h3>
+        <div class="form-grid">
+          <div class="form-field"><label>Nama lengkap</label><input type="text" placeholder="Masukkan nama Anda"></div>
+          <div class="form-field"><label>Nomor WhatsApp</label><input type="text" placeholder="+62 8xx-xxxx-xxxx"></div>
+          <div class="form-field"><label>Perusahaan</label><input type="text" placeholder="Nama perusahaan Anda"></div>
+          <div class="form-field"><label>Kebutuhan</label>
+            <select>
+              <option value="">— Pilih kebutuhan —</option>
               <option>Sewa Ruang Kantor</option>
               <option>Booking Ballroom / Meeting Room</option>
               <option>Informasi SinergiFit</option>
@@ -1041,161 +1218,161 @@
               <option>Lainnya</option>
             </select>
           </div>
-          <div class="form-group">
-            <label>Pesan</label>
-            <textarea id="f-message" placeholder="Ceritakan kebutuhan Anda..."></textarea>
-          </div>
-          <div class="form-actions">
-            <a id="send-wa" href="#" class="btn-wa" onclick="sendWA(event)">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              Kirim via WhatsApp
-            </a>
-            <a id="send-mail" href="#" class="btn-mail" onclick="sendMail(event)">
-              ✉️ Kirim Email
-            </a>
-          </div>
+          <div class="form-field full"><label>Pesan</label><textarea placeholder="Ceritakan kebutuhan Anda..."></textarea></div>
+        </div>
+        <div class="form-btns">
+          <a href="https://wa.me/6285211566707" class="btn-wa-full">
+            <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Kirim via WhatsApp
+          </a>
+          <button class="btn-email-full">
+            <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:rgba(255,255,255,.7)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Kirim Email
+          </button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── BOOKING CTA ─── -->
-<section id="booking-cta">
-  <div class="booking-cta-inner">
-    <h2 class="booking-title">Siap Pindah ke Gedung Premium?</h2>
-    <p class="booking-body">Hubungi tim Tenant Relations kami sekarang untuk menjadwalkan kunjungan dan tur eksklusif gedung Plaza BPJamsostek.</p>
-    <a href="https://wa.me/6281314012300?text=Halo%2C%20saya%20ingin%20booking%20meeting%20untuk%20melihat%20ruang%20kantor%20di%20Plaza%20BPJamsostek." target="_blank" class="btn-dark">
-      📞 Booking Meet Tenant Relations
-    </a>
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <div>
+      <h2>Siap pindah ke gedung premium?</h2>
+      <p>Jadwalkan tur eksklusif gedung Plaza BPJamsostek bersama tim Tenant Relations kami.</p>
+    </div>
+    <div class="cta-banner-btns">
+      <a href="https://wa.me/6281314012300?text=Halo%2C%20saya%20ingin%20booking%20meeting%20untuk%20melihat%20ruang%20kantor%20di%20Plaza%20BPJamsostek." class="btn-white">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--gold)"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10" stroke="var(--gold)" stroke-width="2"/></svg>
+        Booking Tur Gedung
+      </a>
+      <a href="tel:+6281314012300" class="btn-outline-white">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:white;stroke-width:2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .18h3a2 2 0 012 1.72"/></svg>
+        Telepon Sekarang
+      </a>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- ─── FOOTER ─── -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="logo-text">Plaza BPJamsostek</div>
-      <div class="logo-sub">Grade A · Green Building · Kuningan, Jakarta</div>
-      <p>Gedung perkantoran premium bersertifikat green building di kawasan bisnis strategis Kuningan, dikelola oleh PT Sinergi Investasi Properti.</p>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/plazabpjamsostek/" class="social-btn" target="_blank" title="Instagram">IG</a>
-        <a href="https://www.linkedin.com/company/sinergi-investasi-properti/" class="social-btn" target="_blank" title="LinkedIn">in</a>
-        <a href="https://youtube.com/@sinergiinvestasiproperti3589" class="social-btn" target="_blank" title="YouTube">YT</a>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="footer-brand-box">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+          </div>
+          <div class="footer-brand-text"><strong>Plaza BPJamsostek</strong><span>Grade A · Green Building · Jakarta</span></div>
+        </div>
+        <p>Gedung perkantoran premium bersertifikat green building di kawasan bisnis strategis Kuningan, dikelola oleh PT Sinergi Investasi Properti.</p>
+        <div class="footer-brand-socials">
+          <a href="https://www.instagram.com/plazabpjamsostek/" target="_blank" class="footer-social" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/sinergi-investasi-properti/" target="_blank" class="footer-social" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://youtube.com/@sinergiinvestasiproperti3589" target="_blank" class="footer-social" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02"/></svg>
+          </a>
+          <a href="https://www.sinergiinvestasiproperti.co.id" target="_blank" class="footer-social" aria-label="Website">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Lantai</h4>
+        <a href="#floors">Lt. 19–30 — BPJS</a>
+        <a href="#floors">Lt. 18, 16, 10, 2 — Tersedia</a>
+        <a href="#floors">Lt. 17 — SinergiFit</a>
+        <a href="#floors">Lt. 12 — PT SIP</a>
+        <a href="#floors">Lt. 8 — Food Court</a>
+        <a href="#floors">Lt. 6 — Ballroom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Fasilitas</h4>
+        <a href="#facilities">Ballroom &amp; Meeting</a>
+        <a href="#facilities">SinergiFit Gym</a>
+        <a href="#facilities">Food Court</a>
+        <a href="#facilities">Parkir Luas</a>
+        <a href="#facilities">Green Building</a>
+        <a href="#facilities">Keamanan 24 Jam</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <a href="https://wa.me/6285211566707">WA CS: +62 852-1156-6707</a>
+        <a href="https://wa.me/6281314012300">Tenant: +62 813-1401-2300</a>
+        <a href="mailto:tr.plaza.bpjamsostek@gmail.com">tr.plaza.bpjamsostek<br>@gmail.com</a>
+        <a href="https://www.sinergiinvestasiproperti.co.id">sinergiinvestasiproperti.co.id</a>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Lantai</h4>
-      <ul>
-        <li><a href="#floors">Lt. 19–30 BPJS Ketenagakerjaan</a></li>
-        <li><a href="#floors">Lt. 18, 16, 10, 2 — Tersedia</a></li>
-        <li><a href="#floors">Lt. 17 — SinergiFit Gym</a></li>
-        <li><a href="#floors">Lt. 12 — PT SIP Office</a></li>
-        <li><a href="#floors">Lt. 8 — Food Court</a></li>
-        <li><a href="#floors">Lt. 6 — Ballroom &amp; Meeting</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>© 2026 Plaza BPJamsostek · Jl. HR Rasuna Said Kav 112B, Kuningan, Jakarta 12930 · Dikelola oleh <a href="https://www.sinergiinvestasiproperti.co.id" style="color:rgba(255,255,255,.45)">PT Sinergi Investasi Properti</a></p>
+      <p style="color:rgba(255,255,255,.2)">Grade A · Green Building Certified</p>
     </div>
-    <div class="footer-col">
-      <h4>Fasilitas</h4>
-      <ul>
-        <li><a href="#amenities">Green Building</a></li>
-        <li><a href="#amenities">SinergiFit Gym</a></li>
-        <li><a href="#amenities">Ballroom &amp; Meeting</a></li>
-        <li><a href="#amenities">Food Court</a></li>
-        <li><a href="#amenities">Parkir Luas</a></li>
-        <li><a href="#amenities">Keamanan 24 Jam</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Kontak</h4>
-      <ul>
-        <li><a href="https://wa.me/6285211566707" target="_blank">WA CS: +62 852-1156-6707</a></li>
-        <li><a href="mailto:tr.plaza.bpjamsostek@gmail.com">tr.plaza.bpjamsostek@gmail.com</a></li>
-        <li><a href="https://wa.me/6281314012300" target="_blank">Tenant: +62 813-1401-2300</a></li>
-        <li><a href="https://www.instagram.com/plazabpjamsostek/" target="_blank">@plazabpjamsostek</a></li>
-        <li><a href="https://www.sinergiinvestasiproperti.co.id" target="_blank">sinergiinvestasiproperti.co.id</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2024 Plaza BPJamsostek. Jl. HR Rasuna Said Kav 112B, Kuningan, Jakarta 12930.</div>
-    <div class="footer-sip">Dikelola oleh <a href="https://www.sinergiinvestasiproperti.co.id" target="_blank">PT Sinergi Investasi Properti</a></div>
   </div>
 </footer>
 
 <script>
-  // Preloader
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('preloader').classList.add('done');
-    }, 2200);
+(function(){
+  // NAVBAR SCROLL
+  var nb = document.getElementById('navbar');
+  window.addEventListener('scroll', function(){
+    nb.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // Nav scroll
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    nav.classList.toggle('scrolled', window.scrollY > 80);
+  // HERO SLIDESHOW
+  var hCur = 0, hTotal = 5, hAuto;
+  function hGo(n) {
+    document.getElementById('hs'+hCur).classList.remove('active');
+    document.querySelectorAll('.hero-dot-btn')[hCur].classList.remove('active');
+    hCur = (n + hTotal) % hTotal;
+    document.getElementById('hs'+hCur).classList.add('active');
+    document.querySelectorAll('.hero-dot-btn')[hCur].classList.add('active');
+    document.getElementById('sc').textContent = String(hCur+1).padStart(2,'0') + ' / 0' + hTotal;
+  }
+  document.getElementById('hp').onclick = function(){ clearInterval(hAuto); hGo(hCur-1); hStart(); };
+  document.getElementById('hn').onclick = function(){ clearInterval(hAuto); hGo(hCur+1); hStart(); };
+  document.querySelectorAll('.hero-dot-btn').forEach(function(d){
+    d.onclick = function(){ clearInterval(hAuto); hGo(+d.dataset.i); hStart(); };
   });
+  function hStart(){ hAuto = setInterval(function(){ hGo(hCur+1); }, 5000); }
+  hStart();
 
-  // Gallery drag
-  const track = document.getElementById('galleryTrack');
-  let isDown = false, startX, scrollLeft;
-  track.addEventListener('mousedown', e => { isDown = true; track.classList.add('grabbing'); startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
-  track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
-  track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('grabbing'); });
-  track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX) * 1.5; });
-
-  function scrollGallery(dir) {
-    track.scrollBy({ left: dir * 500, behavior: 'smooth' });
+  // REVIEWS SLIDER
+  var rCur = 0, rPerPage = 2, rTotal = 6, rPages = Math.ceil(rTotal/rPerPage);
+  var rt = document.getElementById('rt');
+  var rd = document.getElementById('rd');
+  for(var i=0; i<rPages; i++){
+    (function(idx){
+      var d = document.createElement('button');
+      d.className = 'rev-dot' + (idx===0?' active':'');
+      d.setAttribute('aria-label', 'Halaman '+(idx+1));
+      d.onclick = function(){ rGo(idx); };
+      rd.appendChild(d);
+    })(i);
   }
-  track.addEventListener('scroll', () => {
-    const dots = document.querySelectorAll('.gallery-dot');
-    const idx = Math.round(track.scrollLeft / 500);
-    dots.forEach((d,i) => d.classList.toggle('active', i === idx));
-  });
-
-  // Mobile menu
-  function toggleMobileMenu() {
-    const links = document.querySelector('.nav-links');
-    if (links.style.display === 'flex') {
-      links.style.display = '';
-    } else {
-      links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(13,27,46,0.98);padding:2rem;gap:1.5rem;z-index:999;';
-    }
+  function rGo(n){
+    rCur = (n+rPages)%rPages;
+    var cards = rt.querySelectorAll('.rev-card');
+    var cardW = cards[0].offsetWidth + 16;
+    rt.style.transform = 'translateX(-' + (rCur * rPerPage * cardW) + 'px)';
+    document.querySelectorAll('.rev-dot').forEach(function(d,i){ d.classList.toggle('active', i===rCur); });
   }
+  document.getElementById('rp').onclick = function(){ rGo(rCur-1); };
+  document.getElementById('rn').onclick = function(){ rGo(rCur+1); };
 
-  // WA sender
-  function sendWA(e) {
-    e.preventDefault();
-    const name = document.getElementById('f-name').value || 'Tamu';
-    const phone = document.getElementById('f-phone').value || '-';
-    const company = document.getElementById('f-company').value || '-';
-    const need = document.getElementById('f-need').value || '-';
-    const msg = document.getElementById('f-message').value || '-';
-    const text = encodeURIComponent(`Halo, saya ingin informasi mengenai Plaza BPJamsostek.\n\nNama: ${name}\nPerusahaan: ${company}\nNo. WA: ${phone}\nKebutuhan: ${need}\nPesan: ${msg}`);
-    window.open(`https://wa.me/6285211566707?text=${text}`, '_blank');
-  }
-
-  // Email sender
-  function sendMail(e) {
-    e.preventDefault();
-    const name = document.getElementById('f-name').value || 'Tamu';
-    const company = document.getElementById('f-company').value || '-';
-    const need = document.getElementById('f-need').value || '-';
-    const msg = document.getElementById('f-message').value || '-';
-    const subject = encodeURIComponent(`Inquiry dari ${name} — ${need}`);
-    const body = encodeURIComponent(`Nama: ${name}\nPerusahaan: ${company}\nKebutuhan: ${need}\n\nPesan:\n${msg}`);
-    window.location.href = `mailto:tr.plaza.bpjamsostek@gmail.com?subject=${subject}&body=${body}`;
-  }
-
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.amenity-card, .review-card, .floor-card').forEach(el => {
-    el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
+  // SCROLL REVEAL
+  var reveals = document.querySelectorAll('.reveal');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(function(el){ obs.observe(el); });
+})();
 </script>
 </body>
 </html>
