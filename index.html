@@ -71,7 +71,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .section-title.light { color: #fff; }
 .section-sub { font-size: 15px; color: var(--text-muted); margin-top: 12px; line-height: 1.8; max-width: 560px; }
 .section-sub.light { color: rgba(255,255,255,.6); }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
 
 /* ═══════ SCROLL REVEAL ═══════ */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
@@ -1036,6 +1036,93 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .chat-panel { right: 16px; bottom: 148px; }
   .chat-toggle { right: 16px; bottom: 86px; }
 }
+/* ═══════════════════════════════════════════
+   RESPONSIVE LAYOUT (UNTUK HANDPHONE & TABLET)
+═══════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 54px; }
+    .hero-stats { position: static; transform: none; flex-direction: row; margin-top: 24px; justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    /* 1. Reset Umum */
+    html { scroll-padding-top: 70px; }
+    .section-title { font-size: 32px; }
+    .container { padding: 0 20px; }
+
+    /* 2. Navbar Mobile */
+    .nav-inner { height: 64px; padding: 0 20px; position: relative; }
+    .nav-toggle { display: flex; } /* Munculkan tombol hamburger */
+    
+    /* Sembunyikan menu desktop dan buat jadi dropdown lipat */
+    .nav-links {
+        display: none; /* Hubungkan dengan JavaScript nanti untuk toggle class .active */
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--forest-mid);
+        flex-direction: column; padding: 20px; gap: 10px;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .nav-links.active { display: flex; }
+    .nav-actions { display: none; } /* Sembunyikan tombol WA/CTA di navbar mobile jika terlalu penuh */
+
+    /* 3. Hero Section */
+    .hero { height: auto; min-height: auto; padding: 120px 0 60px 0; display: flex; flex-direction: column; }
+    .hero-content { position: relative; padding: 0 20px; max-width: 100%; transform: none; }
+    .hero h1 { font-size: 40px; }
+    .hero-desc { font-size: 15px; }
+    .hero-stats { flex-wrap: wrap; gap: 10px; margin-top: 30px; justify-content: flex-start; }
+    .hstat { flex: 1; min-width: 45%; padding: 12px; }
+    .hero-controls, .hero-scroll-hint { position: relative; bottom: auto; left: auto; right: auto; margin-top: 30px; }
+
+    /* 4. Stats Bar */
+    .stats-bar { flex-direction: column; }
+    .stats-bar-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); padding: 16px; justify-content: flex-start; }
+
+    /* 5. About Section */
+    .about { padding: 60px 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; } /* Berubah jadi 1 kolom tumpuk ke bawah */
+    .about-img-main { height: 320px; }
+    .about-img-float { width: 140px; height: 110px; bottom: -15px; right: -15px; border-width: 3px; }
+
+    /* 6. Gallery Mosaic */
+    .gallery { padding: 60px 0; }
+    .gallery-mosaic { grid-template-columns: 1fr; grid-template-rows: auto; gap: 12px; } /* 1 kolom di HP */
+    .g-cell-tall { grid-row: auto; }
+    .g-cell { height: 220px; }
+    .g-label { opacity: 1; background: linear-gradient(to top, rgba(10,46,26,.85), transparent); }
+
+    /* 7. Video Section */
+    .video-sec { padding: 60px 0; }
+    .video-grid { grid-template-columns: 1fr; gap: 24px; }
+
+    /* 8. Instagram Slider */
+    .ig-sec { padding: 60px 0; }
+    .ig-card { min-width: 100%; } /* Satu kartu memenuhi layar HP saat di-slide */
+
+    /* 9. Binajasa Outsourcing & Facilities */
+    .binajasa, .facilities { padding: 60px 0; }
+    .baj-grid, .fac-grid { grid-template-columns: 1fr; gap: 16px; } /* Dari 3 kolom menjadi 1 kolom tumpuk */
+    .baj-img { height: 200px; }
+    
+    .baj-cta-banner { flex-direction: column; padding: 30px 24px; text-align: center; gap: 20px; }
+    .baj-cta-btns { width: 100%; flex-direction: column; }
+    .btn-gold, .btn-outline-w2 { justify-content: center; width: 100%; }
+
+    /* 10. Floors (Denah) */
+    .floors { padding: 60px 0; }
+    .floors-grid { grid-template-columns: 1fr; gap: 40px; }
+    .floor-diagram-wrap { position: relative; top: auto; padding: 20px 15px; }
+    .bd-name { min-width: auto; font-size: 9.5px; }
+
+    /* 11. Facilities Hero & Pricing */
+    .fac-hero { grid-template-columns: 1fr; }
+    .fhero-content { padding: 30px 24px; }
+    .fhero-img { height: 240px; }
+    
+    .pricing { padding: 60px 0; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 16px; }
+}
 </style>
 </head>
 <body>
@@ -1976,6 +2063,15 @@ Untuk booking & info lebih lanjut selalu arahkan ke WA +62 852-1156-6707. Jawaba
   }, {threshold: 0.1});
   document.querySelectorAll('.reveal, .reveal-left').forEach(function(el){ obs.observe(el); });
 })();
+</script>
+<script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
 </script>
 </body>
 </html>
