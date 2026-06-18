@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <style>
+
 :root {
   --navy: #06194A;
   --navy-mid: #0D2A6E;
@@ -31,8 +32,17 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(21,86,200,0.05), transparent 18%),
+    linear-gradient(180deg, #F9FAFC 0%, #F7F8FA 100%);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
@@ -46,10 +56,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .label-tag.gold { color: #8A6000; background: #FEF4D6; }
 .label-tag.white { color: rgba(255,255,255,.8); background: rgba(255,255,255,.12); border: 0.5px solid rgba(255,255,255,.2); }
-h2.section-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; line-height: 1.2; color: var(--navy); margin-top: 10px; }
+h2.section-title {
+  font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700;
+  line-height: 1.1; color: var(--navy); margin-top: 10px; letter-spacing: -.03em;
+}
 h2.section-title.light { color: var(--white); }
-.section-sub { font-size: 15px; color: var(--text-muted); margin-top: 10px; line-height: 1.75; max-width: 520px; }
-.section-sub.light { color: rgba(255,255,255,.6); }
+.section-sub { font-size: 15px; color: var(--text-muted); margin-top: 10px; line-height: 1.8; max-width: 560px; }
+.section-sub.light { color: rgba(255,255,255,.62); }
 
 /* ─── NAVBAR ─── */
 #navbar {
@@ -64,21 +77,36 @@ h2.section-title.light { color: var(--white); }
 .nav-inner {
   max-width: 1200px; margin: 0 auto; padding: 0 32px;
   height: 64px; display: flex; align-items: center; justify-content: space-between;
+  position: relative;
 }
 .nav-logo { display: flex; align-items: center; gap: 10px; }
 .nav-logo-box {
-  width: 36px; height: 36px; background: var(--gold); border-radius: 8px;
+  width: 40px; height: 40px; background: linear-gradient(180deg, var(--gold), #E2A72C); border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
 }
 .nav-logo-box svg { width: 18px; height: 18px; fill: white; }
 .nav-logo-text strong { font-size: 15px; font-weight: 600; color: white; display: block; }
 .nav-logo-text span { font-size: 11px; color: rgba(255,255,255,.5); }
+.nav-toggle {
+  display: none; width: 46px; height: 46px; border-radius: 10px;
+  background: rgba(255,255,255,.08); border: 0.5px solid rgba(255,255,255,.12);
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+}
+.nav-toggle span {
+  width: 18px; height: 2px; background: white; border-radius: 999px; display: block;
+  transition: all .2s ease;
+}
+.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 .nav-links { display: flex; gap: 6px; }
 .nav-links a {
   font-size: 13px; color: rgba(255,255,255,.65); padding: 6px 12px; border-radius: 6px;
   transition: all .2s;
 }
 .nav-links a:hover { color: white; background: rgba(255,255,255,.08); }
+.nav-links a.active { color: white; background: rgba(255,255,255,.08); }
 .nav-actions { display: flex; align-items: center; gap: 10px; }
 .nav-wa {
   display: flex; align-items: center; gap: 7px;
@@ -92,6 +120,199 @@ h2.section-title.light { color: var(--white); }
   padding: 8px 18px; border-radius: 8px; transition: background .2s;
 }
 .nav-sewa:hover { background: #1048b0; }
+.lang-switcher {
+  display: flex; align-items: center;
+  background: rgba(255,255,255,.08);
+  border: 0.5px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 3px;
+}
+.lang-btn {
+  color: rgba(255,255,255,.75);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 10px;
+  border-radius: 999px;
+  transition: all .2s;
+}
+.lang-btn.active {
+  background: white;
+  color: var(--navy);
+}
+#google_translate_element { display: none; }
+
+/* ─── CHAT WIDGET ─── */
+.chat-toggle {
+  position: fixed; right: 28px; bottom: 90px; z-index: 99;
+  width: 58px; height: 58px; border-radius: 999px;
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 24px rgba(6,25,74,.25);
+  transition: transform .2s;
+}
+.chat-toggle:hover { transform: scale(1.04); }
+.chat-toggle svg { width: 22px; height: 22px; fill: currentColor; }
+.chat-panel {
+  position: fixed; right: 28px; bottom: 160px; z-index: 98;
+  width: min(360px, calc(100vw - 32px));
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 18px 48px rgba(6,25,74,.18);
+  overflow: hidden;
+  display: none;
+  border: 0.5px solid var(--gray-100);
+}
+.chat-panel.open { display: block; }
+.chat-header {
+  background: var(--navy);
+  color: white;
+  padding: 14px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.chat-header h4 {
+  font-size: 14px; font-weight: 600;
+}
+.chat-close {
+  color: white;
+  font-size: 18px;
+  line-height: 1;
+}
+.chat-messages {
+  height: 340px;
+  overflow-y: auto;
+  padding: 14px;
+  background: #f9fbff;
+}
+.chat-msg {
+  max-width: 88%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.chat-msg.user {
+  margin-left: auto;
+  background: var(--navy);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+.chat-msg.bot {
+  background: white;
+  color: var(--text);
+  border: 0.5px solid var(--gray-100);
+  border-bottom-left-radius: 4px;
+}
+.chat-form {
+  display: flex; align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-top: 0.5px solid var(--gray-100);
+  background: white;
+}
+.chat-form input {
+  flex: 1;
+  border: 0.5px solid var(--gray-100);
+  background: var(--gray-50);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-size: 13px;
+  outline: none;
+}
+.chat-form button {
+  background: var(--blue);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 980px) {
+  .nav-inner { padding: 0 18px; }
+  .nav-toggle { display: flex; margin-left: auto; margin-right: 8px; }
+  .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0;
+    display: none; flex-direction: column; gap: 0;
+    background: rgba(6, 25, 74, 0.98);
+    padding: 10px 18px 16px;
+    border-top: 0.5px solid rgba(255,255,255,.06);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 0; border-bottom: 0.5px solid rgba(255,255,255,.08); }
+  .nav-links a:last-child { border-bottom: none; }
+  .nav-actions { margin-left: auto; }
+  .hero-content { padding: 0 7% 0 5%; max-width: 560px; }
+  .hero h1 { font-size: 52px; }
+  .about-grid, .contact-grid, .floors-grid { grid-template-columns: 1fr; gap: 40px; }
+  .gallery-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .g-cell-tall { grid-row: auto; }
+  .fac-hero-card { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 680px; margin: 0 auto; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .container, .cta-banner-inner { padding: 0 20px; }
+  .hero {
+    min-height: 760px; height: auto; padding: 120px 0 180px;
+  }
+  .hero-content {
+    position: relative; inset: auto; padding: 0 0 180px;
+    max-width: 100%; text-align: center; align-items: center;
+  }
+  .hero-eyebrow { justify-content: center; }
+  .hero-address { justify-content: center; text-align: left; }
+  .hero h1 { font-size: 44px; }
+  .hero-desc { margin: 14px auto 0; }
+  .hero-btns { justify-content: center; }
+  .hero-stats-side {
+    position: relative; right: auto; top: auto; transform: none;
+    display: flex; flex-direction: row; justify-content: center; flex-wrap: wrap;
+    gap: 10px; margin-top: -130px; padding: 0 16px;
+  }
+  .hss-card { min-width: 110px; flex: 1 1 120px; }
+  .hero-controls {
+    left: 50%; right: auto; bottom: 28px; transform: translateX(-50%);
+    width: calc(100% - 32px); justify-content: center; flex-wrap: wrap;
+  }
+  .hero-scroll { right: 50%; bottom: 18px; transform: translateX(50%); }
+  .stats-bar { flex-wrap: wrap; }
+  .stats-bar-item { flex: 1 1 200px; }
+  .about { padding: 80px 0; }
+  .about-img-main { height: 380px; }
+  .about-img-float { width: 180px; height: 140px; right: -10px; bottom: -18px; }
+  .gallery-mosaic { grid-template-columns: 1fr; }
+  .floors { padding: 80px 0; }
+  .floor-visual { padding: 24px; }
+  .fac-grid { grid-template-columns: 1fr; }
+  .reviews-header-inner { flex-direction: column; align-items: flex-start; }
+  .rev-summary { flex-direction: column; align-items: flex-start; }
+  .rev-bars { width: 100%; }
+  .contact-form { padding: 28px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 640px) {
+  .nav-logo-text span { display: none; }
+  .nav-actions { gap: 6px; }
+  .nav-wa, .nav-sewa { padding: 8px 12px; font-size: 12px; }
+  .nav-wa svg, .nav-sewa svg { width: 14px; height: 14px; }
+  .hero h1 { font-size: 38px; }
+  h2.section-title { font-size: 30px; }
+  .hero-btns { flex-direction: column; align-items: stretch; }
+  .btn-gold, .btn-outline-w, .btn-navy, .btn-outline-navy, .btn-white, .btn-outline-white, .btn-wa-full, .btn-email-full {
+    width: 100%; justify-content: center;
+  }
+  .about-img-float { position: relative; right: auto; bottom: auto; margin-top: 14px; width: 100%; height: 220px; }
+  .contact-card { align-items: flex-start; }
+  .wa-float { width: 56px; height: 56px; right: 16px; bottom: 16px; }
+}
 
 /* ─── HERO ─── */
 .hero { position: relative; height: 100vh; min-height: 680px; overflow: hidden; background: var(--navy); }
@@ -100,13 +321,16 @@ h2.section-title.light { color: var(--white); }
 .hero-slide img { width: 100%; height: 100%; object-fit: cover; }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(105deg, rgba(6,25,74,.82) 0%, rgba(6,25,74,.45) 60%, rgba(6,25,74,.25) 100%);
+  background:
+    linear-gradient(105deg, rgba(6,25,74,.9) 0%, rgba(6,25,74,.62) 55%, rgba(6,25,74,.22) 100%),
+    radial-gradient(circle at 82% 18%, rgba(240,180,41,.18), transparent 7%),
+    linear-gradient(to top, rgba(6,25,74,.18), transparent 38%);
 }
 .hero-content {
   position: absolute; inset: 0; z-index: 3;
   display: flex; flex-direction: column; justify-content: center;
   padding: 0 10% 0 8%;
-  max-width: 680px;
+  max-width: 700px;
 }
 .hero-eyebrow {
   display: flex; align-items: center; gap: 10px; margin-bottom: 22px;
@@ -119,18 +343,22 @@ h2.section-title.light { color: var(--white); }
 }
 .hero h1 em { font-style: italic; color: var(--gold-light); }
 .hero-address {
-  display: flex; align-items: center; gap: 8px;
-  margin-top: 16px; font-size: 14px; color: rgba(255,255,255,.6);
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 16px; font-size: 14px; color: rgba(255,255,255,.76);
+  background: rgba(255,255,255,.06); border: 0.5px solid rgba(255,255,255,.1);
+  padding: 10px 14px; border-radius: 999px; backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
 }
 .hero-address svg { width: 14px; height: 14px; flex-shrink: 0; fill: var(--gold-light); }
 .hero-desc { font-size: 16px; color: rgba(255,255,255,.7); line-height: 1.75; margin-top: 14px; max-width: 440px; }
 .hero-btns { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
 .btn-gold {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--gold); color: white; font-size: 14px; font-weight: 600;
+  background: linear-gradient(180deg, var(--gold), #B07E12); color: white; font-size: 14px; font-weight: 600;
   padding: 14px 28px; border-radius: 10px; transition: all .2s;
+  box-shadow: 0 10px 24px rgba(200,150,26,.22);
 }
-.btn-gold:hover { background: #a8790e; transform: translateY(-1px); }
+.btn-gold:hover { background: #a8790e; transform: translateY(-1px); box-shadow: 0 14px 28px rgba(200,150,26,.3); }
 .btn-outline-w {
   display: inline-flex; align-items: center; gap: 8px;
   background: transparent; color: white; font-size: 14px; font-weight: 500;
@@ -145,9 +373,10 @@ h2.section-title.light { color: var(--white); }
   display: flex; flex-direction: column; gap: 12px;
 }
 .hss-card {
-  background: rgba(255,255,255,.1); backdrop-filter: blur(8px);
-  border: 0.5px solid rgba(255,255,255,.18); border-radius: 12px;
+  background: rgba(255,255,255,.08); backdrop-filter: blur(10px);
+  border: 0.5px solid rgba(255,255,255,.14); border-radius: 12px;
   padding: 14px 20px; text-align: center; min-width: 110px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
 }
 .hss-card strong { display: block; font-size: 24px; font-weight: 600; color: white; line-height: 1; }
 .hss-card span { font-size: 11px; color: rgba(255,255,255,.55); margin-top: 4px; display: block; text-transform: uppercase; letter-spacing: .07em; }
@@ -204,6 +433,68 @@ h2.section-title.light { color: var(--white); }
 .sbi-text strong { display: block; font-size: 20px; font-weight: 600; color: white; line-height: 1; }
 .sbi-text span { font-size: 11px; color: rgba(255,255,255,.45); text-transform: uppercase; letter-spacing: .07em; margin-top: 3px; display: block; }
 
+/* ─── HIGHLIGHTS ─── */
+.highlights { padding: 72px 0 0; background: var(--white); }
+.highlights-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.highlight-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border: 0.5px solid var(--gray-100); border-radius: var(--radius-xl);
+  padding: 28px 24px; position: relative; overflow: hidden;
+  box-shadow: 0 14px 36px rgba(6,25,74,.06);
+}
+.highlight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(6,25,74,.1);
+}
+.highlight-card::after {
+  content: '';
+  position: absolute; right: -16px; bottom: -14px;
+  width: 72px; height: 72px;
+  background: radial-gradient(circle, rgba(21,86,200,.08), transparent 70%);
+}
+.highlight-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  background: #EEF5FF; color: var(--blue);
+  margin-bottom: 14px;
+}
+.highlight-icon svg { width: 20px; height: 20px; fill: currentColor; }
+.highlight-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); }
+.highlight-card p { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-top: 8px; }
+
+/* ─── EXPERIENCE / STORY ─── */
+.experience { padding: 96px 0; background: linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%); }
+.experience-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+.experience-media { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
+.exp-main, .exp-side { overflow: hidden; border-radius: var(--radius-xl); }
+.exp-main { height: 520px; box-shadow: 0 18px 44px rgba(6,25,74,.12); }
+.exp-main img, .exp-side img { width: 100%; height: 100%; object-fit: cover; }
+.exp-side { height: 240px; align-self: end; border: 4px solid white; box-shadow: 0 16px 36px rgba(6,25,74,.1); }
+.exp-badge {
+  position: absolute; left: 16px; bottom: 16px;
+  background: rgba(6,25,74,.82); color: white;
+  padding: 10px 14px; border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+.exp-badge strong { display: block; font-size: 16px; }
+.exp-badge span { font-size: 11px; color: rgba(255,255,255,.75); }
+.experience-copy p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-top: 16px; }
+.experience-points { display: grid; gap: 10px; margin-top: 22px; }
+.exp-point {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--navy);
+}
+.exp-point svg { width: 16px; height: 16px; fill: var(--gold); flex-shrink: 0; margin-top: 3px; }
+.exp-stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.exp-stat {
+  background: #F7F9FF; border: 0.5px solid var(--gray-100);
+  border-radius: 10px; padding: 10px 14px;
+}
+.exp-stat strong { display: block; font-size: 18px; color: var(--navy); }
+.exp-stat span { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; }
+
 /* ─── ABOUT ─── */
 .about { padding: 100px 0; background: var(--white); }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
@@ -211,20 +502,21 @@ h2.section-title.light { color: var(--white); }
 .about-images { position: relative; }
 .about-img-main {
   border-radius: var(--radius-xl); overflow: hidden;
-  height: 460px;
+  height: 460px; box-shadow: 0 24px 52px rgba(6,25,74,.12);
 }
 .about-img-main img { width: 100%; height: 100%; object-fit: cover; }
 .about-img-float {
   position: absolute; bottom: -28px; right: -28px;
   width: 200px; height: 160px; border-radius: var(--radius-lg); overflow: hidden;
-  border: 4px solid white; box-shadow: 0 8px 32px rgba(6,25,74,.18);
+  border: 4px solid white; box-shadow: 0 18px 36px rgba(6,25,74,.18);
 }
 .about-img-float img { width: 100%; height: 100%; object-fit: cover; }
 .green-badge {
   position: absolute; top: 20px; left: 20px;
-  background: white; border-radius: 10px; padding: 10px 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7fff8 100%);
+  border-radius: 12px; padding: 10px 14px;
   display: flex; align-items: center; gap: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  box-shadow: 0 6px 18px rgba(0,0,0,.1);
 }
 .green-badge-dot { width: 10px; height: 10px; background: #22C55E; border-radius: 50%; }
 .green-badge span { font-size: 12px; font-weight: 600; color: var(--navy); }
@@ -235,8 +527,10 @@ h2.section-title.light { color: var(--white); }
 .chip {
   display: flex; align-items: center; gap: 6px;
   font-size: 13px; font-weight: 500; color: var(--navy-mid);
-  background: #EBF1FF; padding: 7px 14px; border-radius: 999px;
+  background: linear-gradient(180deg, #F5F8FF 0%, #EEF4FF 100%);
+  padding: 7px 14px; border-radius: 999px;
   border: 0.5px solid #C5D5F5;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
 }
 .chip svg { width: 14px; height: 14px; fill: var(--blue); flex-shrink: 0; }
 .about-cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
@@ -255,7 +549,7 @@ h2.section-title.light { color: var(--white); }
 .btn-outline-navy:hover { border-color: var(--navy); background: var(--gray-50); }
 
 /* ─── GALLERY ─── */
-.gallery { padding: 80px 0; background: var(--off-white); }
+.gallery { padding: 92px 0; background: var(--off-white); }
 .gallery-header { text-align: center; margin-bottom: 40px; }
 .gallery-header .section-sub { margin: 10px auto 0; }
 .gallery-mosaic {
@@ -282,8 +576,72 @@ h2.section-title.light { color: var(--white); }
 }
 .gallery-ig a { color: var(--blue); font-weight: 500; }
 
+/* ─── VIDEO ─── */
+.video-section { padding: 104px 0; background: var(--white); }
+.video-grid {
+  display: grid; grid-template-columns: 1.2fr 0.95fr; gap: 32px; align-items: center;
+}
+.video-frame {
+  position: relative; border-radius: var(--radius-xl); overflow: hidden;
+  background: #0A1533; box-shadow: 0 24px 50px rgba(6,25,74,.12);
+  aspect-ratio: 16 / 9;
+}
+.video-frame iframe {
+  width: 100%; height: 100%; display: block; border: 0;
+}
+.video-info {
+  background: linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%);
+  border: 0.5px solid var(--gray-100); border-radius: var(--radius-xl);
+  padding: 32px;
+}
+.video-info h3 { font-size: 22px; font-weight: 700; color: var(--navy); }
+.video-info p { font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-top: 12px; }
+.video-points { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+.video-point {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: var(--text-muted);
+}
+.video-point svg { width: 16px; height: 16px; fill: var(--gold); flex-shrink: 0; margin-top: 2px; }
+
+/* ─── MANAGEMENT SLIDER ─── */
+.management-section { padding: 104px 0; background: var(--off-white); }
+.management-header { text-align: center; margin-bottom: 32px; }
+.management-slider-wrap { position: relative; }
+.management-track {
+  display: flex; transition: transform .45s ease;
+}
+.management-slide {
+  min-width: 100%; border-radius: var(--radius-xl); overflow: hidden;
+  background: white; box-shadow: 0 18px 40px rgba(6,25,74,.08);
+}
+.management-slide img {
+  width: 100%; height: 420px; object-fit: cover;
+}
+.management-slide-caption {
+  padding: 18px 22px 22px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.management-slide-caption strong { font-size: 16px; color: var(--navy); }
+.management-slide-caption span { font-size: 13px; color: var(--text-muted); }
+.management-controls {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 18px;
+}
+.management-dots { display: flex; gap: 6px; }
+.management-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--gray-100);
+  transition: all .2s;
+}
+.management-dot.active { width: 24px; border-radius: 999px; background: var(--navy); }
+.management-nav { display: flex; gap: 8px; }
+.management-nav button {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: white; border: 0.5px solid var(--gray-100);
+  color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+}
+
 /* ─── FLOORS ─── */
-.floors { padding: 100px 0; background: var(--navy); }
+.floors { padding: 104px 0; background: var(--navy); }
 .floors-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
 .floors-list { margin-top: 32px; display: flex; flex-direction: column; gap: 0; }
 .floor-item {
@@ -332,7 +690,7 @@ h2.section-title.light { color: var(--white); }
 .bd-leg-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
 
 /* ─── FACILITIES ─── */
-.facilities { padding: 100px 0; background: var(--white); }
+.facilities { padding: 104px 0; background: var(--white); }
 .fac-header { text-align: center; margin-bottom: 56px; }
 .fac-header .section-sub { margin: 10px auto 0; }
 .fac-hero-card {
@@ -357,7 +715,10 @@ h2.section-title.light { color: var(--white); }
   background: var(--off-white); border: 0.5px solid var(--gray-100);
   border-radius: var(--radius-lg); padding: 24px; transition: all .2s;
 }
-.fac-card:hover { background: white; border-color: var(--gray-300); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(6,25,74,.08); }
+.fac-card:hover {
+  background: white; border-color: var(--gray-300);
+  transform: translateY(-3px); box-shadow: 0 14px 30px rgba(6,25,74,.08);
+}
 .fac-icon {
   width: 44px; height: 44px; border-radius: 10px; background: #EBF1FF;
   display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: var(--blue);
@@ -369,7 +730,7 @@ h2.section-title.light { color: var(--white); }
 .fac-floor svg { width: 12px; height: 12px; fill: currentColor; }
 
 /* ─── PRICING ─── */
-.pricing { padding: 100px 0; background: var(--gray-50); }
+.pricing { padding: 104px 0; background: var(--gray-50); }
 .pricing-header { text-align: center; margin-bottom: 48px; }
 .pricing-header .section-sub { margin: 10px auto 0; }
 .pricing-toggle {
@@ -386,8 +747,11 @@ h2.section-title.light { color: var(--white); }
   background: white; border: 0.5px solid var(--gray-100);
   border-radius: var(--radius-xl); overflow: hidden; transition: all .2s;
 }
-.price-card:hover { box-shadow: 0 8px 32px rgba(6,25,74,.08); }
-.price-card.featured { border: 2px solid var(--navy); }
+.price-card:hover { box-shadow: 0 12px 36px rgba(6,25,74,.08); transform: translateY(-2px); }
+.price-card.featured {
+  border: 2px solid var(--navy);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%);
+}
 .pc-head { padding: 28px 28px 20px; border-bottom: 0.5px solid var(--gray-100); }
 .price-card.featured .pc-head { background: var(--navy); border-bottom: none; }
 .pc-head-top { display: flex; align-items: center; justify-content: space-between; }
@@ -413,7 +777,7 @@ h2.section-title.light { color: var(--white); }
 .pricing-note a { color: var(--blue); }
 
 /* ─── TENANTS ─── */
-.tenants { padding: 80px 0; background: white; overflow: hidden; }
+.tenants { padding: 88px 0; background: white; overflow: hidden; }
 .tenants-header { text-align: center; margin-bottom: 40px; }
 .tenants-strip {
   display: flex; gap: 12px;
@@ -433,7 +797,7 @@ h2.section-title.light { color: var(--white); }
 @keyframes tenantScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
 /* ─── REVIEWS ─── */
-.reviews { padding: 100px 0; background: var(--off-white); }
+.reviews { padding: 104px 0; background: var(--off-white); }
 .reviews-header { margin-bottom: 48px; }
 .reviews-header-inner { display: flex; align-items: flex-end; justify-content: space-between; }
 .rev-summary {
@@ -490,7 +854,7 @@ h2.section-title.light { color: var(--white); }
 .rev-dot.active { background: var(--navy); width: 24px; border-radius: 4px; }
 
 /* ─── CONTACT ─── */
-.contact { padding: 100px 0; background: var(--navy); }
+.contact { padding: 104px 0; background: var(--navy); }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
 .contact-info h2 { color: white; }
 .contact-info .section-sub { color: rgba(255,255,255,.55); }
@@ -500,7 +864,10 @@ h2.section-title.light { color: var(--white); }
   background: rgba(255,255,255,.06); border: 0.5px solid rgba(255,255,255,.1);
   border-radius: var(--radius-md); padding: 16px 18px; transition: all .2s;
 }
-.contact-card:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); }
+.contact-card:hover {
+  background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2);
+  transform: translateY(-1px);
+}
 .cc-icon {
   width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center; font-size: 18px;
@@ -571,8 +938,9 @@ h2.section-title.light { color: var(--white); }
   display: inline-flex; align-items: center; gap: 8px;
   background: white; color: var(--gold); font-size: 14px; font-weight: 600;
   padding: 14px 28px; border-radius: 10px; transition: all .2s;
+  box-shadow: 0 10px 24px rgba(255,255,255,.18);
 }
-.btn-white:hover { background: rgba(255,255,255,.9); transform: translateY(-1px); }
+.btn-white:hover { background: rgba(255,255,255,.94); transform: translateY(-1px); }
 .btn-outline-white {
   display: inline-flex; align-items: center; gap: 8px;
   background: transparent; color: white; font-size: 14px; font-weight: 500;
@@ -635,6 +1003,26 @@ h2.section-title.light { color: var(--white); }
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- AI CHAT -->
+<div class="chat-widget">
+  <button class="chat-toggle" id="chatToggle" aria-label="Buka asisten AI">
+    <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 00-9 9c0 1.33.29 2.58.82 3.69L3 21l5.37-1.04A8.95 8.95 0 0012 21a9 9 0 000-18zm0 16a7.95 7.95 0 01-4.03-1.09l-.29-.17-3.18.62.63-3.08-.17-.28A7.95 7.95 0 014 12a8 8 0 1116 0 8 8 0 01-8 7z"/></svg>
+  </button>
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <h4>AI Assistant</h4>
+      <button class="chat-close" id="chatClose" aria-label="Tutup chat">×</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Halo! Saya siap membantu menjawab soal lokasi, fasilitas, tarif, dan jadwal kunjungan Plaza BPJamsostek.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input id="chatInput" type="text" placeholder="Tanya tentang gedung, sewa, atau fasilitas..." autocomplete="off">
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+</div>
+
 <!-- NAVBAR -->
 <nav id="navbar">
   <div class="nav-inner">
@@ -647,15 +1035,27 @@ h2.section-title.light { color: var(--white); }
         <span>Grade A · Kuningan, Jakarta</span>
       </div>
     </div>
-    <div class="nav-links">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu navigasi">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="#about">Tentang</a>
+      <a href="#gallery">Galeri</a>
+      <a href="#video">Video</a>
+      <a href="#management">Pengelola</a>
       <a href="#floors">Lantai</a>
       <a href="#facilities">Fasilitas</a>
       <a href="#pricing">Tarif</a>
-      <a href="#reviews">Review</a>
       <a href="#contact">Kontak</a>
     </div>
     <div class="nav-actions">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="id">ID</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh-CN">中文</button>
+      </div>
       <a href="https://wa.me/6285211566707" class="nav-wa">
         <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
@@ -667,6 +1067,7 @@ h2.section-title.light { color: var(--white); }
     </div>
   </div>
 </nav>
+<div id="google_translate_element"></div>
 
 <!-- HERO -->
 <section class="hero" id="hero-section">
@@ -766,6 +1167,64 @@ h2.section-title.light { color: var(--white); }
   </div>
 </div>
 
+<!-- HIGHLIGHTS -->
+<section class="highlights">
+  <div class="container">
+    <div class="highlights-grid reveal">
+      <div class="highlight-card">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div>
+        <h3>Lokasi Strategis</h3>
+        <p>Berada di kawasan bisnis premium Kuningan, dekat akses utama menuju pusat kota dan area korporat.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+        <h3>Fasilitas Lengkap</h3>
+        <p>Ballroom, food court, gym, ruang meeting, dan area parkir yang nyaman untuk seluruh kebutuhan tenant.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z"/></svg></div>
+        <h3>Layanan Profesional</h3>
+        <p>Tim pengelola yang responsif, aman, dan siap mendukung operasional harian serta kebutuhan event.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience">
+  <div class="container">
+    <div class="experience-grid reveal">
+      <div class="experience-media">
+        <div class="exp-main">
+          <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-jamsostek.jpg" alt="Tampak depan Plaza BPJamsostek">
+        </div>
+        <div class="exp-side">
+          <img src="https://www.sinergiinvestasiproperti.co.id/media/post/l/gedung-plaza-bpjamsostek-2.jpg" alt="Interior Plaza BPJamsostek">
+        </div>
+        <div class="exp-badge">
+          <strong>Grade A</strong>
+          <span>Office Tower Jakarta</span>
+        </div>
+      </div>
+      <div class="experience-copy">
+        <div class="label-tag">Mengapa pelanggan memilih kami</div>
+        <h2 class="section-title">Lebih dari sekadar ruang kantor</h2>
+        <p>Plaza BPJamsostek memberikan pengalaman kerja yang premium, aman, dan nyaman — dari akses strategis hingga fasilitas lengkap yang mendukung produktivitas bisnis Anda.</p>
+        <div class="experience-points">
+          <div class="exp-point"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>Lokasi bisnis premium di kawasan Kuningan dan akses mudah ke seluruh Jakarta</div>
+          <div class="exp-point"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>Fasilitas lengkap untuk kantor, meeting, event, wellness, dan kebutuhan tenant</div>
+          <div class="exp-point"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>Tim pengelola profesional, keamanan 24 jam, serta layanan yang responsif</div>
+        </div>
+        <div class="exp-stat-row">
+          <div class="exp-stat"><strong>30</strong><span>lantai</span></div>
+          <div class="exp-stat"><strong>26.782 m²</strong><span>total area</span></div>
+          <div class="exp-stat"><strong>1000+</strong><span>kapasitas event</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="container">
@@ -800,7 +1259,7 @@ h2.section-title.light { color: var(--white); }
             <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:white"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10" stroke="white" stroke-width="2"/></svg>
             Jadwalkan Kunjungan
           </a>
-          <a href="#" class="btn-outline-navy">
+          <a href="https://www.canva.com/design/DAGspFRJiF8/Awq6gXxd6TF7x0xhMlWafA/view?utm_content=DAGspFRJiF8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hca2e264f40" target="_blank" class="btn-outline-navy">
             <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Company Profile
           </a>
@@ -843,6 +1302,80 @@ h2.section-title.light { color: var(--white); }
     <div class="gallery-ig reveal">
       <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#E1306C;stroke-width:2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/></svg>
       Ikuti kami di Instagram <a href="https://www.instagram.com/plazabpjamsostek/" target="_blank">@plazabpjamsostek</a> untuk foto terbaru
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+  <div class="container">
+    <div class="video-grid reveal">
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4?rel=0" title="Video profil Plaza BPJamsostek" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video-info">
+        <div class="label-tag">Video profil</div>
+        <h3>Kenal Plaza BPJamsostek lewat visual yang lebih nyata</h3>
+        <p>Lihat suasana gedung, fasilitas utama, dan pengalaman kerja yang ditawarkan di lokasi strategis Kuningan. Video ini bisa langsung dipasang di website untuk meningkatkan kepercayaan calon penyewa dan pengunjung.</p>
+        <div class="video-points">
+          <div class="video-point"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>Eksterior & interior premium</div>
+          <div class="video-point"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>Ballroom, food court, dan fasilitas lengkap</div>
+          <div class="video-point"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>Suasana kerja yang modern dan nyaman</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANAGEMENT SLIDER -->
+<section class="management-section" id="management">
+  <div class="container">
+    <div class="management-header reveal">
+      <div class="label-tag">Tim pengelola</div>
+      <h2 class="section-title">Foto tim pengelola & layanan gedung</h2>
+      <p class="section-sub">Menampilkan wajah tim yang menjaga kualitas layanan, keamanan, dan kenyamanan Plaza BPJamsostek setiap hari.</p>
+    </div>
+    <div class="management-slider-wrap reveal">
+      <div class="management-track" id="managementTrack">
+        <div class="management-slide">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Tim manajemen gedung">
+          <div class="management-slide-caption">
+            <div>
+              <strong>Tim Building Management</strong>
+              <span>Koordinasi operasional & layanan gedung</span>
+            </div>
+          </div>
+        </div>
+        <div class="management-slide">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Tim tenant relations">
+          <div class="management-slide-caption">
+            <div>
+              <strong>Tenant Relations Team</strong>
+              <span>Support untuk penyewa, event, dan kebutuhan tenant</span>
+            </div>
+          </div>
+        </div>
+        <div class="management-slide">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80" alt="Tim keamanan dan fasilitas">
+          <div class="management-slide-caption">
+            <div>
+              <strong>Security & Facilities Team</strong>
+              <span>Keamanan 24 jam dan pemeliharaan fasilitas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="management-controls">
+        <div class="management-dots" id="managementDots">
+          <button class="management-dot active" data-i="0"></button>
+          <button class="management-dot" data-i="1"></button>
+          <button class="management-dot" data-i="2"></button>
+        </div>
+        <div class="management-nav">
+          <button id="mp" aria-label="Sebelumnya">&#8592;</button>
+          <button id="mn" aria-label="Berikutnya">&#8594;</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1315,12 +1848,64 @@ h2.section-title.light { color: var(--white); }
   </div>
 </footer>
 
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({
+    pageLanguage: 'id',
+    includedLanguages: 'en,zh-CN,id',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+
 (function(){
   // NAVBAR SCROLL
   var nb = document.getElementById('navbar');
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
   window.addEventListener('scroll', function(){
     nb.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  navToggle && navToggle.addEventListener('click', function(){
+    navToggle.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+  navLinks && navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // LANG SWITCHER
+  var langButtons = document.querySelectorAll('.lang-btn');
+  function setLang(lang){
+    var value = lang === 'zh-CN' ? 'zh-CN' : (lang === 'en' ? 'en' : 'id');
+    document.documentElement.lang = value;
+    langButtons.forEach(function(btn){ btn.classList.toggle('active', btn.dataset.lang === lang); });
+
+    function applyGoogleLang(attempt){
+      var combo = document.querySelector('.goog-te-combo') || document.getElementsByName('goog_te_combo')[0];
+      if(combo){
+        combo.value = value;
+        combo.dispatchEvent(new Event('change', { bubbles: true }));
+        return;
+      }
+      if(window.google && window.google.translate && window.google.translate.TranslateElement){
+        try {
+          googleTranslateElementInit();
+        } catch (e) {}
+      }
+      if(attempt < 40){
+        setTimeout(function(){ applyGoogleLang(attempt + 1); }, 300);
+      }
+    }
+
+    applyGoogleLang(0);
+  }
+  langButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){ setLang(btn.dataset.lang); });
   });
 
   // HERO SLIDESHOW
@@ -1363,6 +1948,65 @@ h2.section-title.light { color: var(--white); }
   }
   document.getElementById('rp').onclick = function(){ rGo(rCur-1); };
   document.getElementById('rn').onclick = function(){ rGo(rCur+1); };
+
+  // MANAGEMENT PHOTO SLIDER
+  var mCur = 0, mTotal = 3;
+  var mTrack = document.getElementById('managementTrack');
+  var mDots = document.querySelectorAll('.management-dot');
+  function mGo(n){
+    mCur = (n + mTotal) % mTotal;
+    mTrack.style.transform = 'translateX(-' + (mCur * 100) + '%)';
+    mDots.forEach(function(d,i){ d.classList.toggle('active', i === mCur); });
+  }
+  document.getElementById('mp').onclick = function(){ mGo(mCur-1); };
+  document.getElementById('mn').onclick = function(){ mGo(mCur+1); };
+  mDots.forEach(function(d){
+    d.onclick = function(){ mGo(+d.dataset.i); };
+  });
+
+  // AI CHATBOT
+  var chatToggle = document.getElementById('chatToggle');
+  var chatPanel = document.getElementById('chatPanel');
+  var chatClose = document.getElementById('chatClose');
+  var chatForm = document.getElementById('chatForm');
+  var chatInput = document.getElementById('chatInput');
+  var chatMessages = document.getElementById('chatMessages');
+  function addChat(text, who){
+    var row = document.createElement('div');
+    row.className = 'chat-msg ' + who;
+    row.textContent = text;
+    chatMessages.appendChild(row);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+  function botReply(q){
+    var s = q.toLowerCase();
+    if(s.includes('lokasi') || s.includes('alamat') || s.includes('dimana')){
+      return 'Plaza BPJamsostek berlokasi di Jl. HR Rasuna Said Kav. 112B, Kuningan, Jakarta Selatan, dekat area bisnis dan akses utama kota.';
+    }
+    if(s.includes('fasilitas') || s.includes('amenitas') || s.includes('gym') || s.includes('ballroom')){
+      return 'Gedung ini memiliki ballroom, ruang meeting, food court, gym SinergiFit, area parkir luas, dan keamanan 24 jam.';
+    }
+    if(s.includes('harga') || s.includes('tarif') || s.includes('sewa')){
+      return 'Untuk detail tarif dan ketersediaan ruang, silakan hubungi tim kami melalui WhatsApp atau form kontak di website.';
+    }
+    if(s.includes('kontak') || s.includes('wa') || s.includes('email') || s.includes('hubungi')){
+      return 'Anda bisa menghubungi kami lewat WhatsApp +62 852-1156-6707 atau email tr.plaza.bpjamsostek@gmail.com.';
+    }
+    if(s.includes('event') || s.includes('acara') || s.includes('meeting')){
+      return 'Plaza BPJamsostek cocok untuk meeting, seminar, konferensi, dan event besar karena tersedia ballroom dan fasilitas pendukung.';
+    }
+    return 'Terima kasih, saya bisa membantu menjawab soal lokasi, fasilitas, tarif, event, atau jadwal kunjungan. Silakan tanyakan lebih spesifik.';
+  }
+  chatToggle && chatToggle.addEventListener('click', function(){ chatPanel.classList.toggle('open'); });
+  chatClose && chatClose.addEventListener('click', function(){ chatPanel.classList.remove('open'); });
+  chatForm && chatForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var text = chatInput.value.trim();
+    if(!text) return;
+    addChat(text, 'user');
+    chatInput.value = '';
+    setTimeout(function(){ addChat(botReply(text), 'bot'); }, 350);
+  });
 
   // SCROLL REVEAL
   var reveals = document.querySelectorAll('.reveal');
