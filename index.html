@@ -961,8 +961,69 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @keyframes waFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
 
 /* ═══════════════════════════════
-   AI CHAT WIDGET
+   GOOGLE MAPS SECTION
 ═══════════════════════════════ */
+.maps-section {
+  padding: 80px 0;
+  background: var(--off-white);
+}
+.maps-header { text-align: center; margin-bottom: 40px; }
+.maps-wrapper {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(10,46,26,.14);
+  border: 1px solid var(--gray-100);
+  position: relative;
+}
+.maps-wrapper iframe {
+  display: block; width: 100%; height: 420px; border: none;
+}
+.maps-actions {
+  display: flex; gap: 12px; justify-content: center; margin-top: 24px; flex-wrap: wrap;
+}
+.btn-maps-go {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: linear-gradient(135deg, var(--green-light), var(--green));
+  color: white; font-size: 14px; font-weight: 700;
+  padding: 13px 26px; border-radius: 10px; transition: all .2s;
+  box-shadow: 0 8px 22px rgba(22,163,74,.3);
+}
+.btn-maps-go:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(22,163,74,.4); }
+.btn-maps-waze {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: #33CCFF; color: white; font-size: 14px; font-weight: 700;
+  padding: 13px 26px; border-radius: 10px; transition: all .2s;
+  box-shadow: 0 8px 22px rgba(51,204,255,.3);
+}
+.btn-maps-waze:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.maps-info-row {
+  display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap; justify-content: center;
+}
+.maps-info-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white; border: 1px solid var(--gray-100);
+  border-radius: 10px; padding: 10px 16px; font-size: 13px; color: var(--forest);
+  font-weight: 500; box-shadow: 0 2px 8px rgba(10,46,26,.06);
+}
+.maps-info-chip svg { width: 14px; height: 14px; fill: var(--green); flex-shrink: 0; }
+@media (max-width:768px){
+  .maps-wrapper iframe { height: 300px; }
+  .maps-section { padding: 50px 0; }
+}
+@media (max-width:640px){
+  .maps-wrapper iframe { height: 260px; }
+  .maps-actions { flex-direction: column; align-items: center; }
+  .btn-maps-go, .btn-maps-waze { width: 100%; max-width: 320px; justify-content: center; }
+}
+
+/* ═══════════════════════════════
+   AI CHAT — EXPANDED SYSTEM
+═══════════════════════════════ */
+.chat-panel { max-height: calc(100vh - 180px); display: flex; flex-direction: column; }
+.chat-msgs { flex: 1; }
+.chat-suggests { flex-wrap: wrap; max-height: 80px; overflow: hidden; }
+
+
 .chat-toggle {
   position: fixed; right: 28px; bottom: 96px; z-index: 99;
   width: 60px; height: 60px; border-radius: 999px;
@@ -1117,14 +1178,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .cta-inner { flex-direction: column; text-align: center; }
 }
 @media (max-width:640px){
-  .hero h1 { font-size: 38px; }
+  .hero h1 { font-size: 34px; }
   .hero-btns { flex-direction: column; }
   .btn-green,.btn-outline-w { width: 100%; justify-content: center; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; }
-  .wa-float { width: 52px; height: 52px; right: 16px; bottom: 16px; }
-  .chat-panel { right: 16px; bottom: 148px; }
-  .chat-toggle { right: 16px; bottom: 86px; }
+  .wa-float { width: 50px; height: 50px; right: 14px; bottom: 14px; }
+  .chat-panel { right: 10px; left: 10px; bottom: 140px; width: auto; border-radius: 18px; }
+  .chat-toggle { right: 14px; bottom: 76px; width: 54px; height: 54px; }
+  .chat-msgs { height: 300px; }
+  .section-title { font-size: 28px; }
+  .stats-bar { display: none; }
+  .hero-stats { gap: 6px; }
+  .hstat { min-width: 80px; padding: 10px 12px; }
+  .hstat-num { font-size: 26px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-btns { flex-direction: column; }
+  .cta-inner { padding: 0 20px; }
+  .cta-inner h2 { font-size: 26px; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
+  .rev-slider-outer { overflow: hidden; }
+  .footer-grid { gap: 24px; }
 }
 /* ═══════════════════════════════════════════
    RESPONSIVE LAYOUT (UNTUK HANDPHONE & TABLET)
@@ -1232,22 +1306,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   <div class="chat-head">
     <div class="chat-head-av">🏢</div>
     <div class="chat-head-info">
-      <h4>Asisten Plaza BPJamsostek</h4>
-      <div class="chat-head-status"><div class="status-dot"></div>AI · Siap membantu</div>
+      <h4>Asisten AI Plaza BPJamsostek</h4>
+      <div class="chat-head-status"><div class="status-dot"></div>Online · Siap menjawab apa saja</div>
     </div>
     <button class="chat-close" id="chatClose">×</button>
   </div>
   <div class="chat-msgs" id="chatMsgs">
     <div class="chat-msg-wrap bot">
-      <div class="chat-bubble">Selamat datang! 👋 Saya asisten virtual Plaza BPJamsostek. Saya bisa bantu Anda soal ruang sewa, ballroom, fasilitas gedung, tarif, atau jadwal kunjungan. Ada yang bisa saya bantu?</div>
+      <div class="chat-bubble">Halo! 👋 Saya asisten AI Plaza BPJamsostek. Saya bisa bantu <strong>apa saja</strong> — dari info gedung, booking ballroom, tarif sewa, hingga pertanyaan umum seperti resep masakan, translate, atau pengetahuan umum. Mau tanya apa? 😊</div>
       <span class="chat-time">Baru saja</span>
     </div>
   </div>
   <div class="chat-suggests" id="chatSuggests">
-    <button class="csugg" data-q="Fasilitas apa saja yang tersedia di gedung?">Fasilitas</button>
-    <button class="csugg" data-q="Berapa tarif sewa ruang kantor?">Tarif kantor</button>
-    <button class="csugg" data-q="Bagaimana cara booking ballroom?">Booking ballroom</button>
-    <button class="csugg" data-q="Di mana lokasi dan bagaimana akses ke gedung?">Lokasi</button>
+    <button class="csugg" data-q="Fasilitas apa saja yang ada di gedung?">🏢 Fasilitas</button>
+    <button class="csugg" data-q="Berapa tarif sewa ballroom dan meeting room?">💰 Tarif</button>
+    <button class="csugg" data-q="Bagaimana akses ke Plaza BPJamsostek?">📍 Lokasi</button>
+    <button class="csugg" data-q="Ceritakan sesuatu yang menarik hari ini!">✨ Cerita seru</button>
   </div>
   <form class="chat-form" id="chatForm">
     <input id="chatInput" type="text" placeholder="Tanya apa saja..." autocomplete="off">
@@ -1281,6 +1355,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <a href="#floors">Lantai</a>
       <a href="#facilities">Fasilitas</a>
       <a href="#pricing">Tarif</a>
+      <a href="#lokasi">Lokasi</a>
       <a href="#contact">Kontak</a>
     </div>
     <div class="nav-actions">
@@ -1854,7 +1929,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           </a>
           <a href="https://wa.me/628131401230" class="cc-card" target="_blank">
             <div class="cc-icon green"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-            <div><div class="cc-lbl">Tenant Relations</div><div class="cc-val">+62 813-1401-2300</div></div>
+            <div><div class="cc-lbl">Tenant Relations</div><div class="cc-val">+62 813-1401-230</div></div>
           </a>
           <a href="mailto:tr.plaza.bpjamsostek@gmail.com" class="cc-card">
             <div class="cc-icon gold"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
@@ -1906,6 +1981,54 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   </div>
 </section>
 
+<!-- GOOGLE MAPS LOKASI -->
+<section class="maps-section" id="lokasi">
+  <div class="container">
+    <div class="maps-header reveal">
+      <div class="tag">Lokasi kami</div>
+      <h2 class="section-title">Temukan kami di Kuningan, Jakarta</h2>
+      <p class="section-sub" style="margin: 0 auto">Jl. HR Rasuna Said Kav 112B, Kuningan, Setiabudi, Jakarta Selatan 12930 — di jantung kawasan bisnis CBD Jakarta.</p>
+    </div>
+    <div class="maps-wrapper reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.021953530898!2d106.83051731476942!3d-6.232744295477832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3c3de655555%3A0x5e9e9b73b9b9b9b9!2sPlaza%20BPJamsostek!5e0!3m2!1sid!2sid!4v1718700000000!5m2!1sid!2sid"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Lokasi Plaza BPJamsostek di Google Maps">
+      </iframe>
+    </div>
+    <div class="maps-actions reveal">
+      <a href="https://maps.google.com/?q=Plaza+BPJamsostek+Jl+HR+Rasuna+Said+Kav+112B+Kuningan+Jakarta+Selatan" target="_blank" rel="noopener" class="btn-maps-go">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Buka di Google Maps
+      </a>
+      <a href="https://waze.com/ul?ll=-6.2317603,106.8332689&navigate=yes&q=Plaza+BPJamsostek" target="_blank" rel="noopener" class="btn-maps-waze">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white"><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1zm0 3c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8zm-1 4v5l4.3 2.5-.7 1.2L9 14V8h2z"/></svg>
+        Navigasi via Waze
+      </a>
+    </div>
+    <div class="maps-info-row reveal">
+      <div class="maps-info-chip">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        Jl. HR Rasuna Said Kav 112B, Kuningan
+      </div>
+      <div class="maps-info-chip">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        Akses mudah — dekat MRT & Transjakarta
+      </div>
+      <div class="maps-info-chip">
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16,8 20,8 23,11 23,16 16,16 16,8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Parkir luas tersedia (P3–P5 & B3)
+      </div>
+      <div class="maps-info-chip">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        Kuningan CBD — Jakarta Selatan 12930
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA BANNER -->
 <div class="cta-banner">
   <div class="cta-inner">
@@ -1946,10 +2069,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <div class="footer-col">
         <h4>Panduan Lantai</h4>
         <a href="#floors">Lt. 19–30 — BPJS</a>
-        <a href="#floors">Lt. 18, 16, 10, 2 — Tersedia</a>
+        <a href="#floors">Lt. 18, 16, 10, — Tersedia</a>
+        <a href="#floors">Lt. R — Masjid</a>
         <a href="#floors">Lt. 17 — SinergiFit</a>
         <a href="#floors">Lt. 8 — Food Court</a>
         <a href="#floors">Lt. 6 — Ballroom</a>
+        <a href="#floors">Lt. GF — Lobby</a>
       </div>
       <div class="footer-col">
         <h4>Fasilitas</h4>
@@ -1957,13 +2082,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <a href="#facilities">SinergiFit Gym</a>
         <a href="#facilities">Food Court</a>
         <a href="#facilities">Parkir Luas</a>
-        <a href="#outsourcing">Tim Binajasa</a>
+        <a href="#outsourcing">Tim BIJAK</a>
         <a href="#facilities">Green Building</a>
       </div>
       <div class="footer-col">
         <h4>Kontak</h4>
         <a href="https://wa.me/6285211566707">CS: +62 852-1156-6707</a>
-        <a href="https://wa.me/628131401230">Tenant: +62 813-1401-2300</a>
+        <a href="https://wa.me/628131401230">Tenant: +62 813-1401-230</a>
         <a href="mailto:tr.plaza.bpjamsostek@gmail.com">tr.plaza.bpjamsostek@gmail.com</a>
         <a href="https://www.sinergiinvestasiproperti.co.id" target="_blank">sinergiinvestasiproperti.co.id</a>
         <a href="https://www.instagram.com/binajasa.abadikarya/" target="_blank">@binajasa.abadikarya</a>
@@ -2067,24 +2192,39 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   var cNotif = document.getElementById('chatNotif');
   var chatHistory = [], isBusy = false;
 
-  var SYSTEM = `Anda adalah asisten virtual profesional Plaza BPJamsostek, gedung perkantoran Grade A premium bersertifikasi Green Building di Jl. HR Rasuna Said Kav 112B, Kuningan, Jakarta Selatan 12930. Dikelola oleh PT Sinergi Investasi Properti (anak perusahaan BPJS Ketenagakerjaan).
+  var SYSTEM = `Anda adalah asisten AI cerdas Plaza BPJamsostek yang BISA menjawab PERTANYAAN APA SAJA — tidak terbatas hanya soal gedung. Anda seperti asisten pribadi yang ramah, pintar, dan serbabisa.
 
-Anda menjawab dengan bahasa Indonesia yang ramah, profesional, dan ringkas. Gunakan emoji secukupnya.
+TUGAS UTAMA:
+1. Jawab pertanyaan umum apa saja (cuaca, resep, bahasa Inggris, sejarah, matematika, sains, teknologi, tips, dll)
+2. Bantu urusan terkait Plaza BPJamsostek (booking, tarif, fasilitas, dll)
+3. Jika percakapan melibatkan gedung, selalu arahkan ke kontak resmi
 
-Data gedung:
+DATA PLAZA BPJAMSOSTEK (gunakan jika relevan):
+- ALAMAT: Jl. HR Rasuna Said Kav 112B, Kuningan, Jakarta Selatan 12930
 - FASILITAS: Ballroom & Meeting (Lt.6), Food Court (Lt.8), SinergiFit Gym (Lt.17), Parkir (P3-P5 & B3), Keamanan 24 jam, Green Building certified
 - LANTAI TERSEDIA SEWA: Lt. 2, 10, 16, 18
 - TARIF BALLROOM Umum: Weekday Rp 35 juta, Weekend Rp 70 juta
 - TARIF BALLROOM BPJS: Weekday Rp 16 juta, Weekend Rp 50 juta  
 - TARIF MEETING ROOM Umum: Halfday Rp 5 juta, Fullday Rp 6 juta
 - TARIF MEETING ROOM BPJS: Halfday Rp 2,5 juta, Fullday Rp 3 juta
-- OUTSOURCING: PT Binajasa Abadi Karya (@binajasa.abadikarya) menyediakan Security, Housekeeping, Teknisi
-- KONTAK: WA CS +62 852-1156-6707, Tenant Relations +62 813-1401-2300
+- OUTSOURCING: PT Binajasa Abadi Karya menyediakan Security, Housekeeping, Teknisi
+- KONTAK: WA CS +62 852-1156-6707, Tenant Relations +62 813-1401-230
 - EMAIL: tr.plaza.bpjamsostek@gmail.com
-- INSTAGRAM: @plazabpjamsostek
-- WEBSITE SIP: sinergiinvestasiproperti.co.id
 
-Untuk booking & info lebih lanjut selalu arahkan ke WA +62 852-1156-6707. Jawaban max 3-4 kalimat kecuali diminta detail.`;
+GAYA KOMUNIKASI:
+- Bahasa Indonesia yang ramah, natural, dan tidak kaku
+- Gunakan emoji secukupnya agar terasa lebih hidup 😊
+- Jawaban ringkas dan langsung ke poin (3-5 kalimat), kecuali diminta detail
+- Untuk pertanyaan non-gedung: jawab dengan helpful dan antusias!
+- Untuk booking/info gedung: arahkan ke WA +62 852-1156-6707
+
+Contoh pertanyaan yang BISA dijawab:
+- "Cara buat nasi goreng?" → kasih resepnya!
+- "Apa itu AI?" → jelaskan!
+- "Translate ini ke English" → bantu terjemahkan!
+- "Rekomendasi tempat makan di Kuningan?" → kasih rekomendasi!
+- "Hitung 25% dari 800000" → bantu hitung!`;
+
 
   function addMsg(text, who){
     var now = new Date().toLocaleTimeString('id-ID', {hour:'2-digit',minute:'2-digit'});
@@ -2154,14 +2294,6 @@ Untuk booking & info lebih lanjut selalu arahkan ke WA +62 852-1156-6707. Jawaba
   document.querySelectorAll('.reveal, .reveal-left').forEach(function(el){ obs.observe(el); });
 })();
 </script>
-<script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
 
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-</script>
 </body>
 </html>
