@@ -1,1237 +1,1638 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plaza BPJamsostek - Premium Office Tower in Jakarta. Modern corporate workspace with world-class facilities.">
-    <meta name="keywords" content="Office Space, Jakarta, Corporate Tower, Rental">
-    <meta name="author" content="Plaza BPJamsostek">
-    <title>Plaza BPJamsostek - Premium Office Tower Jakarta</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tawk.to Chat Widget -->
-    <script>
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/67c08d452373546b28cc4df9/1ijiu8hvj';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
-    
-    <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: #0a0e27;
-            color: #e0e0e0;
-            overflow-x: hidden;
-        }
-
-        /* Hero Section Styles */
-        .hero-section {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1428 100%);
-            overflow: hidden;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(10, 14, 39, 0) 0%, rgba(10, 14, 39, 0.9) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            animation: fadeInUp 1.5s ease-out;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #d4af37 0%, #c9a961 50%, #b8860b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            letter-spacing: 2px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #a0aec0;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        /* Glassmorphism Button */
-        .btn-glass {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.875rem 2rem;
-            border-radius: 0.5rem;
-            color: #d4af37;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin: 0.5rem;
-            text-decoration: none;
-        }
-
-        .btn-glass:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-            transform: translateY(-3px);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-            color: #0a0e27;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            background: rgba(10, 14, 39, 0);
-            backdrop-filter: blur(0px);
-        }
-
-        .navbar.scrolled {
-            background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .navbar-container {
-            max-width: 7xl;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #d4af37 0%, #c9a961 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            cursor: pointer;
-        }
-
-        .navbar-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar-menu a {
-            color: #a0aec0;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .navbar-menu a:hover {
-            color: #d4af37;
-        }
-
-        .navbar-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #d4af37;
-            transition: width 0.3s ease;
-        }
-
-        .navbar-menu a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: #d4af37;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Floor Card Styles */
-        .floor-card {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 2rem;
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            min-height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .floor-card:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
-        }
-
-        .floor-icon {
-            font-size: 3rem;
-            color: #d4af37;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .floor-card:hover .floor-icon {
-            transform: scale(1.2) rotate(5deg);
-            animation: glow 0.6s ease-in-out;
-        }
-
-        .floor-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #d4af37;
-            margin-bottom: 0.5rem;
-        }
-
-        .floor-description {
-            font-size: 0.9rem;
-            color: #a0aec0;
-        }
-
-        /* Facility Card */
-        .facility-card {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .facility-card:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
-        }
-
-        .facility-icon {
-            font-size: 2.5rem;
-            color: #d4af37;
-            margin-bottom: 1rem;
-        }
-
-        .facility-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #e0e0e0;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 7xl;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-align: center;
-            background: linear-gradient(135deg, #d4af37 0%, #c9a961 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #a0aec0;
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-
-        .divider {
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-            margin: 0 auto 2rem;
-        }
-
-        /* Gallery Styles */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
-            cursor: pointer;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .gallery-item-bg {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a1f3a 0%, #2d2e4a 100%);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d4af37;
-            font-size: 3rem;
-        }
-
-        .gallery-item:hover .gallery-item-bg {
-            transform: scale(1.1);
-        }
-
-        .gallery-item-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(10, 14, 39, 0.9), transparent);
-            padding: 1.5rem;
-            color: #d4af37;
-            font-weight: 600;
-        }
-
-        /* Pricing Card */
-        .pricing-card {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            padding: 2rem;
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-card.featured {
-            border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.1);
-            transform: scale(1.05);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
-        }
-
-        .pricing-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #d4af37;
-            margin-bottom: 1rem;
-        }
-
-        .pricing-description {
-            color: #a0aec0;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        /* Contact Form */
-        .contact-form input,
-        .contact-form textarea {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: #e0e0e0;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            width: 100%;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #d4af37;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(10, 14, 39, 0.8);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 3rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 7xl;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            color: #d4af37;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li a {
-            color: #a0aec0;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #d4af37;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d4af37;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .social-icon:hover {
-            background: rgba(212, 175, 55, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            color: #718096;
-        }
-
-        /* Scroll to Top Button */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-            border: none;
-            border-radius: 50%;
-            color: #0a0e27;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .scroll-to-top.show {
-            display: flex;
-        }
-
-        .scroll-to-top:hover {
-            transform: scale(1.1);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 7rem;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.15);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
-        }
-
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0e27;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            animation: fadeOut 0.5s ease-out 2s forwards;
-        }
-
-        .loading-content {
-            text-align: center;
-        }
-
-        .loading-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #d4af37 0%, #c9a961 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-        }
-
-        .loading-spinner {
-            border: 4px solid rgba(212, 175, 55, 0.3);
-            border-top: 4px solid #d4af37;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-
-        /* Counter Animation */
-        .counter {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #d4af37;
-        }
-
-        .counter-label {
-            color: #a0aec0;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .navbar-menu {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .whatsapp-btn {
-                right: 1rem;
-            }
-
-            .scroll-to-top {
-                right: 1rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ballroom Plaza BPJamsostek — Wedding & Seminar Premium Jakarta</title>
+<meta name="description" content="Ballroom mewah Grade A di Kuningan Jakarta. Kapasitas 1.000+ tamu. Venue premium untuk wedding, seminar, dan gala dinner bergengsi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Didact+Gothic&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   ROOT TOKENS
+═══════════════════════════════════════════════ */
+:root {
+  --ob:    #07080F;   /* obsidian base */
+  --ob2:   #0D0E1A;   /* obsidian mid */
+  --ob3:   #13152A;   /* obsidian light */
+  --gold:  #C9A84C;   /* classic gold */
+  --goldb: #E8C96A;   /* bright gold */
+  --goldd: #8A6820;   /* dark gold */
+  --ivory: #F5EDD8;   /* warm ivory */
+  --ivoryD:#D6C9A8;   /* dim ivory */
+  --white: #FFFFFF;
+  --txt:   rgba(245,237,216,.85);
+  --txtD:  rgba(245,237,216,.45);
+  --border: rgba(201,168,76,.15);
+  --r-s: 8px; --r-m: 14px; --r-l: 22px; --r-xl: 32px;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; scroll-padding-top:80px; }
+body {
+  font-family:'Didact Gothic', system-ui, sans-serif;
+  background:var(--ob); color:var(--txt);
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+img { display:block; max-width:100%; }
+a { text-decoration:none; color:inherit; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; }
+
+/* ═══════════════════════
+   TYPEFACES
+═══════════════════════ */
+.serif { font-family:'Libre Baskerville', Georgia, serif; }
+.cinzel { font-family:'Cinzel', serif; }
+
+/* ═══════════════════════
+   UTILITIES
+═══════════════════════ */
+.container { max-width:1240px; margin:0 auto; padding:0 40px; }
+[data-reveal] { opacity:0; transform:translateY(40px); transition:opacity .9s cubic-bezier(.25,.46,.45,.94), transform .9s cubic-bezier(.25,.46,.45,.94); }
+[data-reveal="left"]  { transform:translateX(-40px); }
+[data-reveal="right"] { transform:translateX(40px); }
+[data-reveal="scale"] { transform:scale(.93); }
+[data-reveal].vis { opacity:1; transform:none !important; }
+[data-d="1"] { transition-delay:.12s; }
+[data-d="2"] { transition-delay:.24s; }
+[data-d="3"] { transition-delay:.36s; }
+[data-d="4"] { transition-delay:.48s; }
+[data-d="5"] { transition-delay:.60s; }
+
+/* ═══════════════════════
+   GOLD LINE
+═══════════════════════ */
+.gold-rule { display:flex; align-items:center; gap:14px; margin:18px 0 28px; }
+.gold-rule .line { width:48px; height:1px; background:linear-gradient(90deg,var(--gold),transparent); }
+.gold-rule .gem  { width:5px; height:5px; background:var(--gold); transform:rotate(45deg); flex-shrink:0; }
+.sec-tag {
+  font-family:'Cinzel', serif; font-size:10px; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--gold); display:flex; align-items:center; gap:10px;
+  margin-bottom:10px;
+}
+.sec-tag::before { content:''; width:28px; height:1px; background:var(--gold); flex-shrink:0; }
+.sec-h { font-family:'Libre Baskerville', serif; font-size:clamp(34px,4.5vw,60px); font-weight:700; line-height:1.08; letter-spacing:-.02em; color:var(--white); }
+.sec-h em { font-style:italic; color:var(--goldb); }
+.sec-p { font-size:16px; color:var(--txtD); line-height:1.9; margin-top:14px; font-weight:400; max-width:540px; }
+
+/* ═══════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════ */
+#nav {
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  transition:background .4s, border-color .4s, box-shadow .4s;
+}
+#nav.solid {
+  background:rgba(7,8,15,.96); backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 40px rgba(0,0,0,.4);
+}
+.nav-in {
+  max-width:1240px; margin:0 auto; padding:0 40px;
+  height:72px; display:flex; align-items:center;
+}
+.nav-logo { display:flex; align-items:center; gap:13px; margin-right:auto; }
+.nav-gem {
+  width:44px; height:44px; position:relative;
+  display:flex; align-items:center; justify-content:center;
+}
+.nav-gem::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,var(--goldb),var(--goldd));
+  clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);
+  box-shadow:0 0 18px rgba(201,168,76,.4);
+}
+.nav-gem span { position:relative; z-index:1; font-size:18px; }
+.nav-logo-text { line-height:1.25; }
+.nav-logo-text strong { font-family:'Cinzel',serif; font-size:14px; font-weight:600; color:white; display:block; letter-spacing:.06em; }
+.nav-logo-text small { font-size:10px; color:rgba(255,255,255,.3); letter-spacing:.12em; }
+.nav-links { display:flex; gap:0; margin:0 20px; }
+.nav-links a {
+  font-family:'Cinzel',serif; font-size:11px; letter-spacing:.1em;
+  color:rgba(255,255,255,.5); padding:8px 14px; border-radius:6px;
+  transition:color .2s, background .2s; text-transform:uppercase;
+}
+.nav-links a:hover { color:var(--goldb); background:rgba(201,168,76,.07); }
+.nav-actions { display:flex; align-items:center; gap:10px; }
+
+/* Language picker */
+.lang-wrap { position:relative; }
+.lang-pill {
+  display:flex; align-items:center; gap:7px;
+  background:rgba(201,168,76,.08); border:1px solid rgba(201,168,76,.2);
+  color:var(--goldb); font-family:'Cinzel',serif; font-size:11px; letter-spacing:.1em;
+  padding:8px 14px; border-radius:9px; cursor:pointer;
+  transition:all .2s;
+}
+.lang-pill:hover { background:rgba(201,168,76,.15); border-color:var(--gold); }
+.lang-pill .globe { width:13px; height:13px; }
+.lang-dd {
+  position:absolute; top:calc(100%+10px); right:0;
+  background:rgba(10,11,22,.98); border:1px solid rgba(201,168,76,.18);
+  border-radius:14px; padding:7px; min-width:200px;
+  box-shadow:0 24px 60px rgba(0,0,0,.6);
+  display:none; z-index:600;
+}
+.lang-dd.open { display:block; animation:popDown .2s ease; }
+@keyframes popDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:none} }
+.lang-opt {
+  display:flex; align-items:center; gap:11px;
+  padding:11px 14px; border-radius:9px; cursor:pointer;
+  font-size:13px; color:rgba(255,255,255,.65); transition:all .15s;
+}
+.lang-opt:hover { background:rgba(201,168,76,.1); color:var(--goldb); }
+.lang-opt.on { color:var(--gold); background:rgba(201,168,76,.08); font-weight:600; }
+.lang-opt .flag { font-size:18px; width:26px; text-align:center; }
+
+/* CTA nav button */
+.nav-cta {
+  display:flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,var(--goldb),var(--gold),var(--goldd));
+  color:var(--ob); font-family:'Cinzel',serif; font-size:11px; font-weight:600;
+  letter-spacing:.1em; padding:10px 22px; border-radius:10px;
+  box-shadow:0 4px 20px rgba(201,168,76,.3); transition:all .25s;
+}
+.nav-cta:hover { transform:translateY(-2px); box-shadow:0 10px 32px rgba(201,168,76,.5); }
+
+.nav-toggle {
+  display:none; width:44px; height:44px; border-radius:10px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+  flex-direction:column; align-items:center; justify-content:center; gap:5px;
+}
+.nav-toggle span { width:18px; height:1.5px; background:white; border-radius:99px; display:block; transition:all .22s; }
+.nav-toggle.act span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+.nav-toggle.act span:nth-child(2) { opacity:0; }
+.nav-toggle.act span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+/* ═══════════════════════════════════════
+   HERO — Cinematic Slideshow
+═══════════════════════════════════════ */
+.hero { position:relative; height:100vh; min-height:680px; overflow:hidden; }
+.hero-slides { position:absolute; inset:0; }
+.hslide {
+  position:absolute; inset:0; opacity:0; transition:opacity 1.4s ease;
+  background-size:cover; background-position:center;
+}
+.hslide.act { opacity:1; }
+.hslide::after {
+  content:''; position:absolute; inset:0;
+  background:
+    linear-gradient(105deg, rgba(7,8,15,.88) 0%, rgba(7,8,15,.5) 55%, rgba(7,8,15,.2) 100%),
+    linear-gradient(to top, rgba(7,8,15,.7) 0%, transparent 50%);
+}
+/* Fallback placeholder gradients while images load */
+.hslide:nth-child(1) { background-color:#1a1208; }
+.hslide:nth-child(2) { background-color:#0d1020; }
+.hslide:nth-child(3) { background-color:#140a1a; }
+
+.hero-bg-img {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  transition:transform 8s ease; transform:scale(1.06);
+}
+.hslide.act .hero-bg-img { transform:scale(1); }
+
+/* Ken Burns overlay grid */
+.hero-grid {
+  position:absolute; inset:0; z-index:2; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(201,168,76,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,.03) 1px, transparent 1px);
+  background-size:80px 80px;
+}
+.hero-content {
+  position:absolute; inset:0; z-index:5;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:0 10% 80px;
+  max-width:860px;
+}
+.hero-eyebrow {
+  display:flex; align-items:center; gap:16px; margin-bottom:30px;
+  opacity:0; animation:slideIn .9s .3s forwards;
+}
+.hero-pulse { width:8px; height:8px; border-radius:50%; background:var(--goldb); position:relative; flex-shrink:0; }
+.hero-pulse::after { content:''; position:absolute; inset:-5px; border-radius:50%; background:rgba(201,168,76,.25); animation:pulse 2.2s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1);opacity:.6} 50%{transform:scale(2);opacity:0} }
+.hero-eyebrow-txt { font-family:'Cinzel',serif; font-size:11px; letter-spacing:.22em; color:var(--gold); text-transform:uppercase; }
+@keyframes slideIn { from{opacity:0;transform:translateX(-24px)} to{opacity:1;transform:none} }
+
+.hero-title {
+  font-family:'Libre Baskerville', serif; font-weight:700;
+  font-size:clamp(50px,7.5vw,108px); line-height:.96; letter-spacing:-.03em;
+  color:white; opacity:0; animation:riseUp 1s .5s forwards;
+}
+.hero-title .line2 { font-style:italic; color:var(--goldb); display:block; margin-left:.06em; text-shadow:0 0 80px rgba(201,168,76,.35); }
+.hero-title .line3 { display:block; -webkit-text-stroke:1.5px rgba(255,255,255,.25); color:transparent; }
+@keyframes riseUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:none} }
+
+.hero-sub {
+  font-size:clamp(14px,1.5vw,18px); color:rgba(255,255,255,.6); line-height:1.85;
+  margin-top:22px; max-width:500px; font-weight:400;
+  opacity:0; animation:fadeUp .9s .8s forwards;
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+
+.hero-tags { display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; opacity:0; animation:fadeUp .9s 1s forwards; }
+.hero-tag {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(201,168,76,.07); border:1px solid rgba(201,168,76,.18);
+  color:var(--ivory); font-size:12px; padding:7px 15px; border-radius:999px;
+  letter-spacing:.04em;
+}
+.hero-tag span { color:var(--goldb); font-size:14px; }
+
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:38px; opacity:0; animation:fadeUp .9s 1.1s forwards; }
+.btn-main {
+  display:inline-flex; align-items:center; gap:10px;
+  background:linear-gradient(135deg,var(--goldb) 0%,var(--gold) 50%,#8A6820 100%);
+  color:var(--ob); font-family:'Cinzel',serif; font-size:12px; font-weight:600;
+  letter-spacing:.1em; padding:17px 36px; border-radius:12px;
+  box-shadow:0 14px 44px rgba(201,168,76,.38), inset 0 1px 0 rgba(255,255,255,.2);
+  transition:all .3s; position:relative; overflow:hidden;
+}
+.btn-main::after {
+  content:''; position:absolute; top:-50%; left:-60%; width:40%; height:200%;
+  background:rgba(255,255,255,.15); transform:skewX(-20deg);
+  animation:shimmer 3s 2s infinite;
+}
+@keyframes shimmer { 0%{left:-60%} 100%{left:140%} }
+.btn-main:hover { transform:translateY(-3px); box-shadow:0 22px 56px rgba(201,168,76,.55); }
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:10px;
+  color:rgba(255,255,255,.8); font-family:'Cinzel',serif; font-size:12px; letter-spacing:.1em;
+  padding:17px 36px; border-radius:12px; border:1.5px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(8px); background:rgba(255,255,255,.04); transition:all .25s;
+}
+.btn-ghost:hover { border-color:var(--gold); color:var(--goldb); background:rgba(201,168,76,.07); }
+
+/* Hero side stats */
+.hero-stats {
+  position:absolute; right:7%; bottom:80px; z-index:5;
+  display:flex; gap:12px;
+  opacity:0; animation:fadeUp .9s 1.3s forwards;
+}
+.hstat {
+  background:rgba(7,8,15,.6); backdrop-filter:blur(20px);
+  border:1px solid rgba(201,168,76,.2); border-radius:16px;
+  padding:18px 22px; text-align:center; min-width:110px;
+}
+.hstat-n { font-family:'Libre Baskerville',serif; font-size:30px; font-weight:700; color:var(--goldb); line-height:1; }
+.hstat-l { font-family:'Cinzel',serif; font-size:9px; color:rgba(255,255,255,.4); margin-top:6px; letter-spacing:.1em; text-transform:uppercase; }
+
+/* Slide controls */
+.hero-ctrl {
+  position:absolute; bottom:34px; left:10%; z-index:5;
+  display:flex; align-items:center; gap:18px;
+}
+.hero-dots { display:flex; gap:7px; }
+.hdot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.25); cursor:pointer; transition:all .3s; }
+.hdot.act { background:var(--goldb); width:28px; border-radius:4px; }
+.hero-arr {
+  width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06); color:white; font-size:16px;
+  display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .2s;
+}
+.hero-arr:hover { background:rgba(201,168,76,.2); border-color:var(--gold); color:var(--goldb); }
+
+/* Scroll indicator */
+.scroll-hint {
+  position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+  z-index:5; display:flex; flex-direction:column; align-items:center; gap:9px;
+  color:rgba(255,255,255,.25); font-family:'Cinzel',serif; font-size:9px; letter-spacing:.18em;
+  animation:bob 2.5s infinite;
+}
+@keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+.scroll-mouse { width:20px; height:32px; border:1.5px solid rgba(255,255,255,.18); border-radius:10px; display:flex; justify-content:center; padding-top:5px; }
+.scroll-dot { width:3px; height:7px; background:var(--gold); border-radius:2px; animation:sdot 2s infinite; }
+@keyframes sdot { 0%,100%{opacity:1;transform:none} 100%{opacity:0;transform:translateY(10px)} }
+
+/* ═══════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════ */
+.marquee-strip { background:var(--ob3); border-top:1px solid var(--border); border-bottom:1px solid var(--border); overflow:hidden; padding:16px 0; }
+.mq-track { display:flex; gap:0; animation:mq 35s linear infinite; width:max-content; }
+.mq-track:hover { animation-play-state:paused; }
+@keyframes mq { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+.mq-item {
+  display:flex; align-items:center; gap:10px;
+  padding:0 32px; border-right:1px solid rgba(201,168,76,.12);
+  white-space:nowrap;
+}
+.mq-item .icon { font-size:16px; }
+.mq-item .txt { font-family:'Cinzel',serif; font-size:11px; letter-spacing:.15em; color:rgba(255,255,255,.45); text-transform:uppercase; }
+
+/* ═══════════════════════════════════════
+   EVENTS SECTION — Kinetic Cards
+═══════════════════════════════════════ */
+.events { padding:120px 0; background:var(--ob); }
+.events-intro { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:64px; }
+.events-cards { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.ev-card {
+  position:relative; border-radius:24px; overflow:hidden;
+  min-height:540px; cursor:pointer; group:true;
+}
+.ev-card-img {
+  position:absolute; inset:0;
+}
+.ev-card-img img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 1s cubic-bezier(.25,.46,.45,.94);
+  display:block;
+}
+.ev-card:hover .ev-card-img img { transform:scale(1.07); }
+/* Fallback colors if images missing */
+.ev-card:nth-child(1) .ev-card-img { background:#1a1208; }
+.ev-card:nth-child(2) .ev-card-img { background:#0d1020; }
+
+.ev-card-shade {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(7,8,15,.98) 0%, rgba(7,8,15,.55) 45%, rgba(7,8,15,.12) 100%);
+}
+.ev-card-corner {
+  position:absolute; top:26px; right:26px;
+  width:46px; height:46px; border-radius:50%;
+  border:1.5px solid rgba(201,168,76,.3); background:rgba(201,168,76,.07);
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; color:var(--goldb); transition:all .35s;
+}
+.ev-card:hover .ev-card-corner { background:var(--gold); transform:rotate(45deg) scale(1.1); }
+.ev-card-body { position:absolute; bottom:0; left:0; right:0; padding:38px; }
+.ev-pill {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.25);
+  color:var(--goldb); font-family:'Cinzel',serif; font-size:10px; letter-spacing:.12em;
+  padding:5px 14px; border-radius:999px; margin-bottom:16px; text-transform:uppercase;
+}
+.ev-card h3 { font-family:'Libre Baskerville',serif; font-size:30px; font-weight:700; color:white; line-height:1.18; margin-bottom:12px; }
+.ev-card p { font-size:13.5px; color:rgba(255,255,255,.55); line-height:1.75; margin-bottom:22px; }
+.ev-specs { display:flex; gap:16px; flex-wrap:wrap; }
+.ev-spec { display:flex; align-items:center; gap:6px; font-size:12px; color:rgba(255,255,255,.45); }
+.ev-spec .dot { width:5px; height:5px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+/* ═══════════════════════════════════════
+   GALLERY — Overlapping Reveal
+═══════════════════════════════════════ */
+.gallery { padding:120px 0; background:var(--ob2); }
+.gallery-hdr { text-align:center; margin-bottom:64px; }
+.gallery-hdr .sec-p { margin:0 auto; }
+.gal-grid {
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr;
+  grid-template-rows:300px 300px;
+  gap:10px;
+}
+.gal-cell {
+  position:relative; overflow:hidden; border-radius:16px; cursor:pointer;
+  background:var(--ob3);
+}
+.gal-cell.tall { grid-row:span 2; }
+.gal-cell img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s cubic-bezier(.25,.46,.45,.94); }
+.gal-cell:hover img { transform:scale(1.06); }
+.gal-layer {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(7,8,15,.75) 0%, transparent 55%);
+  opacity:0; transition:opacity .4s;
+  display:flex; align-items:flex-end; padding:22px;
+}
+.gal-cell:hover .gal-layer { opacity:1; }
+.gal-lbl { font-family:'Cinzel',serif; font-size:12px; letter-spacing:.12em; color:var(--goldb); text-transform:uppercase; }
+/* Gold border on hover */
+.gal-cell::before {
+  content:''; position:absolute; inset:0; border-radius:16px;
+  border:1.5px solid var(--gold); opacity:0; transition:opacity .4s; z-index:2; pointer-events:none;
+}
+.gal-cell:hover::before { opacity:.7; }
+
+/* ═══════════════════════════════════════
+   STATS BAR
+═══════════════════════════════════════ */
+.stats-bar {
+  padding:80px 0;
+  background:linear-gradient(170deg, var(--ob3) 0%, var(--ob) 100%);
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  position:relative; overflow:hidden;
+}
+.stats-bar::before {
+  content:''; position:absolute; top:-40%; left:30%; width:500px; height:500px;
+  background:radial-gradient(circle, rgba(201,168,76,.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.stats-row { display:grid; grid-template-columns:repeat(4,1fr); }
+.st-item { text-align:center; padding:20px 30px; border-right:1px solid rgba(201,168,76,.1); }
+.st-item:last-child { border-right:none; }
+.st-num {
+  font-family:'Libre Baskerville',serif; font-size:60px; font-weight:700; line-height:1;
+  background:linear-gradient(135deg,var(--goldb),var(--gold));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.st-lbl { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.15em; color:rgba(255,255,255,.35); margin-top:8px; text-transform:uppercase; }
+
+/* ═══════════════════════════════════════
+   PRICING — clean 2-column (no BPJS)
+═══════════════════════════════════════ */
+.pricing { padding:120px 0; background:var(--ob); }
+.pricing-hdr { text-align:center; margin-bottom:70px; }
+.ptab { display:inline-flex; background:rgba(255,255,255,.04); border:1px solid rgba(201,168,76,.12); border-radius:12px; padding:5px; gap:5px; margin-top:26px; }
+.ptab-btn {
+  padding:10px 26px; border-radius:9px; font-family:'Cinzel',serif; font-size:11px;
+  letter-spacing:.1em; color:rgba(255,255,255,.4); transition:all .25s; cursor:pointer;
+}
+.ptab-btn.on {
+  background:linear-gradient(135deg,var(--goldb),var(--gold));
+  color:var(--ob); box-shadow:0 4px 18px rgba(201,168,76,.3);
+}
+.pr-panel { display:none; }
+.pr-panel.on { display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:840px; margin:0 auto; }
+
+.pr-card {
+  background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07);
+  border-radius:24px; padding:42px 36px; position:relative; transition:all .35s;
+}
+.pr-card:hover { border-color:rgba(201,168,76,.3); background:rgba(201,168,76,.03); transform:translateY(-5px); box-shadow:0 30px 60px rgba(0,0,0,.35); }
+.pr-card.star {
+  border-color:rgba(201,168,76,.35);
+  background:linear-gradient(160deg,rgba(201,168,76,.08),rgba(201,168,76,.02));
+  box-shadow:0 0 0 1px rgba(201,168,76,.1), 0 30px 60px rgba(0,0,0,.3);
+}
+.pr-badge {
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--goldb),var(--gold));
+  color:var(--ob); font-family:'Cinzel',serif; font-size:10px; font-weight:600;
+  padding:5px 20px; border-radius:999px; letter-spacing:.1em; white-space:nowrap; text-transform:uppercase;
+}
+.pr-icon { font-size:34px; margin-bottom:20px; }
+.pr-name { font-family:'Libre Baskerville',serif; font-size:22px; font-weight:700; color:white; margin-bottom:6px; }
+.pr-desc { font-size:13px; color:rgba(255,255,255,.4); line-height:1.65; margin-bottom:28px; }
+.pr-price-from { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.1em; color:rgba(255,255,255,.3); text-transform:uppercase; }
+.pr-price-num { font-family:'Libre Baskerville',serif; font-size:42px; font-weight:700; color:var(--goldb); line-height:1.1; }
+.pr-price-num sup { font-size:20px; }
+.pr-price-note { font-size:12px; color:rgba(255,255,255,.28); margin-top:6px; margin-bottom:28px; }
+.pr-feats { list-style:none; display:flex; flex-direction:column; gap:11px; margin-bottom:32px; }
+.pr-feats li { display:flex; align-items:flex-start; gap:11px; font-size:13.5px; color:rgba(255,255,255,.6); line-height:1.5; }
+.pr-feats li::before { content:'✦'; color:var(--gold); font-size:9px; margin-top:4px; flex-shrink:0; }
+.btn-pr {
+  width:100%; padding:15px; border-radius:12px; font-family:'Cinzel',serif;
+  font-size:11px; letter-spacing:.12em; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:9px; transition:all .25s;
+}
+.btn-pr-g { background:rgba(201,168,76,.08); border:1px solid rgba(201,168,76,.25); color:var(--goldb); }
+.btn-pr-g:hover { background:rgba(201,168,76,.18); border-color:var(--gold); }
+.btn-pr-gold { background:linear-gradient(135deg,var(--goldb),var(--gold)); color:var(--ob); border:none; box-shadow:0 8px 28px rgba(201,168,76,.35); }
+.btn-pr-gold:hover { transform:translateY(-2px); box-shadow:0 16px 40px rgba(201,168,76,.5); }
+
+/* ═══════════════════════════════════════
+   FEATURES / ABOUT — Split cinematic
+═══════════════════════════════════════ */
+.about { padding:120px 0; background:var(--ob2); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.about-img-wrap { position:relative; }
+.about-img-main {
+  border-radius:24px; overflow:hidden; height:580px;
+  box-shadow:0 40px 90px rgba(0,0,0,.6);
+  border:1px solid rgba(201,168,76,.12); background:var(--ob3);
+}
+.about-img-main img { width:100%; height:100%; object-fit:cover; display:block; }
+.about-float {
+  position:absolute; top:44px; right:-28px;
+  background:rgba(7,8,15,.92); border:1px solid rgba(201,168,76,.2);
+  backdrop-filter:blur(20px); border-radius:18px; padding:22px 26px;
+  box-shadow:0 20px 50px rgba(0,0,0,.45); min-width:170px;
+}
+.af-icon { font-size:26px; margin-bottom:10px; }
+.af-num { font-family:'Libre Baskerville',serif; font-size:38px; font-weight:700; color:var(--goldb); line-height:1; }
+.af-lbl { font-family:'Cinzel',serif; font-size:10px; color:rgba(255,255,255,.35); margin-top:5px; letter-spacing:.1em; text-transform:uppercase; }
+.about-float2 {
+  position:absolute; bottom:-22px; left:-22px;
+  background:linear-gradient(135deg,var(--gold),var(--goldd));
+  border-radius:18px; padding:22px 26px; min-width:150px;
+  box-shadow:0 20px 50px rgba(201,168,76,.3);
+}
+.about-float2 .af-num { color:var(--ob); }
+.about-float2 .af-lbl { color:rgba(7,8,15,.55); }
+.feat-list { display:flex; flex-direction:column; gap:26px; margin-top:44px; }
+.fi { display:flex; gap:18px; align-items:flex-start; }
+.fi-icon {
+  width:52px; height:52px; border-radius:14px; flex-shrink:0;
+  background:rgba(201,168,76,.08); border:1px solid rgba(201,168,76,.18);
+  display:flex; align-items:center; justify-content:center; font-size:22px;
+}
+.fi-text h4 { font-family:'Libre Baskerville',serif; font-size:17px; color:white; margin-bottom:5px; }
+.fi-text p { font-size:13.5px; color:rgba(255,255,255,.45); line-height:1.7; }
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testimonials { padding:120px 0; background:var(--ob); }
+.test-hdr { text-align:center; margin-bottom:64px; }
+.test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.tc {
+  background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.06);
+  border-radius:20px; padding:34px; transition:all .3s; position:relative;
+}
+.tc::before {
+  content:''; position:absolute; inset:0; border-radius:20px;
+  background:linear-gradient(135deg,rgba(201,168,76,.05),transparent);
+  opacity:0; transition:opacity .3s;
+}
+.tc:hover { border-color:rgba(201,168,76,.25); transform:translateY(-5px); }
+.tc:hover::before { opacity:1; }
+.tc-q { font-family:'Libre Baskerville',serif; font-size:52px; color:var(--gold); opacity:.25; line-height:1; margin-bottom:8px; }
+.tc-txt { font-family:'Libre Baskerville',serif; font-size:16px; font-style:italic; color:rgba(255,255,255,.6); line-height:1.8; margin-bottom:24px; }
+.tc-auth { display:flex; align-items:center; gap:12px; }
+.tc-av {
+  width:46px; height:46px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),var(--goldd));
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cinzel',serif; font-size:15px; font-weight:700; color:var(--ob);
+}
+.tc-name { font-size:14px; font-weight:700; color:white; }
+.tc-role { font-size:11px; color:rgba(255,255,255,.3); margin-top:3px; }
+.tc-stars { color:var(--gold); font-size:12px; letter-spacing:2px; margin-top:4px; }
+
+/* ═══════════════════════════════════════
+   BOOKING FORM + CONTACT + MAP
+═══════════════════════════════════════ */
+.booking { padding:120px 0; background:var(--ob2); }
+.booking-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:start; }
+.book-contacts { display:flex; flex-direction:column; gap:13px; margin-top:36px; }
+.bc {
+  display:flex; align-items:center; gap:16px;
+  background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.06);
+  border-radius:14px; padding:17px 20px; text-decoration:none; color:inherit;
+  transition:all .25s;
+}
+.bc:hover { border-color:rgba(201,168,76,.3); background:rgba(201,168,76,.04); transform:translateX(5px); }
+.bc-ic { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.bc-ic.wa { background:rgba(37,211,102,.12); }
+.bc-ic.ph { background:rgba(99,102,241,.12); }
+.bc-ic.em { background:rgba(201,168,76,.1); }
+.bc-ic.lo { background:rgba(239,68,68,.1); }
+.bc-lbl { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.1em; color:rgba(255,255,255,.3); text-transform:uppercase; }
+.bc-val { font-size:14px; font-weight:600; color:white; margin-top:2px; }
+.book-map { margin-top:26px; border-radius:18px; overflow:hidden; border:1px solid var(--border); }
+.book-map iframe { display:block; width:100%; height:210px; border:none; }
+.map-btns { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+.mbtn {
+  display:flex; align-items:center; gap:7px;
+  background:rgba(201,168,76,.07); border:1px solid rgba(201,168,76,.2);
+  color:var(--goldb); font-family:'Cinzel',serif; font-size:10px; letter-spacing:.1em;
+  padding:10px 18px; border-radius:9px; transition:all .2s; text-transform:uppercase;
+}
+.mbtn:hover { background:rgba(201,168,76,.15); border-color:var(--gold); }
+
+/* Form */
+.form-box {
+  background:rgba(255,255,255,.025); border:1px solid rgba(201,168,76,.12);
+  border-radius:26px; padding:46px 42px;
+}
+.form-box h3 { font-family:'Libre Baskerville',serif; font-size:28px; color:white; margin-bottom:30px; }
+.frow { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.ff { display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+.ff.full { grid-column:1/-1; }
+.ff label { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.12em; color:rgba(255,255,255,.3); text-transform:uppercase; }
+.ff input, .ff select, .ff textarea {
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
+  border-radius:10px; padding:13px 16px; font-size:14px; color:white;
+  font-family:'Didact Gothic',sans-serif; transition:all .2s; outline:none; -webkit-appearance:none;
+}
+.ff input:focus, .ff select:focus, .ff textarea:focus { border-color:rgba(201,168,76,.5); background:rgba(201,168,76,.04); }
+.ff input::placeholder, .ff textarea::placeholder { color:rgba(255,255,255,.18); }
+.ff select option { background:#0D0E1A; color:white; }
+.ff textarea { resize:vertical; min-height:96px; }
+.btn-submit {
+  width:100%; padding:17px; border-radius:12px;
+  background:linear-gradient(135deg,var(--goldb),var(--gold));
+  color:var(--ob); font-family:'Cinzel',serif; font-size:12px; letter-spacing:.12em;
+  cursor:pointer; box-shadow:0 12px 36px rgba(201,168,76,.35); transition:all .25s;
+  display:flex; align-items:center; justify-content:center; gap:10px; margin-top:8px;
+}
+.btn-submit:hover { transform:translateY(-2px); box-shadow:0 20px 48px rgba(201,168,76,.5); }
+
+/* ═══════════════════════════════════════
+   AI CHAT — Embedded Premium
+═══════════════════════════════════════ */
+.ai-section { padding:100px 0; background:var(--ob3); border-top:1px solid var(--border); }
+.ai-inner { display:grid; grid-template-columns:1fr 1.1fr; gap:64px; align-items:start; }
+.ai-chat-box {
+  background:rgba(7,8,15,.8); border:1px solid rgba(201,168,76,.18);
+  border-radius:26px; overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,.5);
+}
+.ai-chat-head {
+  background:linear-gradient(135deg,rgba(13,14,26,1),rgba(7,8,15,1));
+  padding:18px 22px; display:flex; align-items:center; gap:14px;
+  border-bottom:1px solid rgba(201,168,76,.12);
+}
+.ai-av {
+  width:42px; height:42px; border-radius:50%;
+  background:linear-gradient(135deg,var(--goldb),var(--goldd));
+  display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0;
+  box-shadow:0 4px 16px rgba(201,168,76,.3);
+}
+.ai-title { font-family:'Cinzel',serif; font-size:13px; letter-spacing:.06em; color:white; }
+.ai-status { display:flex; align-items:center; gap:6px; font-size:11px; color:rgba(255,255,255,.35); margin-top:2px; }
+.ai-dot { width:6px; height:6px; background:#22C55E; border-radius:50%; animation:pulse 2s infinite; }
+.ai-msgs { height:360px; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:12px; }
+.ai-msgs::-webkit-scrollbar { width:3px; }
+.ai-msgs::-webkit-scrollbar-thumb { background:rgba(201,168,76,.2); border-radius:2px; }
+.ai-msg { display:flex; flex-direction:column; }
+.ai-msg.bot { align-items:flex-start; }
+.ai-msg.user { align-items:flex-end; }
+.ai-bubble {
+  max-width:85%; padding:12px 16px; border-radius:18px;
+  font-size:13.5px; line-height:1.7; animation:bubIn .22s ease;
+}
+@keyframes bubIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.ai-msg.bot .ai-bubble { background:rgba(255,255,255,.06); color:rgba(255,255,255,.8); border-bottom-left-radius:4px; border:1px solid rgba(255,255,255,.06); }
+.ai-msg.user .ai-bubble { background:linear-gradient(135deg,rgba(201,168,76,.3),rgba(201,168,76,.15)); color:var(--ivory); border-bottom-right-radius:4px; border:1px solid rgba(201,168,76,.2); }
+.ai-time { font-size:10px; color:rgba(255,255,255,.25); margin-top:4px; }
+.typing-bub { background:rgba(255,255,255,.06); border-radius:18px; padding:14px 18px; display:flex; gap:5px; border:1px solid rgba(255,255,255,.06); border-bottom-left-radius:4px; }
+.td { width:7px; height:7px; background:var(--gold); border-radius:50%; animation:tDot 1.4s infinite; opacity:.6; }
+.td:nth-child(2) { animation-delay:.2s; }
+.td:nth-child(3) { animation-delay:.4s; }
+@keyframes tDot { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-7px)} }
+.ai-suggests { padding:10px 16px 6px; display:flex; gap:7px; flex-wrap:wrap; background:rgba(7,8,15,.5); border-top:1px solid rgba(255,255,255,.05); }
+.ai-sugg {
+  font-size:11px; color:var(--goldb); background:rgba(201,168,76,.07);
+  padding:6px 13px; border-radius:999px; border:1px solid rgba(201,168,76,.18);
+  cursor:pointer; font-family:'Didact Gothic',sans-serif; transition:all .15s;
+}
+.ai-sugg:hover { background:rgba(201,168,76,.18); border-color:var(--gold); }
+.ai-form { display:flex; align-items:center; gap:10px; padding:14px 16px; background:rgba(7,8,15,.7); border-top:1px solid rgba(201,168,76,.1); }
+.ai-input {
+  flex:1; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+  border-radius:999px; padding:11px 16px; font-size:13.5px; color:white; outline:none;
+  font-family:'Didact Gothic',sans-serif; transition:all .2s;
+}
+.ai-input:focus { border-color:rgba(201,168,76,.4); background:rgba(201,168,76,.04); }
+.ai-input::placeholder { color:rgba(255,255,255,.2); }
+.ai-send {
+  width:42px; height:42px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(135deg,var(--goldb),var(--gold));
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  transition:all .2s; box-shadow:0 4px 14px rgba(201,168,76,.3);
+}
+.ai-send:hover { transform:scale(1.08); box-shadow:0 8px 22px rgba(201,168,76,.45); }
+.ai-send svg { width:16px; height:16px; fill:var(--ob); }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.footer { background:#04050C; padding:80px 0 0; border-top:1px solid rgba(201,168,76,.08); }
+.footer-grid { display:grid; grid-template-columns:1.8fr 1fr 1fr 1fr; gap:44px; margin-bottom:56px; }
+.footer-brand p { font-size:13px; color:rgba(255,255,255,.3); line-height:1.8; margin-top:14px; max-width:280px; }
+.footer-socs { display:flex; gap:9px; margin-top:20px; }
+.fsoc {
+  width:36px; height:36px; border-radius:9px; font-size:15px;
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+  display:flex; align-items:center; justify-content:center; transition:all .2s;
+}
+.fsoc:hover { background:var(--gold); border-color:var(--gold); }
+.footer-col h4 { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.15em; color:rgba(255,255,255,.25); text-transform:uppercase; margin-bottom:16px; }
+.footer-col a { display:block; font-size:13px; color:rgba(255,255,255,.4); margin-bottom:10px; transition:color .2s; }
+.footer-col a:hover { color:var(--goldb); }
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,.05); padding:22px 0;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+}
+.footer-bottom p { font-size:12px; color:rgba(255,255,255,.2); }
+
+/* ═══════════════════════════════════════
+   WA FAB
+═══════════════════════════════════════ */
+.wa-fab {
+  position:fixed; bottom:28px; right:28px; z-index:400;
+  width:58px; height:58px; border-radius:50%;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 28px rgba(37,211,102,.4); animation:waf 3.5s ease-in-out infinite;
+}
+.wa-fab:hover { animation:none; transform:scale(1.1); }
+.wa-fab svg { width:26px; height:26px; fill:white; }
+@keyframes waf { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-6px) rotate(-5deg)} }
+
+/* ═══════════════════════════════════════
+   TRANSLATE OVERLAY
+═══════════════════════════════════════ */
+#tlOverlay {
+  position:fixed; inset:0; z-index:9999;
+  background:rgba(7,8,15,.93); backdrop-filter:blur(14px);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .3s;
+}
+#tlOverlay.show { opacity:1; pointer-events:all; }
+.tl-loader { text-align:center; display:flex; flex-direction:column; align-items:center; gap:18px; }
+.tl-ring {
+  width:56px; height:56px; border-radius:50%;
+  border:2px solid rgba(201,168,76,.2); border-top-color:var(--goldb);
+  animation:spin .8s linear infinite;
+}
+@keyframes spin { to{transform:rotate(360deg)} }
+.tl-txt { font-family:'Cinzel',serif; font-size:14px; letter-spacing:.1em; color:rgba(255,255,255,.6); }
+.tl-lang { font-family:'Cinzel',serif; font-size:12px; color:var(--goldb); letter-spacing:.12em; }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:1100px){
+  .about-grid, .booking-grid, .ai-inner, .events-intro { grid-template-columns:1fr; gap:48px; }
+  .about-img-wrap { display:none; }
+  .gal-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+  .gal-cell.tall { grid-row:auto; }
+  .gal-cell { height:260px; }
+  .test-grid { grid-template-columns:1fr; max-width:560px; margin:0 auto; }
+  .pr-panel.on { grid-template-columns:1fr; }
+  .hero-stats { display:none; }
+}
+@media(max-width:768px){
+  .nav-in { padding:0 20px; height:66px; }
+  .nav-toggle { display:flex; }
+  .nav-links {
+    position:absolute; top:66px; left:0; right:0; display:none;
+    flex-direction:column; background:rgba(7,8,15,.98);
+    border-top:1px solid rgba(201,168,76,.1); padding:14px 20px 20px; gap:2px;
+  }
+  .nav-links.open { display:flex; }
+  .nav-links a { padding:12px 8px; border-bottom:1px solid rgba(255,255,255,.04); }
+  .nav-actions { gap:8px; }
+  .nav-cta { display:none; }
+  .hero-content { padding:0 20px 80px; }
+  .hero-btns { flex-direction:column; }
+  .btn-main, .btn-ghost { width:100%; justify-content:center; }
+  .events-cards { grid-template-columns:1fr; }
+  .ev-card { min-height:440px; }
+  .stats-row { grid-template-columns:1fr 1fr; }
+  .st-item { border-right:none; border-bottom:1px solid rgba(201,168,76,.1); }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .container { padding:0 18px; }
+  .events, .gallery, .pricing, .about, .testimonials, .booking, .ai-section { padding:80px 0; }
+  .form-box { padding:30px 22px; }
+  .frow { grid-template-columns:1fr; }
+  .lang-dd { right:-20px; }
+  .gal-grid { grid-template-columns:1fr; }
+  .gal-cell { height:220px; }
+}
+@media(max-width:480px){
+  .footer-grid { grid-template-columns:1fr; }
+  .stats-row { grid-template-columns:1fr; }
+  .hero-title { font-size:clamp(40px,12vw,60px); }
+}
+</style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-        <div class="loading-content">
-            <div class="loading-logo">PLAZA BPJAMSOSTEK</div>
-            <div class="loading-spinner"></div>
+
+<!-- TRANSLATE OVERLAY -->
+<div id="tlOverlay">
+  <div class="tl-loader">
+    <div class="tl-ring"></div>
+    <div class="tl-txt" id="tlTxt">Translating...</div>
+    <div class="tl-lang" id="tlLang"></div>
+  </div>
+</div>
+
+<!-- WA FAB -->
+<a href="https://wa.me/6285211566707?text=Halo%2C%20saya%20ingin%20informasi%20booking%20Ballroom%20Plaza%20BPJamsostek." class="wa-fab" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <div class="nav-in">
+    <div class="nav-logo">
+      <div class="nav-gem"><span>✦</span></div>
+      <div class="nav-logo-text">
+        <strong>Ballroom BPJamsostek</strong>
+        <small>Plaza Grade A · Kuningan Jakarta</small>
+      </div>
+    </div>
+    <button class="nav-toggle" id="navTog"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#events" data-k="nav.events">Event</a>
+      <a href="#gallery" data-k="nav.gallery">Galeri</a>
+      <a href="#pricing" data-k="nav.pricing">Tarif</a>
+      <a href="#about" data-k="nav.features">Keunggulan</a>
+      <a href="#ai" data-k="nav.ai">Tanya AI</a>
+      <a href="#booking" data-k="nav.contact">Kontak</a>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-wrap">
+        <button class="lang-pill" id="langBtn">
+          <svg class="globe" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm6.93 6h-2.95a15.65 15.65 0 00-1.38-3.56A8.01 8.01 0 0118.93 8zM12 4c.83 1.2 1.48 2.53 1.9 4h-3.8c.42-1.47 1.07-2.8 1.9-4zm-7.07 12H2.07A8 8 0 012.07 8h2.86a17.5 17.5 0 000 8zm1.08 2h2.95a15.65 15.65 0 001.38 3.56A8.01 8.01 0 016.01 18zM12 20c-.83-1.2-1.48-2.53-1.9-4h3.8c-.42 1.47-1.07 2.8-1.9 4zm2.1-6H9.9a13.37 13.37 0 010-8h4.2a13.37 13.37 0 010 8zm.8 6a10.04 10.04 0 001.38-3.56h2.95A8.01 8.01 0 0114.9 20zm1.73-5.56a15.65 15.65 0 000-8h2.86a8 8 0 010 8h-2.86z"/></svg>
+          <span id="langLbl">ID</span>
+          <span>▾</span>
+        </button>
+        <div class="lang-dd" id="langDD">
+          <div class="lang-opt on" data-l="id"><span class="flag">🇮🇩</span> Bahasa Indonesia</div>
+          <div class="lang-opt" data-l="en"><span class="flag">🇬🇧</span> English</div>
+          <div class="lang-opt" data-l="ar"><span class="flag">🇸🇦</span> العربية</div>
+          <div class="lang-opt" data-l="zh"><span class="flag">🇨🇳</span> 中文</div>
+          <div class="lang-opt" data-l="ja"><span class="flag">🇯🇵</span> 日本語</div>
+          <div class="lang-opt" data-l="ko"><span class="flag">🇰🇷</span> 한국어</div>
+          <div class="lang-opt" data-l="fr"><span class="flag">🇫🇷</span> Français</div>
+          <div class="lang-opt" data-l="de"><span class="flag">🇩🇪</span> Deutsch</div>
+          <div class="lang-opt" data-l="es"><span class="flag">🇪🇸</span> Español</div>
+          <div class="lang-opt" data-l="ru"><span class="flag">🇷🇺</span> Русский</div>
         </div>
+      </div>
+      <a href="#booking" class="nav-cta" data-k="nav.cta">✦ Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-slides">
+    <div class="hslide act" id="hs0">
+      <img class="hero-bg-img" src="images/hero-1.jpg" alt="Ballroom BPJamsostek" onerror="this.style.display='none'">
+    </div>
+    <div class="hslide" id="hs1">
+      <img class="hero-bg-img" src="images/hero-2.jpg" alt="Wedding Setup" onerror="this.style.display='none'">
+    </div>
+    <div class="hslide" id="hs2">
+      <img class="hero-bg-img" src="images/hero-3.jpg" alt="Seminar" onerror="this.style.display='none'">
+    </div>
+  </div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-pulse"></div>
+      <span class="hero-eyebrow-txt" data-k="hero.eyebrow">Ballroom Premium · Grade A · Kuningan Jakarta</span>
+    </div>
+    <h1 class="hero-title">
+      <span data-k="hero.t1">Wujudkan</span>
+      <span class="line2" data-k="hero.t2">Momen Terbaik</span>
+      <span class="line3" data-k="hero.t3">Anda Bersama Kami</span>
+    </h1>
+    <p class="hero-sub" data-k="hero.sub">Ballroom mewah berkapasitas hingga 1.000 tamu di jantung kawasan bisnis Kuningan. Venue pilihan untuk pernikahan impian, gala dinner eksklusif, dan seminar bertaraf internasional.</p>
+    <div class="hero-tags">
+      <span class="hero-tag"><span>✦</span><span data-k="h.t1">1.000+ Kapasitas Tamu</span></span>
+      <span class="hero-tag"><span>🌿</span><span data-k="h.t2">Green Building Certified</span></span>
+      <span class="hero-tag"><span>📍</span><span data-k="h.t3">CBD Kuningan Jakarta</span></span>
+      <span class="hero-tag"><span>⭐</span><span data-k="h.t4">Rated 4.9 / 5</span></span>
+    </div>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-main" data-k="hero.b1">
+        <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Jadwalkan Kunjungan
+      </a>
+      <a href="#gallery" class="btn-ghost" data-k="hero.b2">
+        <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+        Lihat Galeri
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">1K+</div><div class="hstat-l" data-k="hs.1">Kapasitas</div></div>
+    <div class="hstat"><div class="hstat-n">10+</div><div class="hstat-l" data-k="hs.2">Tahun</div></div>
+    <div class="hstat"><div class="hstat-n">500+</div><div class="hstat-l" data-k="hs.3">Event</div></div>
+  </div>
+  <div class="hero-ctrl">
+    <div class="hero-dots">
+      <div class="hdot act" data-i="0"></div>
+      <div class="hdot" data-i="1"></div>
+      <div class="hdot" data-i="2"></div>
+    </div>
+    <button class="hero-arr" id="hPrev">‹</button>
+    <button class="hero-arr" id="hNext">›</button>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+    <span data-k="scroll">Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="mq-track">
+    <div class="mq-item"><span class="icon">💍</span><span class="txt" data-k="mq.w">Wedding Reception</span></div>
+    <div class="mq-item"><span class="icon">✦</span><span class="txt" data-k="mq.s">Seminar Nasional</span></div>
+    <div class="mq-item"><span class="icon">🏆</span><span class="txt" data-k="mq.g">Gala Dinner</span></div>
+    <div class="mq-item"><span class="icon">✦</span><span class="txt" data-k="mq.c">Konferensi Korporat</span></div>
+    <div class="mq-item"><span class="icon">🎓</span><span class="txt" data-k="mq.gr">Wisuda</span></div>
+    <div class="mq-item"><span class="icon">✦</span><span class="txt" data-k="mq.b">Ulang Tahun Mewah</span></div>
+    <div class="mq-item"><span class="icon">🎭</span><span class="txt" data-k="mq.sh">Pertunjukan</span></div>
+    <div class="mq-item"><span class="icon">✦</span><span class="txt" data-k="mq.tr">Training Korporat</span></div>
+    <!-- Duplicate for infinite -->
+    <div class="mq-item"><span class="icon">💍</span><span class="txt" data-k="mq.w">Wedding Reception</span></div>
+    <div class="mq-item"><span class="icon">✦</span><span class="txt" data-k="mq.s">Seminar Nasional</span></div>
+    <div class="mq-item"><span class="icon">🏆</span><span class="txt" data-k="mq.g">Gala Dinner</span></div>
+    <div class="mq-item"><span class="icon">✦</span><span class="txt" data-k="mq.c">Konferensi Korporat</span></div>
+    <div class="mq-item"><span class="icon">🎓</span><span class="txt" data-k="mq.gr">Wisuda</span></div>
+    <div class="mq-item"><span class="icon">✦</span><span class="txt" data-k="mq.b">Ulang Tahun Mewah</span></div>
+    <div class="mq-item"><span class="icon">🎭</span><span class="txt" data-k="mq.sh">Pertunjukan</span></div>
+    <div class="mq-item"><span class="icon">✦</span><span class="txt" data-k="mq.tr">Training Korporat</span></div>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<section class="events" id="events">
+  <div class="container">
+    <div class="events-intro">
+      <div data-reveal>
+        <div class="sec-tag" data-k="ev.tag">Jenis Event</div>
+        <h2 class="sec-h" data-k="ev.h">Ruang untuk <em>setiap momen</em> istimewa</h2>
+      </div>
+      <div data-reveal="right">
+        <p class="sec-p" data-k="ev.p">Dari pernikahan impian hingga seminar bertaraf internasional — ballroom kami adalah panggung sempurna untuk cerita besar Anda. Kapasitas besar, fasilitas premium, lokasi strategis.</p>
+        <div class="gold-rule"><div class="line"></div><div class="gem"></div></div>
+      </div>
+    </div>
+    <div class="events-cards">
+      <div class="ev-card" data-reveal data-d="1">
+        <div class="ev-card-img">
+          <img src="images/wedding.jpg" alt="Wedding" onerror="this.style.display='none'">
+        </div>
+        <div class="ev-card-shade"></div>
+        <div class="ev-card-corner">→</div>
+        <div class="ev-card-body">
+          <div class="ev-pill">💍 <span data-k="e1.pill">Wedding & Resepsi</span></div>
+          <h3 data-k="e1.h">Pernikahan & Resepsi Mewah</h3>
+          <p data-k="e1.p">Rayakan momen sakral Anda dengan dekorasi megah dan pelayanan bintang lima. Kapasitas 1.000+ tamu, sistem tata suara premium, dan area bridal room eksklusif.</p>
+          <div class="ev-specs">
+            <div class="ev-spec"><div class="dot"></div><span data-k="e1.s1">1.000+ Tamu</span></div>
+            <div class="ev-spec"><div class="dot"></div><span data-k="e1.s2">Bridal Room</span></div>
+            <div class="ev-spec"><div class="dot"></div><span data-k="e1.s3">Katering Tersedia</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ev-card" data-reveal data-d="2">
+        <div class="ev-card-img">
+          <img src="images/seminar.jpg" alt="Seminar" onerror="this.style.display='none'">
+        </div>
+        <div class="ev-card-shade"></div>
+        <div class="ev-card-corner">→</div>
+        <div class="ev-card-body">
+          <div class="ev-pill">🎤 <span data-k="e2.pill">Seminar & Konferensi</span></div>
+          <h3 data-k="e2.h">Seminar, Konferensi & Gala Dinner</h3>
+          <p data-k="e2.p">Infrastruktur AV kelas dunia, internet dedicated, dan layout fleksibel untuk seminar nasional, training korporat, atau gala dinner ekslusif hingga 800 orang.</p>
+          <div class="ev-specs">
+            <div class="ev-spec"><div class="dot"></div><span data-k="e2.s1">Sistem AV Lengkap</span></div>
+            <div class="ev-spec"><div class="dot"></div><span data-k="e2.s2">WiFi Dedicated</span></div>
+            <div class="ev-spec"><div class="dot"></div><span data-k="e2.s3">Layout Fleksibel</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-hdr" data-reveal>
+      <div class="sec-tag" data-k="gal.tag">Galeri</div>
+      <h2 class="sec-h" data-k="gal.h">Keindahan yang <em>berbicara sendiri</em></h2>
+      <p class="sec-p" data-k="gal.p">Setiap sudut ballroom dirancang untuk menciptakan kesan abadi — pencahayaan dramatis, tata ruang megah, dan detail arsitektur yang tak tertandingi.</p>
+    </div>
+    <div class="gal-grid" data-reveal="scale">
+      <div class="gal-cell tall"><img src="images/gallery-1.jpg" alt="Ballroom" onerror="this.style.display='none'"><div class="gal-layer"><span class="gal-lbl" data-k="g1">Ballroom Utama</span></div></div>
+      <div class="gal-cell"><img src="images/gallery-2.jpg" alt="Dekorasi" onerror="this.style.display='none'"><div class="gal-layer"><span class="gal-lbl" data-k="g2">Detail Dekorasi</span></div></div>
+      <div class="gal-cell"><img src="images/gallery-3.jpg" alt="Seminar" onerror="this.style.display='none'"><div class="gal-layer"><span class="gal-lbl" data-k="g3">Layout Seminar</span></div></div>
+      <div class="gal-cell"><img src="images/gallery-4.jpg" alt="Panggung" onerror="this.style.display='none'"><div class="gal-layer"><span class="gal-lbl" data-k="g4">Area Panggung</span></div></div>
+      <div class="gal-cell"><img src="images/gallery-5.jpg" alt="Lighting" onerror="this.style.display='none'"><div class="gal-layer"><span class="gal-lbl" data-k="g5">Pencahayaan</span></div></div>
+      <div class="gal-cell"><img src="images/gallery-6.jpg" alt="Suasana" onerror="this.style.display='none'"><div class="gal-layer"><span class="gal-lbl" data-k="g6">Suasana Event</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-row">
+      <div class="st-item" data-reveal><div class="st-num">1K<span style="font-size:32px">+</span></div><div class="st-lbl" data-k="st1">Kapasitas Tamu</div></div>
+      <div class="st-item" data-reveal data-d="1"><div class="st-num">10<span style="font-size:32px">+</span></div><div class="st-lbl" data-k="st2">Tahun Pengalaman</div></div>
+      <div class="st-item" data-reveal data-d="2"><div class="st-num">500<span style="font-size:32px">+</span></div><div class="st-lbl" data-k="st3">Event Sukses</div></div>
+      <div class="st-item" data-reveal data-d="3"><div class="st-num">4.9<span style="font-size:32px">★</span></div><div class="st-lbl" data-k="st4">Rating Google</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-hdr" data-reveal>
+      <div class="sec-tag" data-k="pr.tag">Tarif</div>
+      <h2 class="sec-h" data-k="pr.h">Harga <em>transparan</em>, nilai tak ternilai</h2>
+      <p class="sec-p" style="margin:0 auto" data-k="pr.p">Pilih paket yang sesuai kebutuhan Anda. Semua tarif sudah termasuk fasilitas standar gedung Grade A.</p>
+      <div class="ptab">
+        <button class="ptab-btn on" id="tbBall" data-k="tb.b">🏛 Ballroom</button>
+        <button class="ptab-btn" id="tbMeet" data-k="tb.m">🎤 Meeting Room</button>
+      </div>
     </div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">PLAZA BPJamsostek</div>
-            <ul class="navbar-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#directory">Directory</a></li>
-                <li><a href="#facilities">Facilities</a></li>
-                <li><a href="#rental">Rental</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
+    <!-- BALLROOM -->
+    <div class="pr-panel on" id="pBall">
+      <div class="pr-card" data-reveal data-d="1">
+        <div class="pr-icon">🌙</div>
+        <div class="pr-name" data-k="p1.n">Weekday</div>
+        <div class="pr-desc" data-k="p1.d">Senin–Jumat. Ideal untuk seminar, training, dan gathering korporat.</div>
+        <div class="pr-price-from" data-k="from">Mulai dari</div>
+        <div class="pr-price-num"><sup>Rp</sup>35 Juta</div>
+        <div class="pr-price-note" data-k="p1.note">Per hari · Eksklusif</div>
+        <ul class="pr-feats">
+          <li data-k="f.cap">Kapasitas hingga 1.000 tamu</li>
+          <li data-k="f.av">Sound system & lighting premium</li>
+          <li data-k="f.ac">AC sentral 24 jam</li>
+          <li data-k="f.park">Parkir luas</li>
+          <li data-k="f.setup">Setup & breakdown included</li>
+        </ul>
+        <a href="https://wa.me/6285211566707" class="btn-pr btn-pr-g" target="_blank" data-k="btn.wa">Booking via WhatsApp →</a>
+      </div>
+      <div class="pr-card star" data-reveal data-d="2">
+        <div class="pr-badge" data-k="badge">Paling Diminati</div>
+        <div class="pr-icon">💍</div>
+        <div class="pr-name" data-k="p2.n">Weekend</div>
+        <div class="pr-desc" data-k="p2.d">Sabtu–Minggu. Paket sempurna untuk wedding, resepsi, dan acara mewah.</div>
+        <div class="pr-price-from" data-k="from">Mulai dari</div>
+        <div class="pr-price-num"><sup>Rp</sup>70 Juta</div>
+        <div class="pr-price-note" data-k="p2.note">Per hari · All-inclusive</div>
+        <ul class="pr-feats">
+          <li data-k="f.cap">Kapasitas hingga 1.000 tamu</li>
+          <li data-k="f.bridal">Bridal room eksklusif</li>
+          <li data-k="f.coord">Dedicated event coordinator</li>
+          <li data-k="f.catering">Koordinasi katering & dekorasi</li>
+          <li data-k="f.park">Parkir luas</li>
+        </ul>
+        <a href="https://wa.me/6285211566707" class="btn-pr btn-pr-gold" target="_blank" data-k="btn.wa">Booking via WhatsApp →</a>
+      </div>
+    </div>
+
+    <!-- MEETING ROOM -->
+    <div class="pr-panel" id="pMeet">
+      <div class="pr-card" data-reveal data-d="1">
+        <div class="pr-icon">🌤</div>
+        <div class="pr-name" data-k="m1.n">Half Day</div>
+        <div class="pr-desc" data-k="m1.d">Sesi 4 jam untuk meeting, presentasi, dan training.</div>
+        <div class="pr-price-from" data-k="from">Mulai dari</div>
+        <div class="pr-price-num"><sup>Rp</sup>5 Juta</div>
+        <div class="pr-price-note" data-k="m1.note">4 Jam · Umum</div>
+        <ul class="pr-feats">
+          <li data-k="mf.proj">Proyektor & layar</li>
+          <li data-k="mf.wifi">WiFi dedicated</li>
+          <li data-k="mf.water">Air minum & snack</li>
+          <li data-k="mf.wb">Whiteboard</li>
+        </ul>
+        <a href="https://wa.me/6285211566707" class="btn-pr btn-pr-g" target="_blank" data-k="btn.wa">Booking via WhatsApp →</a>
+      </div>
+      <div class="pr-card star" data-reveal data-d="2">
+        <div class="pr-badge" data-k="badge">Paling Diminati</div>
+        <div class="pr-icon">☀️</div>
+        <div class="pr-name" data-k="m2.n">Full Day</div>
+        <div class="pr-desc" data-k="m2.d">8 jam penuh dengan coffee break & makan siang. Untuk event korporat seharian.</div>
+        <div class="pr-price-from" data-k="from">Mulai dari</div>
+        <div class="pr-price-num"><sup>Rp</sup>6 Juta</div>
+        <div class="pr-price-note" data-k="m2.note">8 Jam · Lengkap</div>
+        <ul class="pr-feats">
+          <li data-k="mf.proj">Proyektor & layar</li>
+          <li data-k="mf.wifi">WiFi dedicated</li>
+          <li data-k="mf.lunch">Makan siang & 2x coffee break</li>
+          <li data-k="mf.mic">Microphone & sound</li>
+          <li data-k="mf.wb">Whiteboard & flip chart</li>
+        </ul>
+        <a href="https://wa.me/6285211566707" class="btn-pr btn-pr-gold" target="_blank" data-k="btn.wa">Booking via WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / FEATURES -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-main" data-reveal="left">
+          <img src="images/about.jpg" alt="Ballroom Interior" onerror="this.style.display='none'">
+        </div>
+        <div class="about-float" data-reveal data-d="2">
+          <div class="af-icon">⭐</div>
+          <div class="af-num">4.9</div>
+          <div class="af-lbl" data-k="af1">Rating Google</div>
+        </div>
+        <div class="about-float2" data-reveal data-d="3">
+          <div class="af-num">500+</div>
+          <div class="af-lbl" data-k="af2">Event Sukses</div>
+        </div>
+      </div>
+      <div data-reveal="right">
+        <div class="sec-tag" data-k="ab.tag">Mengapa Kami</div>
+        <h2 class="sec-h" data-k="ab.h">Venue pilihan untuk <em>momen terbaik</em></h2>
+        <div class="gold-rule"><div class="line"></div><div class="gem"></div></div>
+        <div class="feat-list">
+          <div class="fi">
+            <div class="fi-icon">🏛</div>
+            <div class="fi-text">
+              <h4 data-k="fi1.h">Gedung Grade A Tersertifikasi</h4>
+              <p data-k="fi1.p">Satu-satunya ballroom di gedung Grade A bersertifikat Green Building di kawasan Kuningan — standar internasional untuk kenyamanan tamu Anda.</p>
+            </div>
+          </div>
+          <div class="fi">
+            <div class="fi-icon">📍</div>
+            <div class="fi-text">
+              <h4 data-k="fi2.h">Lokasi Strategis CBD Jakarta</h4>
+              <p data-k="fi2.p">Jl. HR Rasuna Said — akses mudah dari seluruh penjuru Jakarta. Dekat MRT, Transjakarta, dan tol dalam kota. Parkir luas tersedia.</p>
+            </div>
+          </div>
+          <div class="fi">
+            <div class="fi-icon">🎛</div>
+            <div class="fi-text">
+              <h4 data-k="fi3.h">Teknologi AV Kelas Dunia</h4>
+              <p data-k="fi3.p">Sound system kristal jernih, LED screen raksasa, lighting dinamis, dan internet dedicated — pengalaman event yang memukau dari awal hingga akhir.</p>
+            </div>
+          </div>
+          <div class="fi">
+            <div class="fi-icon">🤝</div>
+            <div class="fi-text">
+              <h4 data-k="fi4.h">Tim Profesional 24 Jam</h4>
+              <p data-k="fi4.p">Event coordinator berpengalaman, tim keamanan, housekeeping, dan teknisi siap mendukung kelancaran acara Anda dari persiapan hingga selesai.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="test-hdr" data-reveal>
+      <div class="sec-tag" data-k="te.tag">Ulasan Tamu</div>
+      <h2 class="sec-h" data-k="te.h">Kata mereka yang <em>sudah merasakan</em></h2>
+    </div>
+    <div class="test-grid">
+      <div class="tc" data-reveal data-d="1">
+        <div class="tc-q">"</div>
+        <p class="tc-txt" data-k="t1.t">Pernikahan kami di sini sungguh sempurna. Ballroom-nya megah, staf sangat profesional dan ramah. Semua tamu kami sangat kagum. Tidak akan menyesal memilih tempat ini!</p>
+        <div class="tc-auth">
+          <div class="tc-av">AR</div>
+          <div>
+            <div class="tc-name" data-k="t1.n">Ayu & Rizky</div>
+            <div class="tc-role" data-k="t1.r">Pasangan Pengantin · 2024</div>
+            <div class="tc-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="tc" data-reveal data-d="2">
+        <div class="tc-q">"</div>
+        <p class="tc-txt" data-k="t2.t">Seminar nasional kami dengan 800 peserta berjalan 100% lancar. Sound system jernih, layar besar, internet stabil. Ini venue seminar terbaik yang pernah kami gunakan.</p>
+        <div class="tc-auth">
+          <div class="tc-av">BK</div>
+          <div>
+            <div class="tc-name" data-k="t2.n">Budi Kurniawan</div>
+            <div class="tc-role" data-k="t2.r">Event Organizer · PT Maju Bersama</div>
+            <div class="tc-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="tc" data-reveal data-d="3">
+        <div class="tc-q">"</div>
+        <p class="tc-txt" data-k="t3.t">Gala dinner perusahaan kami untuk 600 tamu sukses besar. Dekorasi mewah, katering lezat, lokasi strategis di Kuningan sangat memudahkan tamu dari seluruh Jakarta.</p>
+        <div class="tc-auth">
+          <div class="tc-av">SH</div>
+          <div>
+            <div class="tc-name" data-k="t3.n">Sri Handayani</div>
+            <div class="tc-role" data-k="t3.r">GM HR · Perusahaan Tbk</div>
+            <div class="tc-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI CHAT -->
+<section class="ai-section" id="ai">
+  <div class="container">
+    <div class="ai-inner">
+      <div data-reveal="left">
+        <div class="sec-tag" data-k="ai.tag">Asisten AI</div>
+        <h2 class="sec-h" data-k="ai.h">Tanya apa saja, <em>jawab seketika</em></h2>
+        <div class="gold-rule"><div class="line"></div><div class="gem"></div></div>
+        <p class="sec-p" data-k="ai.p">Asisten AI kami siap menjawab pertanyaan apa pun — dari tarif, ketersediaan tanggal, kapasitas, fasilitas, hingga pertanyaan umum. Tersedia 24 jam, 7 hari seminggu, dalam bahasa apa pun.</p>
+        <div style="margin-top:32px; display:flex; flex-direction:column; gap:14px;">
+          <div class="fi">
+            <div class="fi-icon">⚡</div>
+            <div class="fi-text">
+              <h4 data-k="ai.f1h">Respons Instan</h4>
+              <p data-k="ai.f1p">Tidak perlu menunggu — AI menjawab dalam hitungan detik, kapan pun Anda butuhkan.</p>
+            </div>
+          </div>
+          <div class="fi">
+            <div class="fi-icon">🌏</div>
+            <div class="fi-text">
+              <h4 data-k="ai.f2h">Multi Bahasa</h4>
+              <p data-k="ai.f2p">Tanya dalam bahasa Indonesia, Inggris, Arab, Mandarin, atau bahasa lain — AI kami mengerti semuanya.</p>
+            </div>
+          </div>
+          <div class="fi">
+            <div class="fi-icon">🧠</div>
+            <div class="fi-text">
+              <h4 data-k="ai.f3h">Tanya Apa Saja</h4>
+              <p data-k="ai.f3p">Tidak hanya soal ballroom — tanya pengetahuan umum, tips event, atau apa pun yang Anda ingin ketahui.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-reveal="right">
+        <div class="ai-chat-box">
+          <div class="ai-chat-head">
+            <div class="ai-av">✦</div>
+            <div>
+              <div class="ai-title" data-k="ai.name">Asisten AI Plaza BPJamsostek</div>
+              <div class="ai-status"><div class="ai-dot"></div><span data-k="ai.online">Online · Siap menjawab apa saja</span></div>
+            </div>
+          </div>
+          <div class="ai-msgs" id="aiMsgs">
+            <div class="ai-msg bot">
+              <div class="ai-bubble" data-k="ai.greet">Halo! 👋 Saya asisten AI Ballroom Plaza BPJamsostek. Saya bisa bantu informasi venue, tarif, ketersediaan, atau pertanyaan apa pun. Mau tanya apa?</div>
+              <span class="ai-time">Baru saja</span>
+            </div>
+          </div>
+          <div class="ai-suggests" id="aiSugg">
+            <button class="ai-sugg" data-q="Berapa kapasitas ballroom untuk wedding?" data-k="qs.1">💍 Kapasitas wedding</button>
+            <button class="ai-sugg" data-q="Apa saja fasilitas yang tersedia?" data-k="qs.2">🎛 Fasilitas</button>
+            <button class="ai-sugg" data-q="Bagaimana cara booking ballroom?" data-k="qs.3">📅 Cara booking</button>
+            <button class="ai-sugg" data-q="Apakah tersedia paket katering?" data-k="qs.4">🍽 Katering</button>
+          </div>
+          <div class="ai-form">
+            <input class="ai-input" id="aiIn" type="text" placeholder="Tanya apa saja..." autocomplete="off">
+            <button class="ai-send" id="aiSend">
+              <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
             </button>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="0">PLAZA BPJAMSOSTEK</h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">Premium Office Tower in Jakarta</p>
-            <div data-aos="fade-up" data-aos-delay="200">
-                <button class="btn-glass" onclick="scrollToSection('directory')">
-                    <i class="fas fa-building"></i> Explore Building
-                </button>
-                <button class="btn-primary" onclick="scrollToSection('rental')">
-                    <i class="fas fa-phone"></i> Rental Information
-                </button>
-            </div>
+<!-- BOOKING / CONTACT -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-grid">
+      <div data-reveal="left">
+        <div class="sec-tag" data-k="bk.tag">Hubungi Kami</div>
+        <h2 class="sec-h" data-k="bk.h">Mulai <em>rencanakan</em> acara Anda</h2>
+        <div class="gold-rule"><div class="line"></div><div class="gem"></div></div>
+        <p class="sec-p" data-k="bk.p">Tim kami siap membantu merancang event yang tak terlupakan. Konsultasi gratis, respons cepat.</p>
+        <div class="book-contacts">
+          <a href="https://wa.me/6285211566707" class="bc" target="_blank">
+            <div class="bc-ic wa">📱</div>
+            <div><div class="bc-lbl" data-k="c.cs">Customer Service</div><div class="bc-val">+62 852-1156-6707</div></div>
+          </a>
+          <a href="https://wa.me/628131401230" class="bc" target="_blank">
+            <div class="bc-ic ph">🤝</div>
+            <div><div class="bc-lbl" data-k="c.tr">Tenant Relations</div><div class="bc-val">+62 813-1401-2300</div></div>
+          </a>
+          <a href="mailto:tr.plaza.bpjamsostek@gmail.com" class="bc">
+            <div class="bc-ic em">✉️</div>
+            <div><div class="bc-lbl" data-k="c.em">Email</div><div class="bc-val">tr.plaza.bpjamsostek@gmail.com</div></div>
+          </a>
+          <div class="bc">
+            <div class="bc-ic lo">📍</div>
+            <div><div class="bc-lbl" data-k="c.ad">Alamat</div><div class="bc-val">Jl. HR Rasuna Said Kav 112B, Lt.6, Kuningan Jakarta 12930</div></div>
+          </div>
         </div>
-    </section>
-
-    <!-- Building Directory Section -->
-    <section id="directory" class="section bg-gradient-to-b from-transparent via-blue-950/10 to-transparent">
-        <h2 class="section-title" data-aos="fade-up">Building Directory</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Explore our premium floors and facilities</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="50">
-                <div class="floor-icon"><i class="fas fa-users"></i></div>
-                <div class="floor-name">Lantai 19–30</div>
-                <div class="floor-description">Kantor Pusat BPJS Ketenagakerjaan</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="floor-icon"><i class="fas fa-briefcase"></i></div>
-                <div class="floor-name">Lantai 18 & 12</div>
-                <div class="floor-description">Office Space Available For Rent</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="floor-icon"><i class="fas fa-utensils"></i></div>
-                <div class="floor-name">Lantai 8</div>
-                <div class="floor-description">Foodcourt Area</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="floor-icon"><i class="fas fa-champagne-glasses"></i></div>
-                <div class="floor-name">Lantai 6</div>
-                <div class="floor-description">Ballroom & Meeting Room Rental</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="floor-icon"><i class="fas fa-mosque"></i></div>
-                <div class="floor-name">Lantai R</div>
-                <div class="floor-description">Mosque & Badminton Court</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="floor-icon"><i class="fas fa-door-open"></i></div>
-                <div class="floor-name">Ground Floor</div>
-                <div class="floor-description">Main Lobby & Banking Services</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="350">
-                <div class="floor-icon"><i class="fas fa-truck"></i></div>
-                <div class="floor-name">B1</div>
-                <div class="floor-description">Loading Dock & Car Parking</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="floor-icon"><i class="fas fa-car"></i></div>
-                <div class="floor-name">B2</div>
-                <div class="floor-description">Canteen & Car Parking</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="450">
-                <div class="floor-icon"><i class="fas fa-motorcycle"></i></div>
-                <div class="floor-name">B3</div>
-                <div class="floor-description">Motorcycle Parking Area</div>
-            </div>
-
-            <div class="floor-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="floor-icon"><i class="fas fa-square"></i></div>
-                <div class="floor-name">P3–P5</div>
-                <div class="floor-description">Premium Car Parking Area</div>
-            </div>
+        <div class="book-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.021953530898!2d106.83051731476942!3d-6.232744295477832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3c3de655555%3A0x5e9e9b73b9b9b9b9!2sPlaza%20BPJamsostek!5e0!3m2!1sid!2sid!4v1718700000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="section bg-gradient-to-r from-blue-950/20 via-purple-950/20 to-blue-950/20">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div data-aos="fade-up">
-                <div class="counter" id="counter1">0</div>
-                <div class="counter-label">Total Floors</div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="100">
-                <div class="counter" id="counter2">0</div>
-                <div class="counter-label">Premium Facilities</div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="200">
-                <div class="counter" id="counter3">0</div>
-                <div class="counter-label">24/7 Security</div>
-            </div>
+        <div class="map-btns">
+          <a href="https://maps.google.com/?q=Plaza+BPJamsostek+Jl+HR+Rasuna+Said+Kav+112B+Kuningan+Jakarta" target="_blank" class="mbtn" data-k="map.g">📍 Google Maps</a>
+          <a href="https://waze.com/ul?ll=-6.2317603,106.8332689&navigate=yes" target="_blank" class="mbtn" data-k="map.w">🗺 Waze</a>
         </div>
-    </section>
-
-    <!-- Facilities Section -->
-    <section id="facilities" class="section">
-        <h2 class="section-title" data-aos="fade-up">World-Class Facilities</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Experience premium amenities designed for your comfort</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="facility-icon"><i class="fas fa-arrow-up"></i></div>
-                <div class="facility-name">High Speed Elevator</div>
+      </div>
+      <div data-reveal="right">
+        <div class="form-box">
+          <h3 data-k="fm.h">Kirim Permintaan</h3>
+          <div class="frow">
+            <div class="ff"><label data-k="fm.name">Nama Lengkap</label><input type="text" id="fName" placeholder="Nama Anda"></div>
+            <div class="ff"><label data-k="fm.wa">WhatsApp</label><input type="text" id="fWa" placeholder="+62 8xx-xxxx-xxxx"></div>
+          </div>
+          <div class="frow">
+            <div class="ff"><label data-k="fm.co">Perusahaan</label><input type="text" id="fCo" placeholder="Opsional"></div>
+            <div class="ff">
+              <label data-k="fm.ev">Jenis Event</label>
+              <select id="fEv">
+                <option value="">— Pilih —</option>
+                <option data-k="opt.w">💍 Wedding & Resepsi</option>
+                <option data-k="opt.s">🎤 Seminar / Konferensi</option>
+                <option data-k="opt.g">🏆 Gala Dinner</option>
+                <option data-k="opt.gr">🎓 Wisuda</option>
+                <option data-k="opt.b">🎊 Ulang Tahun</option>
+                <option data-k="opt.o">💼 Lainnya</option>
+              </select>
             </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="50">
-                <div class="facility-icon"><i class="fas fa-shield-alt"></i></div>
-                <div class="facility-name">24 Hour Security</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="facility-icon"><i class="fas fa-video"></i></div>
-                <div class="facility-name">CCTV Monitoring</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="facility-icon"><i class="fas fa-champagne-glasses"></i></div>
-                <div class="facility-name">Ballroom</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="facility-icon"><i class="fas fa-utensils"></i></div>
-                <div class="facility-name">Foodcourt</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="facility-icon"><i class="fas fa-mosque"></i></div>
-                <div class="facility-name">Prayer Room</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="facility-icon"><i class="fas fa-car"></i></div>
-                <div class="facility-name">Parking Area</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="350">
-                <div class="facility-icon"><i class="fas fa-bank"></i></div>
-                <div class="facility-name">Banking Services</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="facility-icon"><i class="fas fa-door-open"></i></div>
-                <div class="facility-name">Meeting Rooms</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="450">
-                <div class="facility-icon"><i class="fas fa-badminton"></i></div>
-                <div class="facility-name">Badminton Court</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="facility-icon"><i class="fas fa-wifi"></i></div>
-                <div class="facility-name">High Speed WiFi</div>
-            </div>
-
-            <div class="facility-card" data-aos="fade-up" data-aos-delay="550">
-                <div class="facility-icon"><i class="fas fa-leaf"></i></div>
-                <div class="facility-name">Green Space</div>
-            </div>
+          </div>
+          <div class="frow">
+            <div class="ff"><label data-k="fm.dt">Tanggal</label><input type="date" id="fDt"></div>
+            <div class="ff"><label data-k="fm.gst">Jumlah Tamu</label><input type="number" id="fGst" placeholder="~"></div>
+          </div>
+          <div class="ff full"><label data-k="fm.msg">Pesan</label><textarea id="fMsg" placeholder="Ceritakan kebutuhan Anda..."></textarea></div>
+          <button class="btn-submit" onclick="sendForm()">
+            <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:none;stroke:var(--ob);stroke-width:2.5"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            <span data-k="fm.sub">Kirim via WhatsApp</span>
+          </button>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Rental Section -->
-    <section id="rental" class="section bg-gradient-to-b from-transparent via-blue-950/10 to-transparent">
-        <h2 class="section-title" data-aos="fade-up">Office Space Rental</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Premium office and meeting spaces available for lease</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="pricing-title">Office Space</div>
-                <div class="pricing-description">
-                    Premium office floors available for lease. Modern facilities with flexible lease terms starting from 1 year.
-                </div>
-                <ul class="space-y-2 mb-4 text-sm text-gray-400">
-                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Prime Location</li>
-                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Flexible Terms</li>
-                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>All Utilities Included</li>
-                </ul>
-                <button class="btn-primary w-full mb-2" onclick="contactViaWhatsApp('Saya tertarik dengan Office Space di Plaza BPJamsostek')">Book Now</button>
-            </div>
-
-            <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
-                <div class="pricing-title">Meeting Rooms</div>
-                <div class="pricing-description">
-                    State-of-the-art meeting facilities with AV equipment. Available for hourly or daily rental with professional support.
-                </div>
-                <ul class="space-y-2 mb-4 text-sm text-gray-400">
-                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>AV Equipment</li>
-                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Catering Service</li>
-                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Professional Support</li>
-                </ul>
-                <button class="btn-primary w-full mb-2" onclick="contactViaWhatsApp('Saya ingin memesan Meeting Room di Plaza BPJamsostek')">Book Now</button>
-            </div>
-
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-title">Ballroom</div>
-                <div class="pricing-description">
-                    Elegant ballroom for corporate events, conferences, and celebrations. Complete event management support available.
-                </div>
-                <ul class="space-y-2 mb-4 text-sm text-gray-400">
-                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Elegant Design</li>
-                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Event Management</li>
-                    <li><i class="fas fa-check text-yellow-600 mr-2"></i>Catering Partners</li>
-                </ul>
-                <button class="btn-primary w-full mb-2" onclick="contactViaWhatsApp('Saya tertarik dengan Ballroom Plaza BPJamsostek untuk acara saya')">Book Now</button>
-            </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+          <div class="nav-gem" style="width:38px;height:38px"><span style="font-size:16px">✦</span></div>
+          <div class="nav-logo-text">
+            <strong>Ballroom BPJamsostek</strong>
+            <small>Plaza Grade A · Kuningan Jakarta</small>
+          </div>
         </div>
-
-        <div class="mt-8 text-center" data-aos="fade-up">
-            <p class="text-gray-400 mb-4">For detailed information about rental options and pricing:</p>
-            <button class="btn-glass" onclick="contactViaWhatsApp('Halo, saya ingin mendapatkan informasi lebih lanjut tentang Plaza BPJamsostek')">
-                <i class="fas fa-envelope mr-2"></i>Contact Leasing Management
-            </button>
+        <p data-k="ft.desc">Venue premium untuk wedding, seminar, gala dinner, dan event bergengsi. Gedung Grade A bersertifikat Green Building di kawasan bisnis terbaik Jakarta.</p>
+        <div class="footer-socs">
+          <a href="https://www.instagram.com/plazabpjamsostek/" target="_blank" class="fsoc" title="Instagram">📸</a>
+          <a href="https://wa.me/6285211566707" target="_blank" class="fsoc" title="WhatsApp">📱</a>
+          <a href="https://youtube.com/@sinergiinvestasiproperti3589" target="_blank" class="fsoc" title="YouTube">▶</a>
+          <a href="https://www.sinergiinvestasiproperti.co.id" target="_blank" class="fsoc" title="Website">🌐</a>
         </div>
-    </section>
+      </div>
+      <div class="footer-col">
+        <h4 data-k="ft.ev">Event</h4>
+        <a href="#events" data-k="mq.w">Wedding</a>
+        <a href="#events" data-k="mq.s">Seminar</a>
+        <a href="#events" data-k="mq.g">Gala Dinner</a>
+        <a href="#events" data-k="mq.c">Konferensi</a>
+        <a href="#events" data-k="mq.gr">Wisuda</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-k="ft.fac">Fasilitas</h4>
+        <a href="#about">Ballroom Lt.6</a>
+        <a href="#about">Meeting Room</a>
+        <a href="#about">Sound & Lighting</a>
+        <a href="#about">Parkir Luas</a>
+        <a href="#about">Katering</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-k="ft.ct">Kontak</h4>
+        <a href="https://wa.me/6285211566707">+62 852-1156-6707</a>
+        <a href="https://wa.me/628131401230">+62 813-1401-2300</a>
+        <a href="mailto:tr.plaza.bpjamsostek@gmail.com">tr.plaza.bpjamsostek@gmail.com</a>
+        <a href="https://www.sinergiinvestasiproperti.co.id" target="_blank">sinergiinvestasiproperti.co.id</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-k="ft.copy">© 2026 Ballroom Plaza BPJamsostek · Jl. HR Rasuna Said Kav 112B Lt.6, Kuningan, Jakarta 12930</p>
+      <p data-k="ft.by">PT Sinergi Investasi Properti · Grade A · Green Building</p>
+    </div>
+  </div>
+</footer>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="section">
-        <h2 class="section-title" data-aos="fade-up">Photo Gallery</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">Discover the beauty and excellence of Plaza BPJamsostek</p>
+<script>
+/* ══════════════════════════════════
+   NAVBAR SCROLL
+══════════════════════════════════ */
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function(){ nav.classList.toggle('solid', window.scrollY > 60); });
 
-        <div class="gallery-grid mt-8">
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="0">
-                <div class="gallery-item-bg"><i class="fas fa-door-open"></i></div>
-                <div class="gallery-item-label">Main Lobby</div>
-            </div>
+var navTog = document.getElementById('navTog');
+var navLinks = document.getElementById('navLinks');
+navTog.addEventListener('click', function(){
+  navTog.classList.toggle('act');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){ navTog.classList.remove('act'); navLinks.classList.remove('open'); });
+});
 
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
-                <div class="gallery-item-bg"><i class="fas fa-champagne-glasses"></i></div>
-                <div class="gallery-item-label">Ballroom</div>
-            </div>
+/* ══════════════════════════════════
+   HERO SLIDESHOW
+══════════════════════════════════ */
+var hCur = 0, hTotal = 3, hAuto;
+function hGo(n){
+  document.getElementById('hs'+hCur).classList.remove('act');
+  document.querySelectorAll('.hdot')[hCur].classList.remove('act');
+  hCur = (n + hTotal) % hTotal;
+  document.getElementById('hs'+hCur).classList.add('act');
+  document.querySelectorAll('.hdot')[hCur].classList.add('act');
+}
+document.getElementById('hPrev').onclick = function(){ clearInterval(hAuto); hGo(hCur-1); hAuto=setInterval(function(){hGo(hCur+1);},6000); };
+document.getElementById('hNext').onclick = function(){ clearInterval(hAuto); hGo(hCur+1); hAuto=setInterval(function(){hGo(hCur+1);},6000); };
+document.querySelectorAll('.hdot').forEach(function(d){ d.onclick = function(){ clearInterval(hAuto); hGo(+d.dataset.i); hAuto=setInterval(function(){hGo(hCur+1);},6000); }; });
+hAuto = setInterval(function(){ hGo(hCur+1); }, 6000);
 
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="gallery-item-bg"><i class="fas fa-briefcase"></i></div>
-                <div class="gallery-item-label">Office Space</div>
-            </div>
+/* ══════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════ */
+var ro = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); ro.unobserve(e.target); } });
+}, {threshold:0.1});
+document.querySelectorAll('[data-reveal]').forEach(function(el){ ro.observe(el); });
 
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
-                <div class="gallery-item-bg"><i class="fas fa-utensils"></i></div>
-                <div class="gallery-item-label">Foodcourt</div>
-            </div>
+/* ══════════════════════════════════
+   PRICING TABS
+══════════════════════════════════ */
+document.getElementById('tbBall').addEventListener('click', function(){
+  this.classList.add('on'); document.getElementById('tbMeet').classList.remove('on');
+  document.getElementById('pBall').classList.add('on'); document.getElementById('pMeet').classList.remove('on');
+});
+document.getElementById('tbMeet').addEventListener('click', function(){
+  this.classList.add('on'); document.getElementById('tbBall').classList.remove('on');
+  document.getElementById('pMeet').classList.add('on'); document.getElementById('pBall').classList.remove('on');
+});
 
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="gallery-item-bg"><i class="fas fa-car"></i></div>
-                <div class="gallery-item-label">Parking Area</div>
-            </div>
+/* ══════════════════════════════════
+   BOOKING FORM
+══════════════════════════════════ */
+function sendForm(){
+  var msg = 'Halo, saya ingin booking Ballroom Plaza BPJamsostek.\n\n'
+    + '📋 *Detail Permintaan*\n'
+    + '👤 Nama: '+(document.getElementById('fName').value||'-')+'\n'
+    + '📱 WA: '+(document.getElementById('fWa').value||'-')+'\n'
+    + '🏢 Perusahaan: '+(document.getElementById('fCo').value||'-')+'\n'
+    + '🎪 Event: '+(document.getElementById('fEv').value||'-')+'\n'
+    + '📅 Tanggal: '+(document.getElementById('fDt').value||'-')+'\n'
+    + '👥 Tamu: '+(document.getElementById('fGst').value||'-')+'\n'
+    + '📝 Pesan: '+(document.getElementById('fMsg').value||'-');
+  window.open('https://wa.me/6285211566707?text='+encodeURIComponent(msg),'_blank');
+}
 
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
-                <div class="gallery-item-bg"><i class="fas fa-mosque"></i></div>
-                <div class="gallery-item-label">Prayer Room</div>
-            </div>
+/* ══════════════════════════════════
+   AI CHAT
+══════════════════════════════════ */
+var aiMsgs = document.getElementById('aiMsgs');
+var aiIn   = document.getElementById('aiIn');
+var aiSugg = document.getElementById('aiSugg');
+var aiHistory = [], aiBusy = false;
 
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="gallery-item-bg"><i class="fas fa-door-open"></i></div>
-                <div class="gallery-item-label">Meeting Rooms</div>
-            </div>
+var AI_SYS = `Anda adalah asisten AI cerdas Ballroom Plaza BPJamsostek yang BISA menjawab PERTANYAAN APA SAJA.
 
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
-                <div class="gallery-item-bg"><i class="fas fa-mountain"></i></div>
-                <div class="gallery-item-label">Aerial View</div>
-            </div>
-        </div>
-    </section>
+DATA VENUE:
+- Nama: Ballroom Plaza BPJamsostek, Lantai 6, Jl. HR Rasuna Said Kav 112B, Kuningan, Jakarta Selatan 12930
+- Pengelola: PT Sinergi Investasi Properti (anak perusahaan BPJS Ketenagakerjaan)
+- Kapasitas: Hingga 1.000+ tamu (ballroom), 800 tamu (theater style)
+- Fasilitas: Sound system premium, LED screen, lighting dinamis, WiFi dedicated, AC sentral, bridal room, koordinator event, parkir luas (P3-P5 & B3)
+- Event: Wedding, resepsi, seminar, konferensi, gala dinner, wisuda, training, ulang tahun mewah
+- TARIF BALLROOM: Weekday Rp 35 juta/hari, Weekend Rp 70 juta/hari
+- TARIF MEETING ROOM: Half day Rp 5 juta, Full day Rp 6 juta
+- Kontak: CS WA +62 852-1156-6707, Tenant Relations +62 813-1401-2300
+- Email: tr.plaza.bpjamsostek@gmail.com
+- Instagram: @plazabpjamsostek
+- Gedung Grade A, Green Building certified, akses mudah MRT & Transjakarta
 
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-gradient-to-b from-transparent via-blue-950/10 to-transparent">
-        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-        <div class="divider" data-aos="fade-up"></div>
-        <p class="section-subtitle" data-aos="fade-up">We'd love to hear from you. Contact us today!</p>
+PANDUAN:
+- Jawab dengan ramah, hangat, dan natural dalam bahasa yang digunakan pengguna
+- Gunakan emoji secukupnya untuk membuat percakapan menyenangkan
+- Jawaban ringkas 2-4 kalimat kecuali diminta detail
+- Untuk booking selalu arahkan ke WA +62 852-1156-6707
+- Bisa menjawab pertanyaan umum di luar venue (resep, translate, pengetahuan umum, dll)`;
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-            <div data-aos="fade-right">
-                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg p-6 mb-6">
-                    <div class="flex items-start mb-4">
-                        <i class="fas fa-map-marker-alt text-yellow-600 mt-1 mr-4"></i>
-                        <div>
-                            <h3 class="text-yellow-600 font-semibold mb-1">Address</h3>
-                            <p class="text-gray-400">Jakarta Timur, Indonesia</p>
-                        </div>
-                    </div>
-                </div>
+function addMsg(txt, who){
+  var t = new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+  var d = document.createElement('div');
+  d.className = 'ai-msg '+who;
+  d.innerHTML = '<div class="ai-bubble">'+txt.replace(/\n/g,'<br>')+'</div><span class="ai-time">'+t+'</span>';
+  aiMsgs.appendChild(d); aiMsgs.scrollTop = aiMsgs.scrollHeight;
+}
+function showTyping(){
+  var d = document.createElement('div'); d.className='ai-msg bot'; d.id='aiTyping';
+  d.innerHTML='<div class="typing-bub"><div class="td"></div><div class="td"></div><div class="td"></div></div>';
+  aiMsgs.appendChild(d); aiMsgs.scrollTop=aiMsgs.scrollHeight;
+}
+function hideTyping(){ var t=document.getElementById('aiTyping'); if(t) t.remove(); }
 
-                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg p-6 mb-6">
-                    <div class="flex items-start mb-4">
-                        <i class="fas fa-whatsapp text-yellow-600 mt-1 mr-4"></i>
-                        <div>
-                            <h3 class="text-yellow-600 font-semibold mb-1">WhatsApp</h3>
-                            <p class="text-gray-400">+62 813-1401-230</p>
-                            <p class="text-gray-400 text-xs mt-2">
-                                <a href="https://wa.me/6281314012230" class="text-yellow-500 hover:text-yellow-400">Click to Chat</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+async function sendAI(q){
+  if(aiBusy) return;
+  aiBusy=true; aiSugg.style.display='none';
+  aiHistory.push({role:'user',content:q});
+  showTyping();
+  try{
+    var res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:800,system:AI_SYS,messages:aiHistory})
+    });
+    var data = await res.json();
+    hideTyping();
+    var reply = (data.content && data.content[0] && data.content[0].text) ? data.content[0].text : 'Maaf, ada gangguan. Silakan hubungi langsung via WA +62 852-1156-6707 🙏';
+    aiHistory.push({role:'assistant',content:reply});
+    addMsg(reply,'bot');
+  } catch(e){
+    hideTyping();
+    addMsg('Koneksi bermasalah. Hubungi kami langsung di WhatsApp +62 852-1156-6707 😊','bot');
+  }
+  aiBusy=false;
+}
 
-                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg p-6 mb-6">
-                    <div class="flex items-start mb-4">
-                        <i class="fas fa-envelope text-yellow-600 mt-1 mr-4"></i>
-                        <div>
-                            <h3 class="text-yellow-600 font-semibold mb-1">Email</h3>
-                            <p class="text-gray-400">info@plazabpjamsostek.com</p>
-                            <p class="text-gray-400">leasing@plazabpjamsostek.com</p>
-                        </div>
-                    </div>
-                </div>
+document.getElementById('aiSend').addEventListener('click', function(){
+  var q = aiIn.value.trim(); if(!q||aiBusy) return;
+  addMsg(q,'user'); aiIn.value=''; sendAI(q);
+});
+aiIn.addEventListener('keydown', function(e){ if(e.key==='Enter'){ var q=aiIn.value.trim(); if(!q||aiBusy) return; addMsg(q,'user'); aiIn.value=''; sendAI(q); } });
+aiSugg.querySelectorAll('.ai-sugg').forEach(function(b){
+  b.addEventListener('click', function(){ addMsg(b.dataset.q,'user'); sendAI(b.dataset.q); });
+});
 
-                <div class="backdrop-filter backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg p-6">
-                    <div class="flex items-start mb-4">
-                        <i class="fas fa-clock text-yellow-600 mt-1 mr-4"></i>
-                        <div>
-                            <h3 class="text-yellow-600 font-semibold mb-1">Working Hours</h3>
-                            <p class="text-gray-400">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                            <p class="text-gray-400">Saturday: 9:00 AM - 2:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+/* ══════════════════════════════════
+   LANGUAGE SELECTOR + AI TRANSLATE
+══════════════════════════════════ */
+var langBtn = document.getElementById('langBtn');
+var langDD  = document.getElementById('langDD');
+var langLbl = document.getElementById('langLbl');
+var curLang = 'id';
+var origTexts = {};
 
-            <div data-aos="fade-left">
-                <form class="contact-form" onsubmit="handleContactForm(event)">
-                    <input type="text" id="contactName" placeholder="Your Name" required>
-                    <input type="email" id="contactEmail" placeholder="Your Email" required>
-                    <input type="tel" id="contactPhone" placeholder="Your Phone Number">
-                    <textarea rows="5" id="contactMessage" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn-primary w-full">Send Message</button>
-                </form>
-                <p class="text-center text-gray-500 text-xs mt-4">💬 Or chat with us directly via WhatsApp</p>
-            </div>
-        </div>
+langBtn.addEventListener('click', function(e){ e.stopPropagation(); langDD.classList.toggle('open'); });
+document.addEventListener('click', function(){ langDD.classList.remove('open'); });
 
-        <div class="mt-8 rounded-lg overflow-hidden border border-white/10" data-aos="fade-up">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3819823452!2d110.45289507550786!3d-6.914489869162819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b4bd11e0001%3A0x7b99ff1234567890!2sJakarta%20Timur!5e0!3m2!1sen!2sid!4v1234567890123" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </section>
+// Collect all translatable text on page load
+function collectOrig(){
+  document.querySelectorAll('[data-k]').forEach(function(el){
+    var k = el.getAttribute('data-k');
+    if(!origTexts[k]) origTexts[k] = el.textContent.trim();
+  });
+}
+collectOrig();
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4><i class="fas fa-building mr-2"></i>Plaza BPJamsostek</h4>
-                <p class="text-gray-400 text-sm">Premium office tower providing world-class facilities and professional services.</p>
-                <div class="social-icons">
-                    <a href="https://wa.me/6281314012230" class="social-icon" title="WhatsApp" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#" class="social-icon" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="social-icon" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="social-icon" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-            </div>
+var langFullName = {
+  id:'Bahasa Indonesia', en:'English', ar:'Arabic', zh:'Simplified Chinese',
+  ja:'Japanese', ko:'Korean', fr:'French', de:'German', es:'Spanish', ru:'Russian'
+};
+var langShort = { id:'ID',en:'EN',ar:'AR',zh:'ZH',ja:'JP',ko:'KR',fr:'FR',de:'DE',es:'ES',ru:'RU' };
 
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#directory">Directory</a></li>
-                    <li><a href="#facilities">Facilities</a></li>
-                    <li><a href="#rental">Rental</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
+function resetID(){
+  document.querySelectorAll('[data-k]').forEach(function(el){
+    var k = el.getAttribute('data-k');
+    if(origTexts[k]) el.textContent = origTexts[k];
+  });
+  curLang='id'; langLbl.textContent='ID';
+  document.documentElement.lang='id'; document.documentElement.dir='ltr';
+}
 
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#rental">Office Rental</a></li>
-                    <li><a href="#rental">Meeting Room</a></li>
-                    <li><a href="#rental">Ballroom</a></li>
-                    <li><a href="#contact">Leasing Info</a></li>
-                    <li><a href="#facilities">Facilities</a></li>
-                    <li><a href="#contact">Support</a></li>
-                </ul>
-            </div>
+async function translatePage(lang){
+  if(lang===curLang) return;
+  var overlay=document.getElementById('tlOverlay');
+  document.getElementById('tlTxt').textContent = 'Menerjemahkan halaman...';
+  document.getElementById('tlLang').textContent = '→ '+langFullName[lang];
+  overlay.classList.add('show');
 
-            <div class="footer-section">
-                <h4>Customer Service</h4>
-                <p class="text-gray-400 text-sm mb-3">Available 24/7 via WhatsApp</p>
-                <a href="https://wa.me/6281314012230" target="_blank" class="btn-primary px-4 py-2 inline-block">
-                    <i class="fab fa-whatsapp mr-2"></i>Chat Now
-                </a>
-            </div>
-        </div>
+  // Gather unique texts (use original values)
+  var keys = Object.keys(origTexts);
+  var texts = keys.map(function(k){ return origTexts[k]; });
 
-        <div class="footer-bottom">
-            <p>&copy; 2024 Plaza BPJamsostek. All rights reserved. | WhatsApp: +62 813-1401-230</p>
-        </div>
-    </footer>
+  // Deduplicate
+  var unique = [...new Set(texts)];
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+  var prompt = 'Translate these UI text strings into ' + langFullName[lang] + '.\n'
+    + 'Return ONLY a valid JSON object: { "original text": "translation" }.\n'
+    + 'Rules:\n'
+    + '- Keep emojis exactly as-is\n'
+    + '- Do NOT translate: Plaza BPJamsostek, Jl. HR Rasuna Said, PT Sinergi Investasi Properti, WhatsApp, Instagram, YouTube, Grade A, Green Building, Kuningan\n'
+    + '- Numbers and prices keep format (Rp, Juta)\n'
+    + '- No markdown, no explanation — pure JSON only\n\n'
+    + 'Texts:\n' + JSON.stringify(unique);
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/6281314012230?text=Halo%20Plaza%20BPJamsostek%20👋" target="_blank" class="whatsapp-btn" title="+62 813-1401-230">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+  try{
+    var res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:4000,messages:[{role:'user',content:prompt}]})
+    });
+    var data = await res.json();
+    var raw = (data.content && data.content[0] && data.content[0].text) ? data.content[0].text : '{}';
+    var clean = raw.replace(/```json|```/g,'').trim();
+    var si = clean.indexOf('{'), ei = clean.lastIndexOf('}');
+    if(si!==-1 && ei!==-1) clean = clean.slice(si,ei+1);
+    var tr = JSON.parse(clean);
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: false,
-            offset: 100
-        });
+    document.querySelectorAll('[data-k]').forEach(function(el){
+      var k = el.getAttribute('data-k');
+      var orig = origTexts[k];
+      if(orig && tr[orig]) el.textContent = tr[orig];
+    });
 
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+    curLang = lang;
+    langLbl.textContent = langShort[lang] || lang.toUpperCase();
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang==='ar') ? 'rtl' : 'ltr';
+  } catch(err){
+    document.getElementById('tlTxt').textContent = 'Gagal menerjemahkan.';
+    setTimeout(function(){ overlay.classList.remove('show'); }, 1400);
+    return;
+  }
+  overlay.classList.remove('show');
+}
 
-            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
-            }
-        });
-
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.querySelector('.navbar-menu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function contactViaWhatsApp(message) {
-            const phoneNumber = '6281314012230';
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-        }
-
-        function handleContactForm(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const phone = document.getElementById('contactPhone').value;
-            const message = document.getElementById('contactMessage').value;
-            
-            const fullMessage = `Hello! I'm ${name}, email: ${email}, phone: ${phone}. Message: ${message}`;
-            
-            contactViaWhatsApp(fullMessage);
-            event.target.reset();
-            alert('Message sent via WhatsApp!');
-        }
-
-        function animateCounter(elementId, targetValue, duration = 2000) {
-            const element = document.getElementById(elementId);
-            if (!element) return;
-
-            let currentValue = 0;
-            const increment = targetValue / (duration / 16);
-            const interval = setInterval(() => {
-                currentValue += increment;
-                if (currentValue >= targetValue) {
-                    element.textContent = targetValue;
-                    clearInterval(interval);
-                } else {
-                    element.textContent = Math.floor(currentValue);
-                }
-            }, 16);
-        }
-
-        const counterSection = document.querySelector('.counter');
-        const observerOptions = { threshold: 0.5 };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter('counter1', 35);
-                    animateCounter('counter2', 12);
-                    animateCounter('counter3', 365);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        if (counterSection) {
-            observer.observe(counterSection);
-        }
-
-        document.querySelectorAll('.navbar-menu a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const sectionId = link.getAttribute('href').substring(1);
-                scrollToSection(sectionId);
-            });
-        });
-
-        window.addEventListener('load', () => {
-            const loadingScreen = document.querySelector('.loading-screen');
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 2000);
-        });
-
-        console.log('Plaza BPJamsostek Website - WhatsApp: +62 813-1401-230');
-    </script>
+document.querySelectorAll('.lang-opt').forEach(function(opt){
+  opt.addEventListener('click', function(e){
+    e.stopPropagation();
+    var lang = this.getAttribute('data-l');
+    document.querySelectorAll('.lang-opt').forEach(function(o){ o.classList.remove('on'); });
+    this.classList.add('on');
+    langDD.classList.remove('open');
+    if(lang==='id') resetID(); else translatePage(lang);
+  });
+});
+</script>
 </body>
 </html>
